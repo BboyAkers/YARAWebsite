@@ -1,1 +1,23 @@
-/* Add here all your CSS customizations */
+.jumbotron {
+    position: relative;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 30px;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .parallax-mainpage {
+    background: url("http://via.placeholder.com/1920x874");
+    min-height: 1000px;
+    background-size: auto;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+  }
