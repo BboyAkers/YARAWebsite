@@ -21,3 +21,11 @@
     background-size: cover;
     height: 100%;
   }
+  .inputMic {
+    float: right;
+    margin-right: 6px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
+    font-size: 25px;
+}
