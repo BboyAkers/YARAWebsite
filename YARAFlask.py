@@ -9,7 +9,7 @@ import numpy as np
 import getpass
 import functools as ft
 import math
-# import cvxopt as ct
+import cvxopt as ct
 from random import randrange
 from bs4 import BeautifulSoup
 import requests
