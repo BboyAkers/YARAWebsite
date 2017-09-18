@@ -5,6 +5,7 @@ $(document).ready(function() {
         $("#tradeForm").on('submit', function(event){
         $(".tradeResponse").html("Give me a second. Running analysis.");
         event.preventDefault();
+        var modalbutton = $('.trade-modal-opener');
         $.ajax({
             type: 'POST',
             url: '/trade',
@@ -93,20 +94,21 @@ $(document).ready(function() {
                 console.log(portfolio);
                 if (text != "") {
                     //$('.tradeButton').trigger("click");
-                    $('.trade-modal-opener').modal({
+                    modalbutton.modal({
                         content: text,
                         confirm: {
                             text: 'Ok',
                             link: ''
                         },
                     });
+                    modalbutton.openModal();
                 }
             }
         });
     });
 });
 $(document).ready(function() {
-    $("#tradeMicForm").on('submit', function(event){
+    $("#tradeInputMic").click(function(){
         event.preventDefault();
         $("#tradeText").val("Speak into the microphone!");
         $(".tradeResponse").html("Give me a second after your speak. Running analysis.");
@@ -236,7 +238,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    $("#managementMicForm").on('submit', function(event){
+    $("#managementInputMic").click(function(event){
         event.preventDefault();
         $("#managementText").val("Speak into the microphone!");
         $(".managementResponse").html("Give me a second after your speak. Running analysis.");
@@ -265,7 +267,7 @@ $(document).ready(function() {
         opts = $.extend({
             // colour: '#0c8',
             class: 'trade-modal',
-            title: 'Trade Confirmation',
+            title: 'Trade Confirmation (Changes Reflected in Mock Portfolio)',
             content: '',
             extra: '',
             closeCallback: function(){}

@@ -536,7 +536,7 @@ def management():
 
     rebalance = ['rabalnce','Rabalnce','rebaalnce','Rebaalnce','reabalcne','reabalcne','reblance','Reblance','rbalance','Rbalance','rebaalnce','Rebaalnce','reabalance','Reabalance','realance','Realance','rebalance','Rebalance']
 
-    optimize = ['optmize','optiimize','Optiimize','optimize', 'Optimize','optimzie','Optimzie','optimze','Optimze','optimzie','Optimzie']
+    optimize = ['better','make','beter','optmize','optiimize','Optiimize','optimize', 'Optimize','optimzie','Optimzie','optimze','Optimze','optimzie','Optimzie']
 
     if any(word in phrase1 for word in diversify):
         yara_text = ("I have finished my analysis. You are highly concentrated in a few stocks. Please take a look below on ways to diversify your portfolio. " + \

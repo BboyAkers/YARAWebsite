@@ -134,7 +134,7 @@
             <h2 class="font-weight-bold text-color-dark">- Trade</h2>
             <div class="row">
                 <div class="col-sm-4 col-md-4">
-                    <h4 class=" text-color-dark">Through web or mobile, speak or type to YARA to trade</h4>
+                    <h4 class=" text-color-dark">Through web or mobile, speak or type to YARA to trade stocks, ETFs, and Funds</h4>
                     <div class="col-md-12">
                         <img src="../static/img/Text_trade_order 2_small.png" height="600px">
 {#                        <ul class="list list-icons list-icons-style-3 list-tertiary">#}
@@ -145,7 +145,7 @@
                     </div>
                 </div>
                 <div class="col-sm-7 col-md-7 col-md-offset-1">
-                    <h3 class="text-center">Portfolio</h3>
+                    <h3 class="text-center">Mock Portfolio</h3>
                     <table class="table">
                         <thead>
                         <tr>
@@ -227,9 +227,9 @@
             </div>
             <hr>
             <div class="row">
-                <h5>Try it out!</h5>
-                <p>Example: <br/> Either type in the box below or click on the microphone to start speaking. Text or say
-                    something like "Buy 10 Shares of Apple"</p>
+                <h5>Try it out! Changes are reflected in Mock Portfolio!</h5>
+                <p>Example: <br/> <b>Either type in the box below or turn up your speakers and click on the microphone to start speaking. You can Buy, Sell, or Short. Text or say
+                    something like...</b><br>"Hey Yara, buy 10 Shares of Apple"<br>"Hey Yara, buy $1000 worth of Microsoft at price 78.95"<br>"Sell 15 shares of Nike"</p>
                 <div class="row">
                     <form id="tradeForm" class="col-md-8 col-md-offset-3">
                         <div class="form-group">
@@ -246,12 +246,6 @@
                             </div>
                         </div>
                     </form>
-                    <form id="tradeMicForm" class="col-md-8 col-md-offset-7">
-                        <div class="col-md-3">
-                            <button id="tradeInputMic" class="fa fa-4 fa-microphone inputMic tradeInputMic"
-                                    style="margin: 0" href="#"></button>
-                        </div>
-                    </form>
                 </div>
                 <div class="row text-center">
                     <h4>YARA's Response:</h4>
@@ -266,67 +260,21 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="font-weight-bold text-color-dark mb-md">- Analysis</h2>
+                    <div class="col-sm-4 col-md-4">
+                    <h4 class=" text-color-dark">Ask Yara and run real-time analysis on your portfolio or potential investments.</h4>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="#" class="text-decoration-none appear-animation" data-appear-animation="fadeInUp"
-                               data-appear-animation-delay="0">
-                                <div class="feature-box custom-feature-box feature-box-style-2">
-                                    <div class="feature-box-icon">
-                                        <img src="static/img/business/business-consulting/expertise/expertise-1.jpg"
-                                             alt="">
-                                    </div>
-                                    <div class="feature-box-info ml-md">
-                                        <h4 class="font-weight-normal text-lg">Wealth Management</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat ex
-                                            finibus
-                                            urna.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="col-md-3">
+                        <ul class="list list-icons list-icons-style-3 list-tertiary">
+                            <li><i class="fa fa-chevron-right"></i> Stocks</li>
+                            <li><i class="fa fa-chevron-right"></i> ETFs</li>
+                            <li><i class="fa fa-chevron-right"></i> Mutual Funds</li>
+                        </ul>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="#" class="text-decoration-none appear-animation" data-appear-animation="fadeInUp"
-                               data-appear-animation-delay="0">
-                                <div class="feature-box custom-feature-box feature-box-style-2">
-                                    <div class="feature-box-icon">
-                                        <img src="static/img/business/business-consulting/expertise/expertise-1.jpg"
-                                             alt="">
-                                    </div>
-                                    <div class="feature-box-info ml-md">
-                                        <h4 class="font-weight-normal text-lg">Test 2</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat ex
-                                            finibus
-                                            urna.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="#" class="text-decoration-none appear-animation" data-appear-animation="fadeInUp"
-                               data-appear-animation-delay="0">
-                                <div class="feature-box custom-feature-box feature-box-style-2">
-                                    <div class="feature-box-icon">
-                                        <img src="static/img/business/business-consulting/expertise/expertise-1.jpg"
-                                             alt="">
-                                    </div>
-                                    <div class="feature-box-info ml-md">
-                                        <h4 class="font-weight-normal text-lg">Test</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat ex
-                                            finibus
-                                            urna.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="col-md-8">
                     <div class="col-md-12">
@@ -351,31 +299,37 @@
                 </div>
             </div>
             <div class="row">
-                <form id="analysisForm" class="col-md-8 col-md-offset-3">
-                    <div class="form-group">
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="trade" id="analysisText"><span
-                                id="analysisInputMic"
-                                class="fa fa-4 fa-microphone inputMic analysisInputMic pseudoButton"></span>
+                <hr>
+                <h5>Try it out!</h5>
+                <p>Example: <br/> <b>Either type in the box below or turn up your speakers click on the microphone to start speaking.  Text or say
+                    something like...</b><br>"Hey Yara, how would my portfolio perform against the S&P500?"<br>"Would Visa be good for my portfolio if I invested $1000 in it?"<br>"What are the experts saying about Microsoft?"<br>"Show me earnings for Verizon."</p></p>
+                <div class="row">
+                    <form id="analysisForm" class="col-md-8 col-md-offset-3">
+                        <div class="form-group">
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="trade" id="analysisText"><span
+                                    id="analysisInputMic"
+                                    class="fa fa-4 fa-microphone inputMic analysisInputMic pseudoButton"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <button id="analysisButton"
+                                        class="btn btn-primary tp-caption text-uppercase text-color-light custom-border-radius analysisButton"
+                                        style="margin: 0" href="#">Trade
+                                </button>
+                            </div>
                         </div>
+                    </form>
+                    <form id="analysisMicForm" class="col-md-8 col-md-offset-7">
                         <div class="col-md-3">
-                            <button id="analysisButton"
-                                    class="btn btn-primary tp-caption text-uppercase text-color-light custom-border-radius analysisButton"
-                                    style="margin: 0" href="#">Trade
-                            </button>
+                            <button id="analysisInputMic" class="fa fa-4 fa-microphone inputMic analysisInputMic"
+                                    style="margin: 0" href="#"></button>
                         </div>
-                    </div>
-                </form>
-                <form id="analysisMicForm" class="col-md-8 col-md-offset-7">
-                    <div class="col-md-3">
-                        <button id="analysisInputMic" class="fa fa-4 fa-microphone inputMic analysisInputMic"
-                                style="margin: 0" href="#"></button>
-                    </div>
-                </form>
-                <div class="row text-center">
-                    <div class="col-md-12">
-                        <h4>YARA's Response:</h4>
-                        <p id="analysisResponse" class="analysisResponse">Response Here</p>
+                    </form>
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <h4>YARA's Response:</h4>
+                            <p id="analysisResponse" class="analysisResponse">Response Here</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -389,11 +343,11 @@
                     <h2 class="font-weight-bold text-color-dark">- Management</h2>
                     <h4 class=" text-color-dark">While you work and play, let Yara manage your portfolio for less
                         fees.</h4>
-                    <div class="col-md-3">
+                    <div class="col-md-8">
                         <ul class="list list-icons list-icons-style-3 list-tertiary">
-                            <li><i class="fa fa-chevron-right"></i> Stocks</li>
-                            <li><i class="fa fa-chevron-right"></i> ETFs</li>
-                            <li><i class="fa fa-chevron-right"></i> Mutual Funds</li>
+                            <li><i class="fa fa-chevron-right"></i> You can either tell Yara to rebalance your portfolio or let Yara rebalance for you.</li>
+                            <li><i class="fa fa-chevron-right"></i> Yara can analyze and let you know how to diversify your portfolio.</li>
+                            <li><i class="fa fa-chevron-right"></i> Yara can also optimize your portfolio by showing you how much to invest in each of your investments to give you the best return to risk.</li>
                         </ul>
                     </div>
 
@@ -403,13 +357,17 @@
                     <!--graph -->
                 </div>
             </div>
+            <hr>
+                <h5>Try it out!</h5>
+                <p>Example: <br/> <b>Either type in the box below or turn up your speakers and click on the microphone to start speaking.  Text or say
+                    something like...</b><br>"Hey Yara, can you help me diversify my portfolio?"<br>"Can you rebalance my portfolio?"<br>"Can you help make my portfolio better?</p></p>
             <div class="row">
                 <form id="managementForm" class="col-md-8 col-md-offset-3">
                     <div class="form-group">
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="trade" id="managementText"><span
-                                id="managementInputMic"
-                                class="fa fa-4 fa-microphone inputMic managementInputMic pseudoButton"></span>
+                            <input type="text" class="form-control" name="management" id="managementText"><span
+                                <button id="managementInputMic"
+                                        class="fa fa-4 fa-microphone inputMic managementInputMic pseudoButton"></button>
                         </div>
                         <div class="col-md-3">
                             <button id="managementButton"
@@ -417,13 +375,6 @@
                                     style="margin: 0" href="#">Trade
                             </button>
                         </div>
-                    </div>
-                </form>
-                <form id="managementMicForm" class="col-md-8 col-md-offset-7">
-                    <div class="col-md-3">
-                        <button id="managementInputMic"
-                                class="fa fa-4 fa-microphone inputMic managementInputMic" style="margin: 0"
-                                href="#"></button>
                     </div>
                 </form>
             </div>

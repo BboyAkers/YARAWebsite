@@ -61,7 +61,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    $("#analysisMicForm").on('submit', function(event){
+    $("#analysisInputMic").click(function(event){
         event.preventDefault();
         $("#analysisText").val("Speak into the microphone!");
         $(".analysisResponse").html("Give me a second after your speak. Running analysis.");
