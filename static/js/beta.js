@@ -112,6 +112,7 @@ $(document).ready(function() {
         event.preventDefault();
         $("#tradeText").val("Speak into the microphone!");
         $(".tradeResponse").html("Give me a second after your speak. Running analysis.");
+        var modalbutton = $('.trade-modal-opener');
         $.ajax({
             type: 'POST',
             url: '/trade',
@@ -199,14 +200,15 @@ $(document).ready(function() {
                 }
                 console.log(portfolio);
                 if (text != "") {
-                    $('.trade-modal-opener').trigger("click");
-                    $('.trade-modal-opener').modal({
+                    //$('.trade-modal-opener').trigger("click");
+                    modalbutton.modal({
                         content: text,
                         confirm: {
                             text: 'Ok',
                             link: ''
                         }
                     });
+                    modalbutton.openModal();
                 }
             }
         });

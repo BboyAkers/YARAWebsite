@@ -4882,7 +4882,7 @@ body.trade-modal-active {
     width: 970px; /* Important that both width and height are even!!! */
     height: 400px;
     left: 50%;
-    top: 41%;
+    top: 38%;
     -webkit-transform: translate3d(-50%, -50%, 0) rotateX(20deg);
     transform: translate3d(-50%, -50%, 0) rotateX(20deg);
     z-index: 11;
