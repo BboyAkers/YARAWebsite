@@ -10,7 +10,7 @@
 }
 
 .parallax-mainpage {
-    background: url("../img/neuron.png");
+    background: url("../img/neuron_lower_brightness.png");
     min-height: 650px;
     background-size: auto;
     background-attachment: fixed;
