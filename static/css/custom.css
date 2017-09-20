@@ -9,6 +9,14 @@
     overflow: hidden;
 }
 
+.table
+{
+    top: 300px;
+    position: absolute;
+    margin-top:80px;
+
+}
+
 .parallax-mainpage {
     background: url("../img/neuron_lower_brightness.png");
     min-height: 650px;
