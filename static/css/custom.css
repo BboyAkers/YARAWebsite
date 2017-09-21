@@ -11,10 +11,21 @@
 
 .table
 {
-    top: 300px;
+    /*top: 380px;*/
     position: absolute;
-    margin-top:80px;
+    /*margin-top:380px;*/
+    margin: 55%;
+    margin-left: -5%;
 
+}
+
+.text-center
+{
+    margin: 49%;
+    /*margin: 345px;*/
+    position: absolute;
+    margin-left: 32%;
+    /*margin-left: 250px;*/
 }
 
 .parallax-mainpage {
