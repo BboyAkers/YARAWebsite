@@ -11,21 +11,19 @@
 
 .table
 {
-    /*top: 380px;*/
+    top: 370px;
     position: absolute;
-    /*margin-top:380px;*/
-    margin: 55%;
-    margin-left: -5%;
+    /*margin-top:300px;*/
 
 }
 
-.text-center
+.text-center-portfolio
 {
-    margin: 49%;
-    /*margin: 345px;*/
+    top: 330px;
+    /*margin-top: 345px;*/
     position: absolute;
     margin-left: 32%;
-    /*margin-left: 250px;*/
+    /*text-align: center;*/
 }
 
 .parallax-mainpage {
