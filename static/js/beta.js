@@ -96,6 +96,7 @@ $(document).ready(function() {
                     //$('.tradeButton').trigger("click");
                     modalbutton.modal({
                         content: text,
+                        // refresh:true;
                         confirm: {
                             text: 'Ok',
                             link: ''
@@ -353,10 +354,10 @@ $(document).ready(function() {
 
         modal.on('click', function(){
             modal.openModal();
+            // refresh:true;
             return false;
         });
 
         return this;
     }
-
 
