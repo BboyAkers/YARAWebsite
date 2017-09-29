@@ -1360,12 +1360,14 @@ def analysis():
         soup = BeautifulSoup(page.content, 'html.parser')
 
         table_id1 = soup.find_all('h2')
+        print(table_id1)
         z = repr(table_id1[0])
         x = len(z)
 
         extract1 = z[x - 22:x - 10]
 
         table_id = soup.find(id="showdata-div")
+        print(table_id)
         table_numbers = table_id.find_all(class_="genTable")
         date_min = table_numbers[0].find_all('td')
 
@@ -1410,28 +1412,50 @@ def analysis():
                 float(merge3.iloc[4, column]), 1) + "%."
             y_list.append(result)
 
-        yara_text = '<b>'"Here are the last four profit results for " + tickers[0].upper() + ":"'</b>' + '<br />' + '<br />' + \
+        if not y_list:
+
+            yara_text = "The earnings data for " + tickers[0].upper() + " is not currently provided. Damn, they didn't give us access to it. I guess it's time to hack them now. ;)"
+
+            number = 1
+            Buy = 0
+            Hold = 0
+            Sell = 0
+            q1 = 0
+            q2 = 0
+            q3 = 0
+            q4 = 0
+            array = 0
+            date = 0
+            sharperatiouser = 0
+            sharperatiowhatif = 0
+            total_return_new = 0
+            total_return_usr = 0
+            STD_Port_new = 0
+            STD_usr_Port = 0
+
+        else:
+            yara_text = '<b>'"Here are the last four profit results for " + tickers[0].upper() + ":"'</b>' + '<br />' + '<br />' + \
                     y_list[0] + '<br />' + \
                     y_list[1] + '<br />' + \
                     y_list[2] + '<br />' + \
                     y_list[3]
 
-        number = 1
-        Buy = 0
-        Hold = 0
-        Sell = 0
-        q1 = [merge3.iloc[0, 0],float(merge3.iloc[2, 0]),float(merge3.iloc[3, 0])]
-        q2 = [merge3.iloc[0, 1], float(merge3.iloc[2, 1]), float(merge3.iloc[3, 1])]
-        q3 = [merge3.iloc[0, 2], float(merge3.iloc[2, 2]), float(merge3.iloc[3, 2])]
-        q4 = [merge3.iloc[0, 3], float(merge3.iloc[2, 3]), float(merge3.iloc[3, 3])]
-        array = 0
-        date = 0
-        sharperatiouser = 0
-        sharperatiowhatif = 0
-        total_return_new = 0
-        total_return_usr = 0
-        STD_Port_new = 0
-        STD_usr_Port = 0
+            number = 1
+            Buy = 0
+            Hold = 0
+            Sell = 0
+            q1 = [merge3.iloc[0, 0],float(merge3.iloc[2, 0]),float(merge3.iloc[3, 0])]
+            q2 = [merge3.iloc[0, 1], float(merge3.iloc[2, 1]), float(merge3.iloc[3, 1])]
+            q3 = [merge3.iloc[0, 2], float(merge3.iloc[2, 2]), float(merge3.iloc[3, 2])]
+            q4 = [merge3.iloc[0, 3], float(merge3.iloc[2, 3]), float(merge3.iloc[3, 3])]
+            array = 0
+            date = 0
+            sharperatiouser = 0
+            sharperatiowhatif = 0
+            total_return_new = 0
+            total_return_usr = 0
+            STD_Port_new = 0
+            STD_usr_Port = 0
 
     elif any(word in phrase1 for word in backtest):
 
