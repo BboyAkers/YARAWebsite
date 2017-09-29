@@ -150,47 +150,46 @@ def trade_text():
                  'general electric', 'facenook', 'faebook', 'facebook', 'google', 'goog', 'dies', 'amc', 'ambien',
                  'amazon', 'amzn', 'asap', 'a 18', ' sabbath', ' either', 'happy', 'adbance', 'atuo'' auto', ' advance',
                  'abobe', 'adone', 'adobe', ' mmm', ' abt', ' abbv', ' acn', ' atvi', ' ayi', ' adbe', ' aap', ' aes',
-                 ' aet', ' amg', ' afl', ' a', ' apd', ' akam', ' alk', ' alb', ' alxn', ' alle', ' agn', ' ads',
-                 ' lnt', ' all', ' googl', ' goog', ' mo', ' amzn', ' aee', ' aal', ' aep', ' axp', ' aig', ' amt',
-                 ' awk', ' amp', ' abc', ' ame', ' amgn', ' aph', ' apc', ' adi', ' antm', ' aon', ' apa', ' aiv',
-                 ' aapl', ' amat', ' adm', ' arnc', ' ajg', ' aiz', ' t', ' adsk', ' adp', ' an', ' azo', ' avb',
-                 ' avy', ' bhi', ' bll', ' bac', ' bcr', ' bax', ' bbt', ' bdx', ' bbby', ' brk.b', ' bby', ' biib',
-                 ' blk', ' hrb', ' ba', ' bwa', ' bxp', ' bsx', ' bmy', ' avgo', ' bf.b', ' chrw', ' ca', ' cog',
-                 ' cpb', ' cof', ' cah', ' kmx', ' ccl', ' cat', ' cboe', ' cbg', ' cbs', ' celg', ' cnc', ' cnp',
-                 ' ctl', ' cern', ' cf', ' schw', ' chtr', ' chk', ' cvx', ' cmg', ' cb', ' chd', ' ci', ' xec',
-                 ' cinf', ' ctas', ' csco', ' c', ' cfg', ' ctxs', ' cme', ' cms', ' coh', ' ko', ' ctsh', ' cl',
-                 ' cmcsa', ' cma', ' cag', ' cxo', ' cop', ' ed', ' stz', ' glw', ' cost', ' coty', ' cci', ' csra',
-                 ' csx', ' cmi', ' cvs', ' dhi', ' dhr', ' dri', ' dva', ' de', ' dlph', ' dal', ' xray', ' dvn',
-                 ' dlr', ' dfs', ' disca', ' disck', ' dg', ' dltr', ' d', ' dov', ' dow', ' dps', ' dte', ' dd',
-                 ' duk', ' dnb', ' etfc', ' emn', ' etn', ' ebay', ' ecl', ' eix', ' ew', ' ea', ' emr', ' etr',
-                 ' evhc', ' eog', ' eqt', ' efx', ' eqix', ' eqr', ' ess', ' el', ' es', ' exc', ' expe', ' expd',
-                 ' esrx', ' exr', ' xom', ' ffiv', ' fb', ' fast', ' frt', ' fdx', ' fis', ' fitb', ' fslr', ' fe',
-                 ' fisv', ' flir', ' fls', ' flr', ' fmc', ' fti', ' fl', ' f', ' ftv', ' fbhs', ' ben', ' fcx', ' ftr',
-                 ' gps', ' grmn', ' gd', ' ge', ' ggp', ' gis', ' gm', ' gpc', ' gild', ' gpn', ' gs', ' gt', ' gww',
-                 ' hal', ' hbi', ' hog', ' har', ' hrs', ' hig', ' has', ' hca', ' hcp', ' hp', ' hsic', ' hes', ' hpe',
-                 ' holx', ' hd', ' hon', ' hrl', ' hst', ' hpq', ' hum', ' hban', ' idxx', ' itw', ' ilmn', ' incy',
-                 ' ir', ' intc', ' ice', ' ibm', ' ip', ' ipg', ' iff', ' intu', ' isrg', ' ivz', ' irm', ' jbht',
-                 ' jec', ' sjm', ' jnj', ' jci', ' jpm', ' jnpr', ' ksu', ' k', ' key', ' kmb', ' kim', ' kmi', ' klac',
-                 ' kss', ' khc', ' kr', ' lb', ' lll', ' lh', ' lrcx', ' leg', ' len', ' luk', ' lvlt', ' lly', ' lnc',
-                 ' lltc', ' lkq', ' lmt', ' l', ' low', ' lyb', ' mtb', ' mac', ' m', ' mnk', ' mro', ' mpc', ' mar',
-                 ' mmc', ' mlm', ' mas', ' ma', ' mat', ' mkc', ' mcd', ' mck', ' mjn', ' mdt', ' mrk', ' met', ' mtd',
-                 ' kors', ' mchp', ' mu', ' msft', ' maa', ' mhk', ' tap', ' mdlz', ' mon', ' mnst', ' mco', ' ms',
-                 ' msi', ' mur', ' myl', ' ndaq', ' nov', ' navi', ' ntap', ' nflx', ' nwl', ' nfx', ' nem', ' nwsa',
-                 ' nws', ' nee', ' nlsn', ' nke', ' ni', ' nbl', ' jwn', ' nsc', ' ntrs', ' noc', ' nrg', ' nue',
-                 ' nvda', ' orly', ' oxy', ' omc', ' oke', ' orcl', ' pcar', ' ph', ' pdco', ' payx', ' pypl', ' pnr',
-                 ' pbct', ' pep', ' pki', ' prgo', ' pfe', ' pcg', ' pm', ' psx', ' pnw', ' pxd', ' pnc', ' rl', ' ppg',
-                 ' ppl', ' px', ' pcln', ' pfg', ' pg', ' pgr', ' pld', ' pru', ' peg', ' psa', ' phm', ' pvh', ' qrvo',
-                 ' qcom', ' pwr', ' dgx', ' rrc', ' rtn', ' o', ' rht', ' reg', ' regn', ' rf', ' rsg', ' rai', ' rhi',
-                 ' rok', ' col', ' rop', ' rost', ' rcl', ' r', ' spgi', ' crm', ' scg', ' slb', ' sni', ' stx', ' see',
-                 ' sre', ' shw', ' sig', ' spg', ' swks', ' slg', ' sna', ' so', ' luv', ' swn', ' swk', ' spls',
-                 ' sbux', ' stt', ' srcl', ' syk', ' sti', ' symc', ' syf', ' syy', ' trow', ' tgt', ' tel', ' tgna',
-                 ' tdc', ' tso', ' txn', ' txt', ' bk', ' clx', ' coo', ' hsy', ' mos', ' trv', ' dis', ' tmo', ' tif',
-                 ' twx', ' tjx', ' tmk', ' tss', ' tsco', ' tdg', ' rig', ' trip', ' foxa', ' fox', ' tsn', ' usb',
-                 ' udr', ' ulta', ' ua', ' uaa', ' unp', ' ual', ' unh', ' ups', ' uri', ' utx', ' uhs', ' unm',
-                 ' urbn', ' vfc', ' vlo', ' var', ' vtr', ' vrsn', ' vrsk', ' vz', ' vrtx', ' viab', ' v', ' vno',
-                 ' vmc', ' wmt', ' wba', ' wm', ' wat', ' wec', ' wfc', ' hcn', ' wdc', ' wu', ' wrk', ' wy', ' whr',
-                 ' wfm', ' wmb', ' wltw', ' wyn', ' wynn', ' xel', ' xrx', ' xlnx', ' xl', ' xyl', ' yhoo', ' yum',
-                 ' zbh', ' zion', ' zts',
+                 ' aet', ' amg', ' afl', ' apd', ' akam', ' alk', ' alb', ' alxn', ' alle', ' agn', ' ads', ' lnt',
+                 ' all', ' googl', ' goog', ' mo', ' amzn', ' aee', ' aal', ' aep', ' axp', ' aig', ' amt', ' awk',
+                 ' amp', ' abc', ' ame', ' amgn', ' aph', ' apc', ' adi', ' antm', ' aon', ' apa', ' aiv', ' aapl',
+                 ' amat', ' adm', ' arnc', ' ajg', ' aiz', ' adsk', ' adp', ' an', ' azo', ' avb', ' avy', ' bhi',
+                 ' bll', ' bac', ' bcr', ' bax', ' bbt', ' bdx', ' bbby', ' brk.b', ' bby', ' biib', ' blk', ' hrb',
+                 ' ba', ' bwa', ' bxp', ' bsx', ' bmy', ' avgo', ' bf.b', ' chrw', ' ca', ' cog', ' cpb', ' cof',
+                 ' cah', ' kmx', ' ccl', ' cat', ' cboe', ' cbg', ' cbs', ' celg', ' cnc', ' cnp', ' ctl', ' cern',
+                 ' cf', ' schw', ' chtr', ' chk', ' cvx', ' cmg', ' cb', ' chd', ' ci', ' xec', ' cinf', ' ctas',
+                 ' csco', ' cfg', ' ctxs', ' cme', ' cms', ' coh', ' ko', ' ctsh', ' cl', ' cmcsa', ' cma', ' cag',
+                 ' cxo', ' cop', ' ed', ' stz', ' glw', ' cost', ' coty', ' cci', ' csra', ' csx', ' cmi', ' cvs',
+                 ' dhi', ' dhr', ' dri', ' dva', ' de', ' dlph', ' dal', ' xray', ' dvn', ' dlr', ' dfs', ' disca',
+                 ' disck', ' dg', ' dltr', ' dov', ' dow', ' dps', ' dte', ' dd', ' duk', ' dnb', ' etfc', ' emn',
+                 ' etn', ' ebay', ' ecl', ' eix', ' ew', ' ea', ' emr', ' etr', ' evhc', ' eog', ' eqt', ' efx',
+                 ' eqix', ' eqr', ' ess', ' el', ' es', ' exc', ' expe', ' expd', ' esrx', ' exr', ' xom', ' ffiv',
+                 ' fb', ' fast', ' frt', ' fdx', ' fis', ' fitb', ' fslr', ' fe', ' fisv', ' flir', ' fls', ' flr',
+                 ' fmc', ' fti', ' fl', ' ftv', ' fbhs', ' ben', ' fcx', ' ftr', ' gps', ' grmn', ' gd', ' ge', ' ggp',
+                 ' gis', ' gm', ' gpc', ' gild', ' gpn', ' gs', ' gt', ' gww', ' hal', ' hbi', ' hog', ' har', ' hrs',
+                 ' hig', ' has', ' hca', ' hcp', ' hp', ' hsic', ' hes', ' hpe', ' holx', ' hd', ' hon', ' hrl', ' hst',
+                 ' hpq', ' hum', ' hban', ' idxx', ' itw', ' ilmn', ' incy', ' ir', ' intc', ' ice', ' ibm', ' ip',
+                 ' ipg', ' iff', ' intu', ' isrg', ' ivz', ' irm', ' jbht', ' jec', ' sjm', ' jnj', ' jci', ' jpm',
+                 ' jnpr', ' ksu', ' key', ' kmb', ' kim', ' kmi', ' klac', ' kss', ' khc', ' kr', ' lb', ' lll', ' lh',
+                 ' lrcx', ' leg', ' len', ' luk', ' lvlt', ' lly', ' lnc', ' lltc', ' lkq', ' lmt', ' low', ' lyb',
+                 ' mtb', ' mac', ' mnk', ' mro', ' mpc', ' mar', ' mmc', ' mlm', ' mas', ' ma', ' mat', ' mkc', ' mcd',
+                 ' mck', ' mjn', ' mdt', ' mrk', ' met', ' mtd', ' kors', ' mchp', ' mu', ' msft', ' maa', ' mhk',
+                 ' tap', ' mdlz', ' mon', ' mnst', ' mco', ' ms', ' msi', ' mur', ' myl', ' ndaq', ' nov', ' navi',
+                 ' ntap', ' nflx', ' nwl', ' nfx', ' nem', ' nwsa', ' nws', ' nee', ' nlsn', ' nke', ' ni', ' nbl',
+                 ' jwn', ' nsc', ' ntrs', ' noc', ' nrg', ' nue', ' nvda', ' orly', ' oxy', ' omc', ' oke', ' orcl',
+                 ' pcar', ' ph', ' pdco', ' payx', ' pypl', ' pnr', ' pbct', ' pep', ' pki', ' prgo', ' pfe', ' pcg',
+                 ' pm', ' psx', ' pnw', ' pxd', ' pnc', ' rl', ' ppg', ' ppl', ' px', ' pcln', ' pfg', ' pg', ' pgr',
+                 ' pld', ' pru', ' peg', ' psa', ' phm', ' pvh', ' qrvo', ' qcom', ' pwr', ' dgx', ' rrc', ' rtn',
+                 ' rht', ' reg', ' regn', ' rf', ' rsg', ' rai', ' rhi', ' rok', ' col', ' rop', ' rost', ' rcl',
+                 ' spgi', ' crm', ' scg', ' slb', ' sni', ' stx', ' see', ' sre', ' shw', ' sig', ' spg', ' swks',
+                 ' slg', ' sna', ' so', ' luv', ' swn', ' swk', ' spls', ' sbux', ' stt', ' srcl', ' syk', ' sti',
+                 ' symc', ' syf', ' syy', ' trow', ' tgt', ' tel', ' tgna', ' tdc', ' tso', ' txn', ' txt', ' bk',
+                 ' clx', ' coo', ' hsy', ' mos', ' trv', ' dis', ' tmo', ' tif', ' twx', ' tjx', ' tmk', ' tss',
+                 ' tsco', ' tdg', ' rig', ' trip', ' foxa', ' fox', ' tsn', ' usb', ' udr', ' ulta', ' ua', ' uaa',
+                 ' unp', ' ual', ' unh', ' ups', ' uri', ' utx', ' uhs', ' unm', ' urbn', ' vfc', ' vlo', ' var',
+                 ' vtr', ' vrsn', ' vrsk', ' vz', ' vrtx', ' viab', ' vno', ' vmc', ' wmt', ' wba', ' wm', ' wat',
+                 ' wec', ' wfc', ' hcn', ' wdc', ' wu', ' wrk', ' wy', ' whr', ' wfm', ' wmb', ' wltw', ' wyn', ' wynn',
+                 ' xel', ' xrx', ' xlnx', ' xl', ' xyl', ' yhoo', ' yum', ' zbh', ' zion', ' zts',
                  'acioty', 'aciuty', 'acuty', ' cutie', 'a cutie', 'acuity', 'a y i', 'a BBB', 'buzzard', 'neck Center',
                  'Abby', 'that be', 'apathy', 'a bee', 'ab C', 'rabbit', 'a bit', 'activison', 'activisoion',
                  'activiosn', 'activision', ' atvi', ' acn', 'acenture', 'accentue', 'accenutre', 'acenture',
@@ -206,7 +205,8 @@ def trade_text():
                  'msft', 'nke', 'pfe',
                  'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', ' gs', 'hd', 'ge', 'xom', ' ba', 'cat', 'cvx',
                  'csco', 'coke', 'dis',
-                 'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J']
+                 'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d', ' f',
+                 ' k', ' l', ' m', ' r']
     DJ_Name_Match = ['mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal', 'afl',
                      'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk', 'chk',
                      'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop', 'cop', 'cop',
@@ -227,49 +227,44 @@ def trade_text():
                      'pcln', 'pcln', 'celg', 'celg', 'celg', 'nvda', 'nvda', 'nvda', 'nvda', 'nvda', 'celg', 'celg',
                      'celg', 'amgn', 'brk_a', 'brk_a', 'brk_a', 'brk_a', 'brk_a', 'wfc', 'wfc', 'wfc', 'jpm', 'ge',
                      'ge', 'fb', 'fb', 'fb', 'goog', 'goog', 'dis', 'amzn', 'amzn', 'amzn', 'amzn', 'aap', 'aap',
-                     'abbt', 'abbt', 'abbv', 'aap', 'aap', 'aap', 'adbe', 'adbe', 'adbe', ' mmm', ' abt', ' abbv',
-                     ' acn', ' atvi', ' ayi', ' adbe', ' aap', ' aes', ' aet', ' amg', ' afl', ' a', ' apd', ' akam',
-                     ' alk', ' alb', ' alxn', ' alle', ' agn', ' ads', ' lnt', ' all', ' googl', ' goog', ' mo',
-                     ' amzn', ' aee', ' aal', ' aep', ' axp', ' aig', ' amt', ' awk', ' amp', ' abc', ' ame', ' amgn',
-                     ' aph', ' apc', ' adi', ' antm', ' aon', ' apa', ' aiv', ' aapl', ' amat', ' adm', ' arnc', ' ajg',
-                     ' aiz', ' t', ' adsk', ' adp', ' an', ' azo', ' avb', ' avy', ' bhi', ' bll', ' bac', ' bcr',
-                     ' bax', ' bbt', ' bdx', ' bbby', ' brk.b', ' bby', ' biib', ' blk', ' hrb', ' ba', ' bwa', ' bxp',
-                     ' bsx', ' bmy', ' avgo', ' bf.b', ' chrw', ' ca', ' cog', ' cpb', ' cof', ' cah', ' kmx', ' ccl',
-                     ' cat', ' cboe', ' cbg', ' cbs', ' celg', ' cnc', ' cnp', ' ctl', ' cern', ' cf', ' schw', ' chtr',
-                     ' chk', ' cvx', ' cmg', ' cb', ' chd', ' ci', ' xec', ' cinf', ' ctas', ' csco', ' c', ' cfg',
-                     ' ctxs', ' cme', ' cms', ' coh', ' ko', ' ctsh', ' cl', ' cmcsa', ' cma', ' cag', ' cxo', ' cop',
-                     ' ed', ' stz', ' glw', ' cost', ' coty', ' cci', ' csra', ' csx', ' cmi', ' cvs', ' dhi', ' dhr',
-                     ' dri', ' dva', ' de', ' dlph', ' dal', ' xray', ' dvn', ' dlr', ' dfs', ' disca', ' disck', ' dg',
-                     ' dltr', ' d', ' dov', ' dow', ' dps', ' dte', ' dd', ' duk', ' dnb', ' etfc', ' emn', ' etn',
-                     ' ebay', ' ecl', ' eix', ' ew', ' ea', ' emr', ' etr', ' evhc', ' eog', ' eqt', ' efx', ' eqix',
-                     ' eqr', ' ess', ' el', ' es', ' exc', ' expe', ' expd', ' esrx', ' exr', ' xom', ' ffiv', ' fb',
-                     ' fast', ' frt', ' fdx', ' fis', ' fitb', ' fslr', ' fe', ' fisv', ' flir', ' fls', ' flr', ' fmc',
-                     ' fti', ' fl', ' f', ' ftv', ' fbhs', ' ben', ' fcx', ' ftr', ' gps', ' grmn', ' gd', ' ge',
-                     ' ggp', ' gis', ' gm', ' gpc', ' gild', ' gpn', ' gs', ' gt', ' gww', ' hal', ' hbi', ' hog',
-                     ' har', ' hrs', ' hig', ' has', ' hca', ' hcp', ' hp', ' hsic', ' hes', ' hpe', ' holx', ' hd',
-                     ' hon', ' hrl', ' hst', ' hpq', ' hum', ' hban', ' idxx', ' itw', ' ilmn', ' incy', ' ir', ' intc',
-                     ' ice', ' ibm', ' ip', ' ipg', ' iff', ' intu', ' isrg', ' ivz', ' irm', ' jbht', ' jec', ' sjm',
-                     ' jnj', ' jci', ' jpm', ' jnpr', ' ksu', ' k', ' key', ' kmb', ' kim', ' kmi', ' klac', ' kss',
-                     ' khc', ' kr', ' lb', ' lll', ' lh', ' lrcx', ' leg', ' len', ' luk', ' lvlt', ' lly', ' lnc',
-                     ' lltc', ' lkq', ' lmt', ' l', ' low', ' lyb', ' mtb', ' mac', ' m', ' mnk', ' mro', ' mpc',
-                     ' mar', ' mmc', ' mlm', ' mas', ' ma', ' mat', ' mkc', ' mcd', ' mck', ' mjn', ' mdt', ' mrk',
-                     ' met', ' mtd', ' kors', ' mchp', ' mu', ' msft', ' maa', ' mhk', ' tap', ' mdlz', ' mon', ' mnst',
-                     ' mco', ' ms', ' msi', ' mur', ' myl', ' ndaq', ' nov', ' navi', ' ntap', ' nflx', ' nwl', ' nfx',
-                     ' nem', ' nwsa', ' nws', ' nee', ' nlsn', ' nke', ' ni', ' nbl', ' jwn', ' nsc', ' ntrs', ' noc',
-                     ' nrg', ' nue', ' nvda', ' orly', ' oxy', ' omc', ' oke', ' orcl', ' pcar', ' ph', ' pdco',
-                     ' payx', ' pypl', ' pnr', ' pbct', ' pep', ' pki', ' prgo', ' pfe', ' pcg', ' pm', ' psx', ' pnw',
-                     ' pxd', ' pnc', ' rl', ' ppg', ' ppl', ' px', ' pcln', ' pfg', ' pg', ' pgr', ' pld', ' pru',
-                     ' peg', ' psa', ' phm', ' pvh', ' qrvo', ' qcom', ' pwr', ' dgx', ' rrc', ' rtn', ' o', ' rht',
-                     ' reg', ' regn', ' rf', ' rsg', ' rai', ' rhi', ' rok', ' col', ' rop', ' rost', ' rcl', ' r',
-                     ' spgi', ' crm', ' scg', ' slb', ' sni', ' stx', ' see', ' sre', ' shw', ' sig', ' spg', ' swks',
-                     ' slg', ' sna', ' so', ' luv', ' swn', ' swk', ' spls', ' sbux', ' stt', ' srcl', ' syk', ' sti',
-                     ' symc', ' syf', ' syy', ' trow', ' tgt', ' tel', ' tgna', ' tdc', ' tso', ' txn', ' txt', ' bk',
-                     ' clx', ' coo', ' hsy', ' mos', ' trv', ' dis', ' tmo', ' tif', ' twx', ' tjx', ' tmk', ' tss',
-                     ' tsco', ' tdg', ' rig', ' trip', ' foxa', ' fox', ' tsn', ' usb', ' udr', ' ulta', ' ua', ' uaa',
-                     ' unp', ' ual', ' unh', ' ups', ' uri', ' utx', ' uhs', ' unm', ' urbn', ' vfc', ' vlo', ' var',
-                     ' vtr', ' vrsn', ' vrsk', ' vz', ' vrtx', ' viab', ' v', ' vno', ' vmc', ' wmt', ' wba', ' wm',
-                     ' wat', ' wec', ' wfc', ' hcn', ' wdc', ' wu', ' wrk', ' wy', ' whr', ' wfm', ' wmb', ' wltw',
-                     ' wyn', ' wynn', ' xel', ' xrx', ' xlnx', ' xl', ' xyl', ' yhoo', ' yum', ' zbh', ' zion', ' zts',
+                     'abbt', 'abbt', 'abbv', 'aap', 'aap', 'aap', 'adbe', 'adbe', 'adbe', 'mmm', 'abt', 'abbv', 'acn',
+                     'atvi', 'ayi', 'adbe', 'aap', 'aes', 'aet', 'amg', 'afl', 'apd', 'akam', 'alk', 'alb', 'alxn',
+                     'alle', 'agn', 'ads', 'lnt', 'all', 'googl', 'goog', 'mo', 'amzn', 'aee', 'aal', 'aep', 'axp',
+                     'aig', 'amt', 'awk', 'amp', 'abc', 'ame', 'amgn', 'aph', 'apc', 'adi', 'antm', 'aon', 'apa', 'aiv',
+                     'aapl', 'amat', 'adm', 'arnc', 'ajg', 'aiz', 'adsk', 'adp', 'an', 'azo', 'avb', 'avy', 'bhi',
+                     'bll', 'bac', 'bcr', 'bax', 'bbt', 'bdx', 'bbby', 'brk.b', 'bby', 'biib', 'blk', 'hrb', 'ba',
+                     'bwa', 'bxp', 'bsx', 'bmy', 'avgo', 'bf.b', 'chrw', 'ca', 'cog', 'cpb', 'cof', 'cah', 'kmx', 'ccl',
+                     'cat', 'cboe', 'cbg', 'cbs', 'celg', 'cnc', 'cnp', 'ctl', 'cern', 'cf', 'schw', 'chtr', 'chk',
+                     'cvx', 'cmg', 'cb', 'chd', 'ci', 'xec', 'cinf', 'ctas', 'csco', 'cfg', 'ctxs', 'cme', 'cms', 'coh',
+                     'ko', 'ctsh', 'cl', 'cmcsa', 'cma', 'cag', 'cxo', 'cop', 'ed', 'stz', 'glw', 'cost', 'coty', 'cci',
+                     'csra', 'csx', 'cmi', 'cvs', 'dhi', 'dhr', 'dri', 'dva', 'de', 'dlph', 'dal', 'xray', 'dvn', 'dlr',
+                     'dfs', 'disca', 'disck', 'dg', 'dltr', 'dov', 'dow', 'dps', 'dte', 'dd', 'duk', 'dnb', 'etfc',
+                     'emn', 'etn', 'ebay', 'ecl', 'eix', 'ew', 'ea', 'emr', 'etr', 'evhc', 'eog', 'eqt', 'efx', 'eqix',
+                     'eqr', 'ess', 'el', 'es', 'exc', 'expe', 'expd', 'esrx', 'exr', 'xom', 'ffiv', 'fb', 'fast', 'frt',
+                     'fdx', 'fis', 'fitb', 'fslr', 'fe', 'fisv', 'flir', 'fls', 'flr', 'fmc', 'fti', 'fl', 'ftv',
+                     'fbhs', 'ben', 'fcx', 'ftr', 'gps', 'grmn', 'gd', 'ge', 'ggp', 'gis', 'gm', 'gpc', 'gild', 'gpn',
+                     'gs', 'gt', 'gww', 'hal', 'hbi', 'hog', 'har', 'hrs', 'hig', 'has', 'hca', 'hcp', 'hp', 'hsic',
+                     'hes', 'hpe', 'holx', 'hd', 'hon', 'hrl', 'hst', 'hpq', 'hum', 'hban', 'idxx', 'itw', 'ilmn',
+                     'incy', 'ir', 'intc', 'ice', 'ibm', 'ip', 'ipg', 'iff', 'intu', 'isrg', 'ivz', 'irm', 'jbht',
+                     'jec', 'sjm', 'jnj', 'jci', 'jpm', 'jnpr', 'ksu', 'key', 'kmb', 'kim', 'kmi', 'klac', 'kss', 'khc',
+                     'kr', 'lb', 'lll', 'lh', 'lrcx', 'leg', 'len', 'luk', 'lvlt', 'lly', 'lnc', 'lltc', 'lkq', 'lmt',
+                     'low', 'lyb', 'mtb', 'mac', 'mnk', 'mro', 'mpc', 'mar', 'mmc', 'mlm', 'mas', 'ma', 'mat', 'mkc',
+                     'mcd', 'mck', 'mjn', 'mdt', 'mrk', 'met', 'mtd', 'kors', 'mchp', 'mu', 'msft', 'maa', 'mhk', 'tap',
+                     'mdlz', 'mon', 'mnst', 'mco', 'ms', 'msi', 'mur', 'myl', 'ndaq', 'nov', 'navi', 'ntap', 'nflx',
+                     'nwl', 'nfx', 'nem', 'nwsa', 'nws', 'nee', 'nlsn', 'nke', 'ni', 'nbl', 'jwn', 'nsc', 'ntrs', 'noc',
+                     'nrg', 'nue', 'nvda', 'orly', 'oxy', 'omc', 'oke', 'orcl', 'pcar', 'ph', 'pdco', 'payx', 'pypl',
+                     'pnr', 'pbct', 'pep', 'pki', 'prgo', 'pfe', 'pcg', 'pm', 'psx', 'pnw', 'pxd', 'pnc', 'rl', 'ppg',
+                     'ppl', 'px', 'pcln', 'pfg', 'pg', 'pgr', 'pld', 'pru', 'peg', 'psa', 'phm', 'pvh', 'qrvo', 'qcom',
+                     'pwr', 'dgx', 'rrc', 'rtn', 'rht', 'reg', 'regn', 'rf', 'rsg', 'rai', 'rhi', 'rok', 'col', 'rop',
+                     'rost', 'rcl', 'spgi', 'crm', 'scg', 'slb', 'sni', 'stx', 'see', 'sre', 'shw', 'sig', 'spg',
+                     'swks', 'slg', 'sna', 'so', 'luv', 'swn', 'swk', 'spls', 'sbux', 'stt', 'srcl', 'syk', 'sti',
+                     'symc', 'syf', 'syy', 'trow', 'tgt', 'tel', 'tgna', 'tdc', 'tso', 'txn', 'txt', 'bk', 'clx', 'coo',
+                     'hsy', 'mos', 'trv', 'dis', 'tmo', 'tif', 'twx', 'tjx', 'tmk', 'tss', 'tsco', 'tdg', 'rig', 'trip',
+                     'foxa', 'fox', 'tsn', 'usb', 'udr', 'ulta', 'ua', 'uaa', 'unp', 'ual', 'unh', 'ups', 'uri', 'utx',
+                     'uhs', 'unm', 'urbn', 'vfc', 'vlo', 'var', 'vtr', 'vrsn', 'vrsk', 'vz', 'vrtx', 'viab', 'vno',
+                     'vmc', 'wmt', 'wba', 'wm', 'wat', 'wec', 'wfc', 'hcn', 'wdc', 'wu', 'wrk', 'wy', 'whr', 'wfm',
+                     'wmb', 'wltw', 'wyn', 'wynn', 'xel', 'xrx', 'xlnx', 'xl', 'xyl', 'yhoo', 'yum', 'zbh', 'zion',
+                     'zts',
                      'ayi', 'ayi', 'ayi', 'ayi', 'ayi', 'ayi', 'ayi', 'abbv', 'atvi', 'acn', 'abbv', 'abbv', 'abbv',
                      'abbv', 'abbv', 'abt', 'abt', 'atvi', 'atvi', 'atvi', 'atvi', 'atvi', 'acn', 'acn', 'acn', 'acn',
                      'acn', 'acn', 'acn', 'acn', 'acn', 'abbv', 'abbv', 'abt', 'abt', 'abt', 'abt', 'ua', 'ua', 'ua',
@@ -282,7 +277,9 @@ def trade_text():
                      'wmt', 'trv', 'utx', 'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj', 'intc',
                      'ibm', 'gs', 'hd',
                      'ge', 'xom', 'ba', 'cat', 'cvx', 'csco', 'coke', 'dis', 'dd', 'jnj', 'jnj', 'nke', 'nke', 'cat',
-                     'trv', 'jnj']
+                     'trv', 'jnj', 'v', 'a', 'o', 't', 'c', 'd', 'f', 'k', 'l', 'm', 'r']
+
+    Dow_Jones = [x.upper() for x in Dow_Jones]
 
     buy_trade = ['buuy','Buuy','byu','Byu','Purchase', 'purchase', 'trade', 'invest', 'place', 'buy', 'by', 'long', 'Long', 'Lawn', 'lawn', 'Lon',
                  'Buy']
@@ -320,7 +317,7 @@ def trade_text():
         portfolio = [[0, 0, 0, 0, 0, 0], [0], [0]]
         sell = 'no'
 
-    elif not any(word in phrase1 for word in Dow_Jones):
+    elif not any(word in phrase1.upper() for word in Dow_Jones):
         yara_text = "Did not recognize your stock selection. Either I just don't know, or you're a terrible speller. Either quit at everything or try again...with proper spelling"
         answer = ""
         security = ""
@@ -447,8 +444,10 @@ def trade_text():
 
         matches = []
         for word in Dow_Jones:
-            if word in phrase1:
+            if word in phrase1.upper():
                 matches.append(word)
+
+        matches = [x.upper() for x in matches]
 
         matches_df = pd.DataFrame(matches, index=matches)
         matches_df = matches_df.rename(columns={0: 'names'})
@@ -459,7 +458,7 @@ def trade_text():
         tickers = []
         tickers = ticker_df['ticker']
 
-        if any(word in phrase1 for word in Dow_Jones):
+        if any(word in phrase1.upper() for word in Dow_Jones):
             security = tickers[0]
         else:
             print("Did not recognize stock. Please repeat.")
@@ -479,6 +478,8 @@ def trade_text():
             buy_or_sell = "Short"
 
         ticker = 'WIKI/' + security.upper() + '.4'
+
+        print(ticker)
         pricedata = quandl.get(ticker, rows=1)
         prices = pricedata['Close'][0]
 
