@@ -79,7 +79,7 @@ def trade_text():
     numbers_words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve']
     number_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-    shares_key = ["shares", "share", "Shares", "Share",'chair','sharess']
+    shares_key = ['SHARES',"shares", "share", "Shares", "Share",'chair','sharess']
 
     timeshare = ['timeshare']
 
@@ -120,7 +120,7 @@ def trade_text():
 
     tickers_check = ['AAPL', 'NKE', 'MSFT', 'WMT']
 
-    Dow_Jones = ['M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
+    Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
                  ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna', 'allstate', 'tea',
                  'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak', 'chesapeka', 'Chipotle',
                  'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city', 'sea', 'citigroup', 'colgate',
@@ -207,7 +207,7 @@ def trade_text():
                  'csco', 'coke', 'dis',
                  'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d', ' f',
                  ' k', ' l', ' m', ' r',' ni']
-    DJ_Name_Match = ['mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal', 'afl',
+    DJ_Name_Match = ['intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal', 'afl',
                      'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk', 'chk',
                      'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop', 'cop', 'cop',
                      'dva', 'dva', 'dva', 'dva', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'etfc', 'dps', 'fdx', 'f',
@@ -281,7 +281,7 @@ def trade_text():
 
     Dow_Jones = [x.upper() for x in Dow_Jones]
 
-    buy_trade = ['buuy','Buuy','byu','Byu','Purchase', 'purchase', 'trade', 'invest', 'place', 'buy', 'by', 'long', 'Long', 'Lawn', 'lawn', 'Lon',
+    buy_trade = ['BUY','buuy','Buuy','byu','Byu','Purchase', 'purchase', 'trade', 'invest', 'place', 'buy', 'by', 'long', 'Long', 'Lawn', 'lawn', 'Lon',
                  'Buy']
     sell_trade = ['south ','tell ','sell', 'Sell', 'so ',' so', 'So',' So', 'Settle', 'settle', 'sel', 'Sel']
     short_trade = ['shrot','Shrot','short', 'Short', 'Shore', 'shore', 'Shor', 'shor']
@@ -1135,7 +1135,8 @@ def analysis():
         for i in Dow_Jones:
             if i in phrase1.upper():
                 security = i
-
+                # print(security)
+        # print(security)
         Buy = randrange(1, 40)
         Hold = randrange(1, 50)
         Sell = 100 - Buy - Hold
@@ -1168,7 +1169,7 @@ def analysis():
         STD_usr_Port = 0
 
     elif any(word in phrase1.upper() for word in Dow_Jones) and any(word in phrase1 for word in earnings):
-        Dow_Jones = ['M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
+        Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
                      'apache', ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna',
                      'allstate', 'tea', 'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak',
                      'chesapeka', 'Chipotle', 'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city',
@@ -1258,7 +1259,7 @@ def analysis():
                      'cvx', 'csco', 'coke', 'dis',
                      'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d',
                      ' f', ' k', ' l', ' m', ' r',' ni']
-        DJ_Name_Match = ['mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal',
+        DJ_Name_Match = ['intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal',
                          'afl', 'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci',
                          'chk', 'chk', 'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop',
                          'cop', 'cop', 'dva', 'dva', 'dva', 'dva', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'etfc',
@@ -1354,20 +1355,20 @@ def analysis():
         ticker_df = pd.DataFrame(selected_stocks_2['ticker'])
         tickers = []
         tickers = ticker_df['ticker']
-        print(tickers[0])
+
         page = requests.get("http://www.nasdaq.com/earnings/report/" + tickers[0])
         content = page.content
         soup = BeautifulSoup(page.content, 'html.parser')
 
         table_id1 = soup.find_all('h2')
-        print(table_id1)
+
         z = repr(table_id1[0])
         x = len(z)
 
         extract1 = z[x - 22:x - 10]
 
         table_id = soup.find(id="showdata-div")
-        print(table_id)
+
         table_numbers = table_id.find_all(class_="genTable")
         date_min = table_numbers[0].find_all('td')
 
@@ -1490,7 +1491,7 @@ def analysis():
         STD_usr_Port = 0
 
     elif any(word in phrase1.upper() for word in Dow_Jones) and any(word in phrase1 for word in whatif):
-        print('success')
+
         command_list_dollar = ['dollars', 'Dollars', '$']
         total = ['total', 'across', 'all']
         each = ['each', 'every']
@@ -1522,7 +1523,7 @@ def analysis():
         phrase1 = phrase1.replace(',', '')
         print(phrase1)
 
-        Dow_Jones = ['3 m', 'apple', '3 M', '3M', 'Verizon', 'Visa', 'Wal-mart', 'Wal-Mart', 'Walmart', 'Wal Mart', \
+        Dow_Jones = ['AAPL','APPLE','INTEL','VERIZON',"NIKE",'INTC','NKE','VZ','MSFT','Msft','microsoft','microsfot','intel','Nke','exon','exxom','Exxom','Exon','xom','3 m', 'apple', '3 M', '3M', 'Verizon', 'Visa', 'Wal-mart', 'Wal-Mart', 'Walmart', 'Wal Mart', \
                      'Travelers', 'United Technologies', 'United Tech', 'UnitedHealth', 'United Health', 'Microsoft', \
                      'Nike', 'Pfizer', 'Procter & Gamble', 'American Express', 'JPMorgan Chase', 'McDonalds',
                      'Mac Donalds', \
@@ -1530,18 +1531,18 @@ def analysis():
                      'Exxon', 'Apple', \
                      'Boeing', 'Caterpillar', 'Chevron', 'Cisco', 'Coca-Cola', 'Disney', 'Due Pont', 'Du Pont',
                      'caterpillar', 'Coke', \
-                     'coke', 'United test', 'mmm', 'aapl', 'vz', ' v', 'wmt', 'trv', 'utx', 'unh', 'msft', 'nke', 'pfe',
+                     'coke', 'United test', 'mmm', 'aapl', ' v', 'wmt', 'trv', 'utx', 'unh', 'msft', 'nke', 'pfe',
                      'pg', 'axp', 'jpm', \
                      'mcd', 'mrk', 'jnj', 'intc', 'ibm', 'gs', 'hd', 'ge', 'xom', 'ba', 'cat', 'cvx', 'csco', 'coke',
                      'dis',
                      'dd', 'J & J ', \
                      'j & j', 'Mke', 'mke', 'Cat', 'T RV']
 
-        DJ_Name_Match = ['mmm', 'aapl', 'mmm', 'mmm', 'vz', 'v', 'wmt', 'wmt', 'wmt', 'wmt', 'trv', 'utx', 'utx', 'unh',
+        DJ_Name_Match = ['aapl','apple','intc','vz','nke','intc','nke','vz','msft','msft','msft','msft','intc','nke','xom','xom','xom','xom','xom','mmm', 'aapl', 'mmm', 'mmm', 'vz', 'v', 'wmt', 'wmt', 'wmt', 'wmt', 'trv', 'utx', 'utx', 'unh',
                          'unh', 'msft', 'nke', \
                          'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', 'gs', 'hd', 'ge', 'xom',
                          'aapl', 'ba', 'cat', \
-                         'cvx', 'csco', 'coke', 'dis', 'dd', 'dd', 'cat', 'coke', 'coke', 'utx', 'mmm', 'aapl', 'vz',
+                         'cvx', 'csco', 'coke', 'dis', 'dd', 'dd', 'cat', 'coke', 'coke', 'utx', 'mmm', 'aapl',
                          'v',
                          'wmt', 'trv', 'utx', \
                          'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', 'gs',
@@ -1549,30 +1550,31 @@ def analysis():
                          'ge', 'xom', 'ba', \
                          'cat', 'cvx', 'csco', 'coke', 'dis', 'dd', 'jnj', 'jnj', 'nke', 'nke', 'cat', 'trv']
 
-        NYSE_Match = ['3M CO', 'APPLE INC', '3M CO', '3M CO', 'VERIZON COMMUNICATIONS INC', 'VISA INC',
-                         'WAL-MART STORES INC',
-                         'WAL-MART STORES INC', 'WAL-MART STORES INC', 'WAL-MART STORES INC', 'TRAVELERS COS INC',
-                         'UNITED TECHNOLOGIES CORP', 'UNITED TECHNOLOGIES CORP', 'UNITEDHEALTH GROUP INC',
-                         'UNITEDHEALTH GROUP INC', 'MICROSOFT CORP', 'NIKE INC', 'PFIZER INC', 'PROCTER & GAMBLE CO',
-                         'AMERICAN EXPRESS CO', 'JPMORGAN CHASE & CO', "MCDONALD'S CORP", "MCDONALD'S CORP",
-                         'MERCK & CO',
-                         'JOHNSON & JOHNSON', 'INTEL CORP', 'INTL BUSINESS MACHINES CORP', 'GOLDMAN SACHS GROUP INC',
-                         'HOME DEPOT INC', 'GENERAL ELECTRIC CO', 'EXXON MOBILE CORP', 'APPLE INC', 'BOEING CO',
-                         'CATERPILLAR INC', 'CHEVRON CORP', 'CISCO SYSTEMS INC', 'COCA-COLA CO', 'DISNEY (WALT) CO',
-                         'DU PONT (E I) DE NEMOURS', 'DU PONT (E I) DE NEMOURS', 'CATERPILLAR INC', 'COCA-COLA CO',
-                         'COCA-COLA CO', 'UNITED TECHNOLOGIES CORP', '3M CO', 'APPLE INC', 'VERIZON COMMUNICATIONS INC',
-                         'VISA INC', 'WAL-MART STORES INC', 'TRAVELERS COS INC', 'UNITED TECHNOLOGIES CORP',
-                         'UNITEDHEALTH GROUP INC',
-                         'MICROSOFT CORP', 'NIKE INC', 'PFIZER INC', 'PROCTER & GAMBLE CO', 'AMERICAN EXPRESS CO',
-                         'JPMORGAN CHASE & CO',
-                         "MCDONALD'S CORP", 'MERCK & CO', 'JOHNSON & JOHNSON', 'INTEL CORP',
-                         'INTL BUSINESS MACHINES CORP',
-                         'GOLDMAN SACHS GROUP INC',
-                         'HOME DEPOT INC', 'GENERAL ELECTRIC CO', 'EXXON MOBILE CORP', 'BOEING CO', 'CATERPILLAR INC',
-                         'CHEVRON CORP', 'CISCO SYSTEMS INC',
-                         'COCA-COLA CO', 'DISNEY (WALT) CO', 'DU PONT (E I) DE NEMOURS', 'JOHNSON & JOHNSON',
-                         'JOHNSON & JOHNSON', 'NIKE INC',
-                         'NIKE INC', 'CATERPILLAR INC', 'TRAVELERS COS INC']
+        NYSE_Match = ['APPLE INC','APPLE INC','INTEL CORP','VERIZON COMMUNICATIONS INC','NIKE INC','INTEL CORP','NIKE INC','VERIZON COMMUNICATIONS INC','MICROSOFT CORP','MICROSOFT CORP','MICROSOFT CORP','MICROSOFT CORP','INTL BUSINESS MACHINES CORP','NIKE INC','EXXON MOBIL CORP','EXXON MOBIL CORP','EXXON MOBIL CORP','EXXON MOBIL CORP','EXXON MOBIL CORP','3M CO', 'APPLE INC', '3M CO', '3M CO', 'VERIZON COMMUNICATIONS INC', 'VISA INC',
+                      'WAL-MART STORES INC',
+                      'WAL-MART STORES INC', 'WAL-MART STORES INC', 'WAL-MART STORES INC', 'TRAVELERS COS INC',
+                      'UNITED TECHNOLOGIES CORP', 'UNITED TECHNOLOGIES CORP', 'UNITEDHEALTH GROUP INC',
+                      'UNITEDHEALTH GROUP INC', 'MICROSOFT CORP', 'NIKE INC', 'PFIZER INC', 'PROCTER & GAMBLE CO',
+                      'AMERICAN EXPRESS CO', 'JPMORGAN CHASE & CO', "MCDONALD'S CORP", "MCDONALD'S CORP",
+                      'MERCK & CO',
+                      'JOHNSON & JOHNSON', 'INTEL CORP', 'INTL BUSINESS MACHINES CORP', 'GOLDMAN SACHS GROUP INC',
+                      'HOME DEPOT INC', 'GENERAL ELECTRIC CO', 'EXXON MOBILE CORP', 'APPLE INC', 'BOEING CO',
+                      'CATERPILLAR INC', 'CHEVRON CORP', 'CISCO SYSTEMS INC', 'COCA-COLA CO', 'DISNEY (WALT) CO',
+                      'DU PONT (E I) DE NEMOURS', 'DU PONT (E I) DE NEMOURS', 'CATERPILLAR INC', 'COCA-COLA CO',
+                      'COCA-COLA CO', 'UNITED TECHNOLOGIES CORP', '3M CO', 'APPLE INC',
+                      'VISA INC', 'WAL-MART STORES INC', 'TRAVELERS COS INC', 'UNITED TECHNOLOGIES CORP',
+                      'UNITEDHEALTH GROUP INC',
+                      'MICROSOFT CORP', 'NIKE INC', 'PFIZER INC', 'PROCTER & GAMBLE CO', 'AMERICAN EXPRESS CO',
+                      'JPMORGAN CHASE & CO',
+                      "MCDONALD'S CORP", 'MERCK & CO', 'JOHNSON & JOHNSON', 'INTEL CORP',
+                      'INTL BUSINESS MACHINES CORP',
+                      'GOLDMAN SACHS GROUP INC',
+                      'HOME DEPOT INC', 'GENERAL ELECTRIC CO', 'EXXON MOBILE CORP', 'BOEING CO', 'CATERPILLAR INC',
+                      'CHEVRON CORP', 'CISCO SYSTEMS INC',
+                      'COCA-COLA CO', 'DISNEY (WALT) CO', 'DU PONT (E I) DE NEMOURS', 'JOHNSON & JOHNSON',
+                      'JOHNSON & JOHNSON', 'NIKE INC',
+                      'NIKE INC', 'CATERPILLAR INC', 'TRAVELERS COS INC']
+
 
         merge_string_names = pd.DataFrame(DJ_Name_Match, index=Dow_Jones)
         merge_string_names = merge_string_names.rename(columns={0: 'ticker'})
@@ -1586,6 +1588,9 @@ def analysis():
         for word in Dow_Jones:
             if word in phrase1:
                 matches.append(word)
+
+        print(matches)
+
 
         matches_df = pd.DataFrame(matches, index=matches)
         matches_df = matches_df.rename(columns={0: 'names'})
@@ -1738,7 +1743,6 @@ def analysis():
                 excess_return = pd.DataFrame(selected_stocks_tail.iloc[:, i] - transpose_WVag.ix['WAvg Sum', i])
                 excess_return_list.append(excess_return)
                 i = i + 1
-
 
             excess_return_output = pd.DataFrame(
                 ft.reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), excess_return_list))
