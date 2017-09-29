@@ -135,7 +135,7 @@ def trade_text():
                  'occiednetal', 'Occidental', 'oravle', 'oracle', 'oroville', 'pepsi', 'pepsico', 'pioeneer',
                  'piorneer', 'pioneer', 'priudentail', 'prudentail', 'priuential', 'prudential', 'schlumnerger',
                  'shlimberger', 'schlimberger', 'shlumberger', 'qualcom', 'qualcomm', 'Robert', 'robert half',
-                 'schlumberger', 'slumber j', 'southwest', 'striker', 'checker', 'ti', 't i', 'target', 'thermo',
+                 'schlumberger', 'slumber j', 'southwest', 'striker', 'checker', ' ti', 't i', 'target', 'thermo',
                  'fisher', 'vf corp', "I'm brand", 'why you', 'why um', ' ma', 'mastercard', 'tmi', 'cam', 'tam-ly',
                  'Caroline', 'can line', 'Cam I', 'kinder', 'linder', 'kinder morgan', 'tal', 'delta', 'chipoelt',
                  'chitpole', 'chipotle', 'chipotle', 'blackrcok', 'blk', 'blackrock', 'B of A', 'bofa', ' ac', ' bac',
@@ -1020,7 +1020,7 @@ def analysis():
 
     whatif = ['what if','affected','investmnet','invetsment','invetsing','invets','investing','Investing','invets','Invets','What if','what if','waht if','Waht if','happen','affect','Affect','good','investment','Investment','invest','Invest','invested','Invested']
 
-    Dow_Jones = ['M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
+    Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
                  ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna', 'allstate', 'tea',
                  'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak', 'chesapeka', 'Chipotle',
                  'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city', 'sea', 'citigroup', 'colgate',
@@ -1035,7 +1035,7 @@ def analysis():
                  'occiednetal', 'Occidental', 'oravle', 'oracle', 'oroville', 'pepsi', 'pepsico', 'pioeneer',
                  'piorneer', 'pioneer', 'priudentail', 'prudentail', 'priuential', 'prudential', 'schlumnerger',
                  'shlimberger', 'schlimberger', 'shlumberger', 'qualcom', 'qualcomm', 'Robert', 'robert half',
-                 'schlumberger', 'slumber j', 'southwest', 'striker', 'checker', 'ti', 't i', 'target', 'thermo',
+                 'schlumberger', 'slumber j', 'southwest', 'striker', 'checker', ' ti', 't i', 'target', 'thermo',
                  'fisher', 'vf corp', "I'm brand", 'why you', 'why um', ' ma', 'mastercard', 'tmi', 'cam', 'tam-ly',
                  'Caroline', 'can line', 'Cam I', 'kinder', 'linder', 'kinder morgan', 'tal', 'delta', 'chipoelt',
                  'chitpole', 'chipotle', 'chipotle', 'blackrcok', 'blk', 'blackrock', 'B of A', 'bofa', ' ac', ' bac',
@@ -1132,16 +1132,141 @@ def analysis():
 
     elif any(word in phrase1.upper() for word in Dow_Jones) and any(word in phrase1 for word in ratings):
 
-        for i in Dow_Jones:
-            if i in phrase1.upper():
-                security = i
-                # print(security)
-        # print(security)
+        DJ_Name_Match = ['intc', 'mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal',
+                         'aal', 'afl',
+                         'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk',
+                         'chk',
+                         'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop', 'cop', 'cop',
+                         'dva', 'dva', 'dva', 'dva', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'etfc', 'dps', 'fdx',
+                         'f',
+                         'gm', 'hal', 'hal', 'hal', 'hca', 'hca', 'hlt', 'hlt', 'intu', 'intu', 'intu', 'intu', 'intu',
+                         'jbht', 'khc', 'khc', 'khc', 'khc', 'kr', 'lyb', 'lyb', 'lyb', 'lyb', 'mar', 'mar', 'mar',
+                         'mar',
+                         'l', 'l', 'lmt', 'lmt', 'mpc', 'msi', 'orcl', 'oxy', 'nrg', 'mck', 'mgm', 'mgm', 'met', 'met',
+                         'mnst', 'msi', 'msi', 'msi', 'msi', 'msi', 'ms', 'ms', 'ms', 'ndaq', 'nlsn', 'nlsn', 'nlsn',
+                         'nlsn', 'nbl', 'nbl', 'nbl', 'nrg', 'oxy', 'oxy', 'oxy', 'oxy', 'orcl', 'orcl', 'orcl', 'pep',
+                         'pep', 'pxd', 'pxd', 'pxd', 'pru', 'pru', 'pru', 'pru', 'slb', 'slb', 'slb', 'slb', 'qcom',
+                         'qcom',
+                         'rhi', 'rhi', 'slb', 'slb', 'luv', 'syk', 'syk', 'ti', 'ti', 'tgt', 'tmo', 'tmo', 'vfc', 'yum',
+                         'yum', 'yum', 'ma', 'ma', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'dal',
+                         'dal', 'cmg', 'cmg', 'cmg', 'cmg', 'blk', 'blk', 'blk', 'bac', 'bac', 'bac', 'bac', 'bac',
+                         'ba',
+                         'ba', 'utx', 'utx', 'utx', 'vz', 'vz', 'vz', 'cvx', 'cvx', 'axp', 'v', 'v', 'v', 'v', 'v',
+                         'pfe',
+                         'pfe', 'pfe', 'pfe', 'dnkn', 'lnkd', 'lnkd', 'lnkd', 'lnkd', 'dnkn', 'blk', 'lnkd', 'lnkd',
+                         'lnkd',
+                         'dnkn', 'dnkn', 'dnkn', 'gnc', 'gs', 'tsla', 'tsla', 'pypl', 'pypl', 'pypl', 'pypl', 'pypl',
+                         'nflx', 'nflx', 'sbux', 'celg', 'celg', 'sbux', 'sbux', 'sbux', 'sbux', 'sbux', 'pcln', 'pcln',
+                         'pcln', 'pcln', 'celg', 'celg', 'celg', 'nvda', 'nvda', 'nvda', 'nvda', 'nvda', 'celg', 'celg',
+                         'celg', 'amgn', 'brk_a', 'brk_a', 'brk_a', 'brk_a', 'brk_a', 'wfc', 'wfc', 'wfc', 'jpm', 'ge',
+                         'ge', 'fb', 'fb', 'fb', 'goog', 'goog', 'dis', 'amzn', 'amzn', 'amzn', 'amzn', 'aap', 'aap',
+                         'abbt', 'abbt', 'abbv', 'aap', 'aap', 'aap', 'adbe', 'adbe', 'adbe', 'mmm', 'abt', 'abbv',
+                         'acn',
+                         'atvi', 'ayi', 'adbe', 'aap', 'aes', 'aet', 'amg', 'afl', 'apd', 'akam', 'alk', 'alb', 'alxn',
+                         'alle', 'agn', 'ads', 'lnt', 'all', 'googl', 'goog', 'mo', 'amzn', 'aee', 'aal', 'aep', 'axp',
+                         'aig', 'amt', 'awk', 'amp', 'abc', 'ame', 'amgn', 'aph', 'apc', 'adi', 'antm', 'aon', 'apa',
+                         'aiv',
+                         'aapl', 'amat', 'adm', 'arnc', 'ajg', 'aiz', 'adsk', 'adp', 'an', 'azo', 'avb', 'avy', 'bhi',
+                         'bll', 'bac', 'bcr', 'bax', 'bbt', 'bdx', 'bbby', 'brk.b', 'bby', 'biib', 'blk', 'hrb', 'ba',
+                         'bwa', 'bxp', 'bsx', 'bmy', 'avgo', 'bf.b', 'chrw', 'ca', 'cog', 'cpb', 'cof', 'cah', 'kmx',
+                         'ccl',
+                         'cat', 'cboe', 'cbg', 'cbs', 'celg', 'cnc', 'cnp', 'ctl', 'cern', 'cf', 'schw', 'chtr', 'chk',
+                         'cvx', 'cmg', 'cb', 'chd', 'ci', 'xec', 'cinf', 'ctas', 'csco', 'cfg', 'ctxs', 'cme', 'cms',
+                         'coh',
+                         'ko', 'ctsh', 'cl', 'cmcsa', 'cma', 'cag', 'cxo', 'cop', 'ed', 'stz', 'glw', 'cost', 'coty',
+                         'cci',
+                         'csra', 'csx', 'cmi', 'cvs', 'dhi', 'dhr', 'dri', 'dva', 'de', 'dlph', 'dal', 'xray', 'dvn',
+                         'dlr',
+                         'dfs', 'disca', 'disck', 'dg', 'dltr', 'dov', 'dow', 'dps', 'dte', 'dd', 'duk', 'dnb', 'etfc',
+                         'emn', 'etn', 'ebay', 'ecl', 'eix', 'ew', 'ea', 'emr', 'etr', 'evhc', 'eog', 'eqt', 'efx',
+                         'eqix',
+                         'eqr', 'ess', 'el', 'es', 'exc', 'expe', 'expd', 'esrx', 'exr', 'xom', 'ffiv', 'fb', 'fast',
+                         'frt',
+                         'fdx', 'fis', 'fitb', 'fslr', 'fe', 'fisv', 'flir', 'fls', 'flr', 'fmc', 'fti', 'fl', 'ftv',
+                         'fbhs', 'ben', 'fcx', 'ftr', 'gps', 'grmn', 'gd', 'ge', 'ggp', 'gis', 'gm', 'gpc', 'gild',
+                         'gpn',
+                         'gs', 'gt', 'gww', 'hal', 'hbi', 'hog', 'har', 'hrs', 'hig', 'has', 'hca', 'hcp', 'hp', 'hsic',
+                         'hes', 'hpe', 'holx', 'hd', 'hon', 'hrl', 'hst', 'hpq', 'hum', 'hban', 'idxx', 'itw', 'ilmn',
+                         'incy', 'ir', 'intc', 'ice', 'ibm', 'ip', 'ipg', 'iff', 'intu', 'isrg', 'ivz', 'irm', 'jbht',
+                         'jec', 'sjm', 'jnj', 'jci', 'jpm', 'jnpr', 'ksu', 'key', 'kmb', 'kim', 'kmi', 'klac', 'kss',
+                         'khc',
+                         'kr', 'lb', 'lll', 'lh', 'lrcx', 'leg', 'len', 'luk', 'lvlt', 'lly', 'lnc', 'lltc', 'lkq',
+                         'lmt',
+                         'low', 'lyb', 'mtb', 'mac', 'mnk', 'mro', 'mpc', 'mar', 'mmc', 'mlm', 'mas', 'ma', 'mat',
+                         'mkc',
+                         'mcd', 'mck', 'mjn', 'mdt', 'mrk', 'met', 'mtd', 'kors', 'mchp', 'mu', 'msft', 'maa', 'mhk',
+                         'tap',
+                         'mdlz', 'mon', 'mnst', 'mco', 'ms', 'msi', 'mur', 'myl', 'ndaq', 'nov', 'navi', 'ntap', 'nflx',
+                         'nwl', 'nfx', 'nem', 'nwsa', 'nws', 'nee', 'nlsn', 'nke', 'nbl', 'jwn', 'nsc', 'ntrs', 'noc',
+                         'nrg', 'nue', 'nvda', 'orly', 'oxy', 'omc', 'oke', 'orcl', 'pcar', 'ph', 'pdco', 'payx',
+                         'pypl',
+                         'pnr', 'pbct', 'pep', 'pki', 'prgo', 'pfe', 'pcg', 'pm', 'psx', 'pnw', 'pxd', 'pnc', 'rl',
+                         'ppg',
+                         'ppl', 'px', 'pcln', 'pfg', 'pg', 'pgr', 'pld', 'pru', 'peg', 'psa', 'phm', 'pvh', 'qrvo',
+                         'qcom',
+                         'pwr', 'dgx', 'rrc', 'rtn', 'rht', 'reg', 'regn', 'rf', 'rsg', 'rai', 'rhi', 'rok', 'col',
+                         'rop',
+                         'rost', 'rcl', 'spgi', 'crm', 'scg', 'slb', 'sni', 'stx', 'see', 'sre', 'shw', 'sig', 'spg',
+                         'swks', 'slg', 'sna', 'so', 'luv', 'swn', 'swk', 'spls', 'sbux', 'stt', 'srcl', 'syk', 'sti',
+                         'symc', 'syf', 'syy', 'trow', 'tgt', 'tel', 'tgna', 'tdc', 'tso', 'txn', 'txt', 'bk', 'clx',
+                         'coo',
+                         'hsy', 'mos', 'trv', 'dis', 'tmo', 'tif', 'twx', 'tjx', 'tmk', 'tss', 'tsco', 'tdg', 'rig',
+                         'trip',
+                         'foxa', 'fox', 'tsn', 'usb', 'udr', 'ulta', 'ua', 'uaa', 'unp', 'ual', 'unh', 'ups', 'uri',
+                         'utx',
+                         'uhs', 'unm', 'urbn', 'vfc', 'vlo', 'var', 'vtr', 'vrsn', 'vrsk', 'vz', 'vrtx', 'viab', 'vno',
+                         'vmc', 'wmt', 'wba', 'wm', 'wat', 'wec', 'wfc', 'hcn', 'wdc', 'wu', 'wrk', 'wy', 'whr', 'wfm',
+                         'wmb', 'wltw', 'wyn', 'wynn', 'xel', 'xrx', 'xlnx', 'xl', 'xyl', 'yhoo', 'yum', 'zbh', 'zion',
+                         'zts',
+                         'ayi', 'ayi', 'ayi', 'ayi', 'ayi', 'ayi', 'ayi', 'abbv', 'atvi', 'acn', 'abbv', 'abbv', 'abbv',
+                         'abbv', 'abbv', 'abt', 'abt', 'atvi', 'atvi', 'atvi', 'atvi', 'atvi', 'acn', 'acn', 'acn',
+                         'acn',
+                         'acn', 'acn', 'acn', 'acn', 'acn', 'abbv', 'abbv', 'abt', 'abt', 'abt', 'abt', 'ua', 'ua',
+                         'ua',
+                         'ua', 'ua',
+                         'ua', 'ua', 'aapl', 'mmm', 'aapl', 'mmm', 'mmm', 'vz', 'v', 'wmt', 'wmt', 'wmt', 'wmt', 'trv',
+                         'utx', 'utx', 'unh',
+                         'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mcd', 'mrk', 'jnj', 'intc', 'ibm',
+                         'gs',
+                         'hd', 'ge', 'xom', 'ba', 'cat', \
+                         'cvx', 'csco', 'coke', 'dis', 'dd', 'dd', 'cat', 'coke', 'coke', 'utx', 'mmm', 'aapl', 'vz',
+                         'v',
+                         'wmt', 'trv', 'utx', 'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj',
+                         'intc',
+                         'ibm', 'gs', 'hd',
+                         'ge', 'xom', 'ba', 'cat', 'cvx', 'csco', 'coke', 'dis', 'dd', 'jnj', 'jnj', 'nke', 'nke',
+                         'cat',
+                         'trv', 'jnj', 'v', 'a', 'o', 't', 'c', 'd', 'f', 'k', 'l', 'm', 'r', 'ni']
+
+        Dow_Jones = [x.upper() for x in Dow_Jones]
+
+        merge_string_names = pd.DataFrame(DJ_Name_Match, index=Dow_Jones)
+        merge_string_names = merge_string_names.rename(columns={0: 'ticker'})
+        merge_string_names['names'] = merge_string_names.index
+
+        matches = []
+        for word in Dow_Jones:
+            if word in phrase1.upper():
+                matches.append(word)
+
+        matches = [x.upper() for x in matches]
+
+        matches_df = pd.DataFrame(matches, index=matches)
+        matches_df = matches_df.rename(columns={0: 'names'})
+
+        selected_stocks_2 = pd.merge(matches_df, merge_string_names, on='names')
+
+        ticker_df = pd.DataFrame(selected_stocks_2['ticker'])
+        tickers = []
+        tickers = ticker_df['ticker']
+
+        print(tickers[0])
+
         Buy = randrange(1, 40)
         Hold = randrange(1, 50)
         Sell = 100 - Buy - Hold
 
-        yara_text = "For " + security + ", " + \
+        yara_text = "For " + tickers[0].upper() + ", " + \
             str("{:.0f}".format(Buy)) + " percent of experts say you should buy the stock, " + \
             str("{:.0f}".format(Sell)) + " percent of experts say you should not buy the stock, and " + \
             str("{:.0f}".format(Hold)) + " percent of experts are indifferent." + '<br />' + '<br />' + \
@@ -1159,7 +1284,7 @@ def analysis():
         q2 = 0
         q3 = 0
         q4 = 0
-        tickers = [security.upper()]
+        tickers = tickers[0].upper()
         date = 0
         sharperatiouser = 0
         sharperatiowhatif = 0
@@ -1185,7 +1310,7 @@ def analysis():
                      'oracle', 'oroville', 'pepsi', 'pepsico', 'pioeneer', 'piorneer', 'pioneer', 'priudentail',
                      'prudentail', 'priuential', 'prudential', 'schlumnerger', 'shlimberger', 'schlimberger',
                      'shlumberger', 'qualcom', 'qualcomm', 'Robert', 'robert half', 'schlumberger', 'slumber j',
-                     'southwest', 'striker', 'checker', 'ti', 't i', 'target', 'thermo', 'fisher', 'vf corp',
+                     'southwest', 'striker', 'checker', ' ti', 't i', 'target', 'thermo', 'fisher', 'vf corp',
                      "I'm brand", 'why you', 'why um', ' ma', 'mastercard', 'tmi', 'cam', 'tam-ly', 'Caroline',
                      'can line', 'Cam I', 'kinder', 'linder', 'kinder morgan', 'tal', 'delta', 'chipoelt', 'chitpole',
                      'chipotle', 'chipotle', 'blackrcok', 'blk', 'blackrock', 'B of A', 'bofa', ' ac', ' bac',
@@ -1589,8 +1714,6 @@ def analysis():
             if word in phrase1:
                 matches.append(word)
 
-        print(matches)
-
 
         matches_df = pd.DataFrame(matches, index=matches)
         matches_df = matches_df.rename(columns={0: 'names'})
@@ -1909,6 +2032,7 @@ def analysis():
         STD_Port_new = 0
         STD_usr_Port = 0
 
+    print(tickers)
     return jsonify({
         # 'resultpopup': result,
         'yararesponse': yara_text,
@@ -1922,7 +2046,7 @@ def analysis():
         'q2': q2,
         'q3': q3,
         'q4': q4,
-        'stock': tickers[0],
+        'stock': tickers,
         'date': date,
         'sharpeuser': sharperatiouser,
         'sharpewhatif': sharperatiowhatif,
