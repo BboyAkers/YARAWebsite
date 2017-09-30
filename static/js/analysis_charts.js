@@ -42,7 +42,7 @@ $(document).ready(function() {
                 stdport_new = result.STD_Port_new;
                 stdport_user = result.STD_usr_Port;
                 //portfolio = result.portfoliotable;
-                console.log(sharperatio_user);
+                console.log(stock);
                 $("#analysisResponse").html(yara);
                 if (number == 0) {
                     drawAxisTickColors(buy, hold, sell, stock)
