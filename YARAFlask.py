@@ -283,7 +283,7 @@ def trade_text():
 
     buy_trade = ['BUY','buuy','Buuy','byu','Byu','Purchase', 'purchase', 'trade', 'invest', 'place', 'buy', 'by', 'long', 'Long', 'Lawn', 'lawn', 'Lon',
                  'Buy']
-    sell_trade = ['south ','tell ','sell', 'Sell', 'so ',' so', 'So',' So', 'Settle', 'settle', 'sel', 'Sel']
+    sell_trade = ['top','south ','tell ','sell', 'Sell', 'so ',' so', 'So',' So', 'Settle', 'settle', 'sel', 'Sel']
     short_trade = ['shrot','Shrot','short', 'Short', 'Shore', 'shore', 'Shor', 'shor']
     market_order = ['amrket','makret','Makret','market', 'current', 'Market', 'Current', 'at Market', 'at market', '@ Market', '@ market']
     limit_order = ['limit', 'when', '@', ' at','at ','At ',' +']
@@ -712,6 +712,7 @@ def management():
     else:
         phrase1 = text
 
+    print(phrase1)
     diversify = ['diversificaton','Diversificaton','divrsification','Divrsification','dvirsify','dvirsify','diversificaiton','Diversificaiton','diversification','Diversification','diversigy','Diversigy','diversirty','Diversirty','diversiy','Diversiy','diversity','Diversity','Diversify','diversify','Diversification','diversification','Diversfiyy','diversify','iversify','dversify','Dversify',]
 
     rebalance = ['rabalnce','Rabalnce','rebaalnce','Rebaalnce','reabalcne','reabalcne','reblance','Reblance','rbalance','Rbalance','rebaalnce','Rebaalnce','reabalance','Reabalance','realance','Realance','rebalance','Rebalance']
@@ -1011,14 +1012,14 @@ def analysis():
 
     print(phrase1)
 
-    backtest = ['backpacks','backpack','back packs','back pack','against','would','perform','bath test','black test','Black Test','Black test','black Test','back test','Back test','Back Test','back Test','backest','Backest','baktest','Baktest','backest','Backest','bcacktest','Bcacktest','backtes','Backtes','bcktest','Bcktest','bakctes','Bakctes','bakctest','Bakctest','bactest','Bactest','backtet','Backtet','backtestnig','Backtestnig','backtset','Backtset','backtest','Backtest','backtesting','Backtesting','bakctest','Bakctest']
+    backtest = ['BAC test','back to','backpacks','backpack','back packs','back pack','against','would','perform','bath test','black test','Black Test','Black test','black Test','back test','Back test','Back Test','back Test','backest','Backest','baktest','Baktest','backest','Backest','bcacktest','Bcacktest','backtes','Backtes','bcktest','Bcktest','bakctes','Bakctes','bakctest','Bakctest','bactest','Bactest','backtet','Backtet','backtestnig','Backtestnig','backtset','Backtset','backtest','Backtest','backtesting','Backtesting','bakctest','Bakctest']
 
     ratings = ['exper t','rarings','Rarings','ratins','Ratins','ecpert','Ecpert','expret','Expret','expert','Expert','opinon','Opinon','opionons','Opionons','opinioins','Opinioins','opinona','Opinona','opinons','Opinons','opinoins','Opinoins','Optinions','optinions','Opinions','opinions','expertes','Expertes','exeprts','Exeprts','Experts','experts','Ratigs', 'ratigs', 'rartings', 'Rartings', 'ratings', 'Ratings', 'rating', 'Rating', 'rarting',
                'Rarting', 'raring', 'Raring', 'ratign', 'Ratign', 'ratigns', 'Ratign']
 
     earnings = ['earngins','Earngins','earning','Earning','per share','Per Share','Per share','per Share','earnigns','Earnigns','earnings','Earnings','earnigns','Earnigns','earnings','Earnings','Earnins','earnins','earings','Earings']
 
-    whatif = ['what if','affected','investmnet','invetsment','invetsing','invets','investing','Investing','invets','Invets','What if','what if','waht if','Waht if','happen','affect','Affect','good','investment','Investment','invest','Invest','invested','Invested']
+    whatif = ['find','what if','affected','investmnet','invetsment','invetsing','invets','investing','Investing','invets','Invets','What if','what if','waht if','Waht if','happen','affect','Affect','good','investment','Investment','invest','Invest','invested','Invested']
 
     Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
                  ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna', 'allstate', 'tea',
