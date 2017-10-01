@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from flask import Flask, render_template, request, jsonify
 from gtts import gTTS
 import speech_recognition as sr
@@ -26,9 +24,7 @@ r = sr.Recognizer()
 
 username = getpass.getuser()
 
-nyse = pd.read_csv('/Users/' + username + '/Desktop/Defensive_Portfolio/NYSE_Returns_3.csv', error_bad_lines=False)
-
-nyse = pd.DataFrame(nyse)
+nyse = pd.DataFrame.from_csv('/Users/' + username + '/Desktop/Defensive_Portfolio/NYSE_Returns_3.csv', )
 
 GOOGLE_CLOUD_SPEECH_CREDENTIALS = r"""{
   "type": "service_account",
