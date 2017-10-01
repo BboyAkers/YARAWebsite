@@ -26,8 +26,9 @@ r = sr.Recognizer()
 
 username = getpass.getuser()
 
-nyse = pd.DataFrame.from_csv('/Users/' + username + '/Desktop/Defensive_Portfolio/NYSE_Returns_3.csv', )
+nyse = pd.read_csv('/Users/' + username + '/Desktop/Defensive_Portfolio/NYSE_Returns_3.csv', error_bad_lines=False)
 
+nyse = pd.DataFrame(nyse)
 
 GOOGLE_CLOUD_SPEECH_CREDENTIALS = r"""{
   "type": "service_account",
@@ -130,7 +131,7 @@ def trade_text():
                  'Devon', 'E-Trade', 'dr pepper', 'fedex', 'ford', 'general motors', ' how ', 'hell', 'halliburton',
                  'hcti', 'hci', 'hlt', 'hilton', 'vine to you', 'all I am to you', 'in2u', 'lying to you', 'intuit',
                  'jb hunt', 'thc', 'heinz', 'craft', 'crap', 'kroger', 'Lydia', 'limbo', 'Lindell', 'Lyondell',
-                 'mariott', 'marriot', "marriott's", 'marriott', 'el', "lowe's", 'lockheed', 'martin', 'marathon',
+                 'mariott', 'marriot', "marriott's", 'marriott', 'lockheed', 'martin', 'marathon',
                  'ms I', 'rcl', 'xy', 'energy', 'mckesson', 'mgm', 'm g m', 'metlife', 'matlock', 'monster', 'motoroal',
                  'motorala', 'motoral', 'motorals', 'Motorola', 'morgan', 'stanley', 'stanly', 'nasdaq', 'nelsien',
                  'nielsien', 'nielson', 'nielsen', 'novel', 'nobel', 'noble', 'nrg energy', 'occienetal', 'occidential',
@@ -208,14 +209,14 @@ def trade_text():
                  'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', ' gs', 'hd', 'ge', 'xom', ' ba', 'cat', 'cvx',
                  'csco', 'coke', 'dis',
                  'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d', ' f',
-                 ' k', ' l', ' m', ' r',' ni']
+                 ' k', ' m', ' r',' ni']
     DJ_Name_Match = ['intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal', 'afl',
                      'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk', 'chk',
                      'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop', 'cop', 'cop',
                      'dva', 'dva', 'dva', 'dva', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'etfc', 'dps', 'fdx', 'f',
                      'gm', 'hal', 'hal', 'hal', 'hca', 'hca', 'hlt', 'hlt', 'intu', 'intu', 'intu', 'intu', 'intu',
                      'jbht', 'khc', 'khc', 'khc', 'khc', 'kr', 'lyb', 'lyb', 'lyb', 'lyb', 'mar', 'mar', 'mar', 'mar',
-                     'l', 'l', 'lmt', 'lmt', 'mpc', 'msi', 'orcl', 'oxy', 'nrg', 'mck', 'mgm', 'mgm', 'met', 'met',
+                     'lmt', 'lmt', 'mpc', 'msi', 'orcl', 'oxy', 'nrg', 'mck', 'mgm', 'mgm', 'met', 'met',
                      'mnst', 'msi', 'msi', 'msi', 'msi', 'msi', 'ms', 'ms', 'ms', 'ndaq', 'nlsn', 'nlsn', 'nlsn',
                      'nlsn', 'nbl', 'nbl', 'nbl', 'nrg', 'oxy', 'oxy', 'oxy', 'oxy', 'orcl', 'orcl', 'orcl', 'pep',
                      'pep', 'pxd', 'pxd', 'pxd', 'pru', 'pru', 'pru', 'pru', 'slb', 'slb', 'slb', 'slb', 'qcom', 'qcom',
@@ -279,7 +280,7 @@ def trade_text():
                      'wmt', 'trv', 'utx', 'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj', 'intc',
                      'ibm', 'gs', 'hd',
                      'ge', 'xom', 'ba', 'cat', 'cvx', 'csco', 'coke', 'dis', 'dd', 'jnj', 'jnj', 'nke', 'nke', 'cat',
-                     'trv', 'jnj', 'v', 'a', 'o', 't', 'c', 'd', 'f', 'k', 'l', 'm', 'r','ni']
+                     'trv', 'jnj', 'v', 'a', 'o', 't', 'c', 'd', 'f', 'k', 'm', 'r','ni']
 
     Dow_Jones = [x.upper() for x in Dow_Jones]
 
@@ -522,11 +523,10 @@ def trade_text():
         account = account + invest_amt
         cash = cash - invest_amt
 
-        if invest_amt > account_cash:
-            print(account_cash)
-            print(price)
+        if invest_amt > cash_html:
+
             yara_text = "Not enough funds in account to fulfill order. Your order has exceeded funds by $" + "{0:,.2f}".format(
-                invest_amt - account_cash) + ". Try purchasing " + str(int(cash_html / price)) + " shares of " + security.upper() + " instead. Ah so you " + \
+                invest_amt - cash_html) + ". Try purchasing " + str(int(cash_html / price)) + " shares of " + security.upper() + " instead. Ah so you " + \
                 "think you're a big baller, huh? Trying to spend money you don't have. Good thing I caught your mistake. Or your really cheap and can't afford a share. Stop being CHEAP!!"
             answer = ""
             security = ""
@@ -1019,7 +1019,7 @@ def analysis():
     ratings = ['exper t','rarings','Rarings','ratins','Ratins','ecpert','Ecpert','expret','Expret','expert','Expert','opinon','Opinon','opionons','Opionons','opinioins','Opinioins','opinona','Opinona','opinons','Opinons','opinoins','Opinoins','Optinions','optinions','Opinions','opinions','expertes','Expertes','exeprts','Exeprts','Experts','experts','Ratigs', 'ratigs', 'rartings', 'Rartings', 'ratings', 'Ratings', 'rating', 'Rating', 'rarting',
                'Rarting', 'raring', 'Raring', 'ratign', 'Ratign', 'ratigns', 'Ratign']
 
-    earnings = ['earngins','Earngins','earning','Earning','per share','Per Share','Per share','per Share','earnigns','Earnigns','earnings','Earnings','earnigns','Earnigns','earnings','Earnings','Earnins','earnins','earings','Earings']
+    earnings = ['our name','earngins','Earngins','earning','Earning','per share','Per Share','Per share','per Share','earnigns','Earnigns','earnings','Earnings','earnigns','Earnigns','earnings','Earnings','Earnins','earnins','earings','Earings']
 
     whatif = ['find','what if','affected','investmnet','invetsment','invetsing','invets','investing','Investing','invets','Invets','What if','what if','waht if','Waht if','happen','affect','Affect','good','investment','Investment','invest','Invest','invested','Invested']
 
@@ -1066,7 +1066,7 @@ def analysis():
                  ' dhi', ' dhr', ' dri', ' dva', ' de', ' dlph', ' dal', ' xray', ' dvn', ' dlr', ' dfs', ' disca',
                  ' disck', ' dg', ' dltr', ' dov', ' dow', ' dps', ' dte', ' dd', ' duk', ' dnb', ' etfc', ' emn',
                  ' etn', ' ebay', ' ecl', ' eix', ' ew', ' ea', ' emr', ' etr', ' evhc', ' eog', ' eqt', ' efx',
-                 ' eqix', ' eqr', ' ess', ' el', ' es', ' exc', ' expe', ' expd', ' esrx', ' exr', ' xom', ' ffiv',
+                 ' eqix', ' eqr', ' ess', ' el', ' es', ' exc', ' expd', ' esrx', ' exr', ' xom', ' ffiv',
                  ' fb', ' fast', ' frt', ' fdx', ' fis', ' fitb', ' fslr', ' fe', ' fisv', ' flir', ' fls', ' flr',
                  ' fmc', ' fti', ' fl', ' ftv', ' fbhs', ' ben', ' fcx', ' ftr', ' gps', ' grmn', ' gd', ' ge', ' ggp',
                  ' gis', ' gm', ' gpc', ' gild', ' gpn', ' gs', ' gt', ' gww', ' hal', ' hbi', ' hog', ' har', ' hrs',
@@ -1183,7 +1183,7 @@ def analysis():
                          'dfs', 'disca', 'disck', 'dg', 'dltr', 'dov', 'dow', 'dps', 'dte', 'dd', 'duk', 'dnb', 'etfc',
                          'emn', 'etn', 'ebay', 'ecl', 'eix', 'ew', 'ea', 'emr', 'etr', 'evhc', 'eog', 'eqt', 'efx',
                          'eqix',
-                         'eqr', 'ess', 'el', 'es', 'exc', 'expe', 'expd', 'esrx', 'exr', 'xom', 'ffiv', 'fb', 'fast',
+                         'eqr', 'ess', 'el', 'es', 'exc', 'expd', 'esrx', 'exr', 'xom', 'ffiv', 'fb', 'fast',
                          'frt',
                          'fdx', 'fis', 'fitb', 'fslr', 'fe', 'fisv', 'flir', 'fls', 'flr', 'fmc', 'fti', 'fl', 'ftv',
                          'fbhs', 'ben', 'fcx', 'ftr', 'gps', 'grmn', 'gd', 'ge', 'ggp', 'gis', 'gm', 'gpc', 'gild',
@@ -1340,7 +1340,7 @@ def analysis():
                      ' cl', ' cmcsa', ' cma', ' cag', ' cxo', ' cop', ' ed', ' stz', ' glw', ' cost', ' coty', ' cci',
                      ' csra', ' csx', ' cmi', ' cvs', ' dhi', ' dhr', ' dri', ' dva', ' de', ' dlph', ' dal', ' xray',
                      ' dvn', ' dlr', ' dfs', ' disca', ' disck', ' dg', ' dltr', ' dov', ' dow', ' dps', ' dte', ' dd',
-                     ' duk', ' dnb', ' etfc', ' emn', ' etn', ' ebay', ' ecl', ' eix', ' ew', ' ea', ' emr', ' etr',
+                     ' duk', ' dnb', ' etfc', ' emn', ' etn', ' ebay', ' ecl', ' eix', ' ew', ' emr', ' etr',
                      ' evhc', ' eog', ' eqt', ' efx', ' eqix', ' eqr', ' ess', ' el', ' es', ' exc', ' expe', ' expd',
                      ' esrx', ' exr', ' xom', ' ffiv', ' fb', ' fast', ' frt', ' fdx', ' fis', ' fitb', ' fslr', ' fe',
                      ' fisv', ' flir', ' fls', ' flr', ' fmc', ' fti', ' fl', ' ftv', ' fbhs', ' ben', ' fcx', ' ftr',
@@ -1386,7 +1386,7 @@ def analysis():
                      'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', ' gs', 'hd', 'ge', 'xom', ' ba', 'cat',
                      'cvx', 'csco', 'coke', 'dis',
                      'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d',
-                     ' f', ' k', ' l', ' m', ' r',' ni']
+                     ' f', ' k', ' l', ' m', ' r',' ni',' ea']
         DJ_Name_Match = ['intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal',
                          'afl', 'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci',
                          'chk', 'chk', 'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop',
@@ -1420,7 +1420,7 @@ def analysis():
                          'coh', 'ko', 'ctsh', 'cl', 'cmcsa', 'cma', 'cag', 'cxo', 'cop', 'ed', 'stz', 'glw', 'cost',
                          'coty', 'cci', 'csra', 'csx', 'cmi', 'cvs', 'dhi', 'dhr', 'dri', 'dva', 'de', 'dlph', 'dal',
                          'xray', 'dvn', 'dlr', 'dfs', 'disca', 'disck', 'dg', 'dltr', 'dov', 'dow', 'dps', 'dte', 'dd',
-                         'duk', 'dnb', 'etfc', 'emn', 'etn', 'ebay', 'ecl', 'eix', 'ew', 'ea', 'emr', 'etr', 'evhc',
+                         'duk', 'dnb', 'etfc', 'emn', 'etn', 'ebay', 'ecl', 'eix', 'ew', 'emr', 'etr', 'evhc',
                          'eog', 'eqt', 'efx', 'eqix', 'eqr', 'ess', 'el', 'es', 'exc', 'expe', 'expd', 'esrx', 'exr',
                          'xom', 'ffiv', 'fb', 'fast', 'frt', 'fdx', 'fis', 'fitb', 'fslr', 'fe', 'fisv', 'flir', 'fls',
                          'flr', 'fmc', 'fti', 'fl', 'ftv', 'fbhs', 'ben', 'fcx', 'ftr', 'gps', 'grmn', 'gd', 'ge',
@@ -1460,7 +1460,7 @@ def analysis():
                          'wmt', 'trv', 'utx', 'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj',
                          'intc', 'ibm', 'gs', 'hd',
                          'ge', 'xom', 'ba', 'cat', 'cvx', 'csco', 'coke', 'dis', 'dd', 'jnj', 'jnj', 'nke', 'nke',
-                         'cat', 'trv', 'jnj', 'v', 'a', 'o', 't', 'c', 'd', 'f', 'k', 'l', 'm', 'r','ni']
+                         'cat', 'trv', 'jnj', 'v', 'a', 'o', 't', 'c', 'd', 'f', 'k', 'l', 'm', 'r','ni','ea']
 
         Dow_Jones = [x.upper() for x in Dow_Jones]
 
@@ -2049,7 +2049,7 @@ def analysis():
         'q2': q2,
         'q3': q3,
         'q4': q4,
-        'stock': tickers,
+        'stock': tickers[0],
         'date': date,
         'sharpeuser': sharperatiouser,
         'sharpewhatif': sharperatiowhatif,
