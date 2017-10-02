@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
->>>>>>> c1843d3afdb0f2fa829d121124c199f782c1fcdd
 from flask import Flask, render_template, request, jsonify
 from gtts import gTTS
 import speech_recognition as sr
@@ -29,12 +24,9 @@ r = sr.Recognizer()
 
 username = getpass.getuser()
 
-<<<<<<< HEAD
-# nyse = pd.DataFrame.from_csv('/Users/' + username + '/Desktop/Defensive_Portfolio/NYSE_Returns_3.csv', )
-    
-=======
+
 nyse = pd.DataFrame.from_csv('/Users/' + username + '/Desktop/Defensive_Portfolio/NYSE_Returns_3.csv', )
->>>>>>> c1843d3afdb0f2fa829d121124c199f782c1fcdd
+
 
 GOOGLE_CLOUD_SPEECH_CREDENTIALS = r"""{
   "type": "service_account",
@@ -1016,9 +1008,6 @@ def management():
     })
 
 
-
-
-<<<<<<< HEAD
     @app.route('/analysis', methods=['POST'])
     def analysis():
 
@@ -2080,7 +2069,7 @@ def management():
             'STD_Port_new': STD_Port_new,
             'STD_usr_Port': STD_usr_Port
         })
-=======
+
 @app.route('/analysis', methods=['POST'])
 def analysis():
 
@@ -3142,7 +3131,7 @@ def analysis():
         'STD_Port_new': STD_Port_new,
         'STD_usr_Port': STD_usr_Port
     })
->>>>>>> c1843d3afdb0f2fa829d121124c199f782c1fcdd
+
 
 if __name__ == '__main__':
     app.run(debug=True)
