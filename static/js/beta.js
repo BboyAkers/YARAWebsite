@@ -5,7 +5,7 @@ $(document).ready(function() {
         $("#tradeForm").on('submit', function(event){
         $(".tradeResponse").html("Give me a second. Running analysis.");
         event.preventDefault();
-        var modalbutton = $('.trade-modal-opener');
+        // var modalbutton = $('.trade-modal-opener');
         $.ajax({
             type: 'POST',
             url: '/trade',
@@ -94,26 +94,25 @@ $(document).ready(function() {
                 console.log(portfolio);
                 if (text != "") {
                     //$('.tradeButton').trigger("click");
-                    modalbutton.modal({
-                        content: text,
-                        cache: false,
-                        // refresh:true;
-                        confirm: {
-                            text: 'Ok',
-                            link: ''
-                        },
-                    });
-                    modalbutton.openModal();
-                    modalbutton.dialog('destroy').remove();
-                    $('body').on('hidden.bs.modal', '.modal', function () {
-                    $(this).removeData('bs.modal');
-                    });
-
+                    // modalbutton.modal({
+                    //     content: text,
+                    //     cache: false,
+                    //     // refresh:true;
+                    //     confirm: {
+                    //         text: 'Ok',
+                    //         link: ''
+                    //     },
+                    // });
+                    // modalbutton.openModal();
+                    // modalbutton.dialog('destroy').remove();
+                    // $('body').on('hidden.bs.modal', '.modal', function () {
+                    // $(this).removeData('bs.modal');
+                    // });
                 }
             }
         });
-        modalbutton.dialog('destroy').remove();
-        modalbutton.removeData();
+        // modalbutton.dialog('destroy').remove();
+        // modalbutton.removeData();
     });
 });
 $(document).ready(function() {
@@ -121,7 +120,7 @@ $(document).ready(function() {
         event.preventDefault();
         $("#tradeText").val("Speak into the microphone!");
         $(".tradeResponse").html("Give me a second after your speak. Running analysis.");
-        var modalbutton = $('.trade-modal-opener');
+        // var modalbutton = $('.trade-modal-opener');
         $.ajax({
             type: 'POST',
             url: '/trade',
@@ -210,15 +209,15 @@ $(document).ready(function() {
                 console.log(portfolio);
                 if (text != "") {
                     // $('.trade-modal-opener').trigger("click");
-                    modalbutton.modal({
-                        content: text,
-                        cache: false,
-                        confirm: {
-                            text: 'Ok',
-                            link: ''
-                        }
-                    });
-                    modalbutton.openModal();
+                    // modalbutton.modal({
+                    //     content: text,
+                    //     cache: false,
+                    //     confirm: {
+                    //         text: 'Ok',
+                    //         link: ''
+                    //     }
+                    // });
+                    // modalbutton.openModal();
                 }
             }
         });

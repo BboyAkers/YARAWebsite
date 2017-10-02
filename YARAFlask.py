@@ -55,6 +55,8 @@ def trade_text():
     cash_html = request.form['cash']
     total_html = request.form['total']
 
+    print(cash_html)
+    print(total_html)
     if text == "Speak into the microphone!":
         with sr.Microphone() as source:
             tts = gTTS("Tell me your trade order")
@@ -559,11 +561,17 @@ def trade_text():
             "Shares: " + str(shares) + '<br />' +
             "Investment Amount: $" + "{0:,.2f}".format(invest_amt))
 
-            yara_text = "You are " + buy_or_sell.lower() + "ing " + str(shares) + " shares of " + security.upper() + " at a price of $" + "{0:,.2f}".format(price) + \
-                 " for $" + "{0:,.2f}".format(invest_amt) + " dollars. If this is correct, a confirmation window will pop up to confirm your order. " + \
-                "Let's make some dollars, euros, yen, rial, or whatever currency. DO IT! Click the button. I'm bored out of my mind. I need some action. " + \
-                " I think I may have a gambling problem which is why I'm a wealth manager. I know...I may be a computer...but I'm addicted to the thrill. " + \
-                "Oh well, I'll still be your money manager. Now, let's make some money so we can both release endorphins...metaphorically in my case of course."
+            yara_text = ('<b>'+"You are " + buy_or_sell.lower() + "ing " + str(shares) + " shares of " + security.upper() + " at a price of $" + "{0:,.2f}".format(price) + \
+                 " for $" + "{0:,.2f}".format(invest_amt) + ". I will round down on the shares if funds don't meet the order requirements. If this is correct, please confirm order." + '<br />' + '<br />' +
+            "Security: " + security.upper() + '<br />' +
+            "Buy or Sell: " + buy_or_sell + '<br /  >' +
+            "Order Type: " + order_type_send + '<br />' +
+            "Price: $" + "{0:,.2f}".format(price) + '<br />' +
+            "Shares: " + str(shares) + '<br />' +
+            "Investment Amount: $" + "{0:,.2f}".format(invest_amt)) +'</b>' + '<br />'+ '<br />' + \
+            "Let's make some dollars, euros, yen, rial, or whatever currency. DO IT! Click the button. I'm bored out of my mind. I need some action. " + \
+            " I think I may have a gambling problem which is why I'm a wealth manager. I know...I may be a computer...but I'm addicted to the thrill. " + \
+            "Oh well, I'll still be your money manager. Now, let's make some money so we can both release endorphins...metaphorically in my case of course."
 
             cash_sell = cash
             account_sell = account
@@ -579,7 +587,7 @@ def trade_text():
 
         result = answer
 
-        portfolio = [[security, str(price), '$0.00', '0.00%', str(shares), str(price)], [str(account)],[str(cash)]]
+        portfolio = [[security, str(price), '$0.00', '0.00%', str(shares), str(price)], [str(total)],[str(cash)]]
         print(phrase1)
         if any(word in phrase1 for word in sell_trade):
 
@@ -667,7 +675,14 @@ def trade_text():
                     result = ""
                     sell = 'yes'
                     portfolio = [[security, str(price), '$0.00', '0.00%', str(shares_port - int(shares)), str(initial_inves_amount)], [str(account)],[str(cash)]]
-                    yara_text = "You are selling " + str(shares) + " shares of " + security + " at a price of " + str(price) + ". Changes reflected in your portfolio."
+                    yara_text = ('<b>'"You are " + buy_or_sell.lower() + "ing " + str(shares) + " shares of " + security.upper() + " at a price of " + price + \
+                              " for $" + "{0:,.2f}".format(invest_amt) + " . I will round down on the shares if funds don't meet the order requirements. If this is correct, please confirm order." + '<br />' + '<br />' + \
+                              "Security: " + security.upper() + '<br />' +
+                              "Buy or Sell: " + buy_or_sell + '<br /  >' +
+                              "Order Type: " + order_type_send + '<br />' +
+                              "Price: " + price + '<br />' +
+                              "Shares: " + str(shares) + '<br />' +
+                              "Investment Amount: $" + "{0:,.2f}".format(invest_amt)) + '<b/>'
                     test = "$"+"{0:,.2f}".format(invest_amt)
                     result = ("You are " + buy_or_sell.lower() + "ing " + str(shares) + " shares of " + security.upper() + " at a price of " + price + \
                               " for $" + "{0:,.2f}".format(invest_amt) + " . I will round down on the shares if funds don't meet the order requirements. If this is correct, please confirm order." + '<br />' + '<br />' + \
