@@ -96,6 +96,7 @@ $(document).ready(function() {
                     //$('.tradeButton').trigger("click");
                     modalbutton.modal({
                         content: text,
+                        cache: false,
                         // refresh:true;
                         confirm: {
                             text: 'Ok',
@@ -103,9 +104,16 @@ $(document).ready(function() {
                         },
                     });
                     modalbutton.openModal();
+                    modalbutton.dialog('destroy').remove();
+                    $('body').on('hidden.bs.modal', '.modal', function () {
+                    $(this).removeData('bs.modal');
+                    });
+
                 }
             }
         });
+        modalbutton.dialog('destroy').remove();
+        modalbutton.removeData();
     });
 });
 $(document).ready(function() {
@@ -201,9 +209,10 @@ $(document).ready(function() {
                 }
                 console.log(portfolio);
                 if (text != "") {
-                    //$('.trade-modal-opener').trigger("click");
+                    // $('.trade-modal-opener').trigger("click");
                     modalbutton.modal({
                         content: text,
+                        cache: false,
                         confirm: {
                             text: 'Ok',
                             link: ''
