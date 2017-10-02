@@ -285,7 +285,7 @@ def trade_text():
 
     buy_trade = ['BUY','buuy','Buuy','byu','Byu','Purchase', 'purchase', 'trade', 'invest', 'place', 'buy', 'by', 'long', 'Long', 'Lawn', 'lawn', 'Lon',
                  'Buy']
-    sell_trade = ['top','south ','tell ','sell', 'Sell', 'so ',' so', 'So',' So', 'Settle', 'settle', 'sel', 'Sel']
+    sell_trade = ['Psalm','top','south ','tell ','sell', 'Sell', 'so ',' so', 'So',' So', 'Settle', 'settle', 'sel', 'Sel']
     short_trade = ['shrot','Shrot','short', 'Short', 'Shore', 'shore', 'Shor', 'shor']
     market_order = ['amrket','makret','Makret','market', 'current', 'Market', 'Current', 'at Market', 'at market', '@ Market', '@ market']
     limit_order = ['limit', 'when', '@', ' at','at ','At ',' +']
