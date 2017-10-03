@@ -124,7 +124,7 @@ def trade_text():
 
     tickers_check = ['AAPL', 'NKE', 'MSFT', 'WMT']
 
-    Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
+    Dow_Jones = ['finish line','finl','intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
                  ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna', 'allstate', 'tea',
                  'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak', 'chesapeka', 'Chipotle',
                  'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city', 'sea', 'citigroup', 'colgate',
@@ -211,7 +211,7 @@ def trade_text():
                  'csco', 'coke', 'dis',
                  'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d', ' f',
                  ' k', ' m', ' r',' ni']
-    DJ_Name_Match = ['intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal', 'afl',
+    DJ_Name_Match = ['finl','finl','intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal', 'afl',
                      'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk', 'chk',
                      'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop', 'cop', 'cop',
                      'dva', 'dva', 'dva', 'dva', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'etfc', 'dps', 'fdx', 'f',
@@ -1038,7 +1038,7 @@ def analysis():
 
     whatif = ['open dresser','find','what if','affected','investmnet','invetsment','invetsing','invets','investing','Investing','invets','Invets','What if','what if','waht if','Waht if','happen','affect','Affect','good','investment','Investment','invest','Invest','invested','Invested']
 
-    Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
+    Dow_Jones = ['finish line','finl','intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
                  ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna', 'allstate', 'tea',
                  'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak', 'chesapeka', 'Chipotle',
                  'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city', 'sea', 'citigroup', 'colgate',
@@ -1150,7 +1150,7 @@ def analysis():
 
     elif any(word in phrase1.upper() for word in Dow_Jones) and any(word in phrase1 for word in ratings):
 
-        DJ_Name_Match = ['intc', 'mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal',
+        DJ_Name_Match = ['finl','finl','intc', 'mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal',
                          'aal', 'afl',
                          'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk',
                          'chk',
@@ -1312,7 +1312,7 @@ def analysis():
         STD_usr_Port = 0
 
     elif any(word in phrase1.upper() for word in Dow_Jones) and any(word in phrase1 for word in earnings):
-        Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
+        Dow_Jones = ['finl','finish line','intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
                      'apache', ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna',
                      'allstate', 'tea', 'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak',
                      'chesapeka', 'Chipotle', 'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city',
@@ -1402,7 +1402,7 @@ def analysis():
                      'cvx', 'csco', 'coke', 'dis',
                      'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d',
                      ' f', ' k', ' l', ' m', ' r',' ni',' ea']
-        DJ_Name_Match = ['intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal',
+        DJ_Name_Match = ['finl','finl','intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal',
                          'afl', 'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci',
                          'chk', 'chk', 'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop',
                          'cop', 'cop', 'dva', 'dva', 'dva', 'dva', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'etfc',
@@ -1646,7 +1646,7 @@ def analysis():
         all_commands = ['dollars', 'Dollars', '$', 'total', 'across', 'all', 'each', 'every', 'average', 'Average',
                         'percent', 'Percent']
 
-        Dow_Jones = ['intel', 'M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
+        Dow_Jones = ['finl','finl','intel', 'M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
                      'apache',
                      ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna', 'allstate',
                      'tea',
@@ -1757,7 +1757,7 @@ def analysis():
                      'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d',
                      ' f',
                      ' k', ' m', ' r', ' ni']
-        DJ_Name_Match = ['intc', 'mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal',
+        DJ_Name_Match = ['finl','finl','intc', 'mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal',
                          'aal', 'afl',
                          'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk',
                          'chk',
