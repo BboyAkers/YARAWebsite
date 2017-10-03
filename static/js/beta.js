@@ -115,114 +115,114 @@ $(document).ready(function() {
         // modalbutton.removeData();
     });
 });
-$(document).ready(function() {
-    $("#tradeInputMic").click(function(){
-        event.preventDefault();
-        $("#tradeText").val("Speak into the microphone!");
-        $(".tradeResponse").html("Give me a second after your speak. Running analysis.");
-        // var modalbutton = $('.trade-modal-opener');
-        $.ajax({
-            type: 'POST',
-            url: '/trade',
-            data: {
-                trade: $("#tradeText").val(),
-                cash: $("#cash").html(),
-                total: $("#total").html()
-            },
-            success: function(result) {
-                text = result.resultpopup;
-                yara = result.yararesponse;
-                portfolio = result.portfoliotable;
-                stock = result.stock;
-                price = result.price;
-                amount = result.amount;
-                shares = result.shares;
-                cash = result.cash;
-                total = result.total;
-                dollarchange = result.dollarchange;
-                percentchange = result.percentchange;
-                sell = result.sell;
-                ticker = portfolio[0][0];
-                port_price = portfolio[0][1];
-                initial_inve_amount = portfolio[0][5];
-                cash_port = portfolio[2][0];
-                total = portfolio[1][0];
-                console.log(portfolio[0]);
-                console.log(portfolio[1]);
-                console.log(cash_port);
-                if (ticker == 'AAPL' && sell == 'yes') {
-                    $("#tradeResponse").html(yara);
-                    $("#AAPLstock").html(ticker.bold());
-                    $("#AAPLprice").html(price.bold());
-                    $("#AAPLdollarchange").html('$622.40'.bold());
-                    $("#AAPLpercentchange").html('25.46%'.bold());
-                    $("#AAPLshares").html(portfolio[0][4].bold());
-                    $("#AAPLpurchase").html('$122.23'.bold());
-                    $("#AAPLamount").html(initial_inve_amount.bold());
-                    $("#cash").html(cash_port.bold());
-                    $("#total").html(total.bold());
-                } else if (ticker == 'NKE' && sell == 'yes') {
-                    $("#tradeResponse").html(yara);
-                    $("#NKEstock").html(ticker.bold());
-                    $("#NKEprice").html(port_price.bold());
-                    $("#NKEdollarchange").html('$2,783.10'.bold());
-                    $("#NKEpercentchange").html('12.57%'.bold());
-                    $("#NKEshares").html(portfolio[0][4].bold());
-                    $("#NKEpurchase").html('$92.77'.bold());
-                    $("#NKEamount").html(initial_inve_amount.bold());
-                    $("#cash").html(cash_port.bold());
-                    $("#total").html(total.bold());
-                } else if (ticker == 'MSFT' && sell == 'yes') {
-                    $("#tradeResponse").html(yara);
-                    $("#MSFTstock").html(ticker.bold());
-                    $("#MSFTprice").html(port_price.bold());
-                    $("#MSFTdollarchange").html('$1,219.80'.bold());
-                    $("#MSFTpercentchange").html('21.30%'.bold());
-                    $("#MSFTshares").html(portfolio[0][4].bold());
-                    $("#MSFTpurchase").html('$60.99'.bold());
-                    $("#MSFTamount").html(initial_inve_amount.bold());
-                    $("#cash").html(cash_port.bold());
-                    $("#total").html(total.bold());
-                } else if (ticker == 'WMT' && sell == 'yes') {
-                    $("#tradeResponse").html(yara);
-                    $("#WMTstock").html(ticker.bold());
-                    $("#WMTprice").html(port_price.bold());
-                    $("#WMTdollarchange").html('$1,718.28'.bold());
-                    $("#WMTpercentchange").html('23.95%'.bold());
-                    $("#WMTshares").html(portfolio[0][4].bold());
-                    $("#WMTpurchase").html('$63.64'.bold());
-                    $("#WMTamount").html(initial_inve_amount.bold());
-                    $("#cash").html(cash_port.bold());
-                    $("#total").html(total.bold());
-                } else{
-                    $("#tradeResponse").html(yara);
-                    $("#stock").html(stock.bold());
-                    $("#price").html(price.bold());
-                    $("#amount").html(amount.bold());
-                    $("#shares").html(shares.bold());
-                    $("#cash").html(cash.bold());
-                    $("#total").html(total.bold());
-                    $("#purchase").html(price.bold());
-                    $("#dollarchange").html(dollarchange.bold());
-                    $("#percentchange").html(percentchange.bold());
-                }
-                console.log(portfolio);
-                if (text != "") {
-                    // $('.trade-modal-opener').trigger("click");
-                    // modalbutton.modal({
-                    //     content: text,
-                    //     cache: false,
-                    //     confirm: {
-                    //         text: 'Ok',
-                    //         link: ''
-                    //     }
-                    // });
-                    // modalbutton.openModal();
-                }
-            }
-        });
-    });
-});
+// $(document).ready(function() {
+//     $("#tradeInputMic").click(function(){
+//         event.preventDefault();
+//         $("#tradeText").val("Speak into the microphone!");
+//         $(".tradeResponse").html("Give me a second after your speak. Running analysis.");
+//         // var modalbutton = $('.trade-modal-opener');
+//         $.ajax({
+//             type: 'POST',
+//             url: '/trade',
+//             data: {
+//                 trade: $("#tradeText").val(),
+//                 cash: $("#cash").html(),
+//                 total: $("#total").html()
+//             },
+//             success: function(result) {
+//                 text = result.resultpopup;
+//                 yara = result.yararesponse;
+//                 portfolio = result.portfoliotable;
+//                 stock = result.stock;
+//                 price = result.price;
+//                 amount = result.amount;
+//                 shares = result.shares;
+//                 cash = result.cash;
+//                 total = result.total;
+//                 dollarchange = result.dollarchange;
+//                 percentchange = result.percentchange;
+//                 sell = result.sell;
+//                 ticker = portfolio[0][0];
+//                 port_price = portfolio[0][1];
+//                 initial_inve_amount = portfolio[0][5];
+//                 cash_port = portfolio[2][0];
+//                 total = portfolio[1][0];
+//                 console.log(portfolio[0]);
+//                 console.log(portfolio[1]);
+//                 console.log(cash_port);
+//                 if (ticker == 'AAPL' && sell == 'yes') {
+//                     $("#tradeResponse").html(yara);
+//                     $("#AAPLstock").html(ticker.bold());
+//                     $("#AAPLprice").html(price.bold());
+//                     $("#AAPLdollarchange").html('$622.40'.bold());
+//                     $("#AAPLpercentchange").html('25.46%'.bold());
+//                     $("#AAPLshares").html(portfolio[0][4].bold());
+//                     $("#AAPLpurchase").html('$122.23'.bold());
+//                     $("#AAPLamount").html(initial_inve_amount.bold());
+//                     $("#cash").html(cash_port.bold());
+//                     $("#total").html(total.bold());
+//                 } else if (ticker == 'NKE' && sell == 'yes') {
+//                     $("#tradeResponse").html(yara);
+//                     $("#NKEstock").html(ticker.bold());
+//                     $("#NKEprice").html(port_price.bold());
+//                     $("#NKEdollarchange").html('$2,783.10'.bold());
+//                     $("#NKEpercentchange").html('12.57%'.bold());
+//                     $("#NKEshares").html(portfolio[0][4].bold());
+//                     $("#NKEpurchase").html('$92.77'.bold());
+//                     $("#NKEamount").html(initial_inve_amount.bold());
+//                     $("#cash").html(cash_port.bold());
+//                     $("#total").html(total.bold());
+//                 } else if (ticker == 'MSFT' && sell == 'yes') {
+//                     $("#tradeResponse").html(yara);
+//                     $("#MSFTstock").html(ticker.bold());
+//                     $("#MSFTprice").html(port_price.bold());
+//                     $("#MSFTdollarchange").html('$1,219.80'.bold());
+//                     $("#MSFTpercentchange").html('21.30%'.bold());
+//                     $("#MSFTshares").html(portfolio[0][4].bold());
+//                     $("#MSFTpurchase").html('$60.99'.bold());
+//                     $("#MSFTamount").html(initial_inve_amount.bold());
+//                     $("#cash").html(cash_port.bold());
+//                     $("#total").html(total.bold());
+//                 } else if (ticker == 'WMT' && sell == 'yes') {
+//                     $("#tradeResponse").html(yara);
+//                     $("#WMTstock").html(ticker.bold());
+//                     $("#WMTprice").html(port_price.bold());
+//                     $("#WMTdollarchange").html('$1,718.28'.bold());
+//                     $("#WMTpercentchange").html('23.95%'.bold());
+//                     $("#WMTshares").html(portfolio[0][4].bold());
+//                     $("#WMTpurchase").html('$63.64'.bold());
+//                     $("#WMTamount").html(initial_inve_amount.bold());
+//                     $("#cash").html(cash_port.bold());
+//                     $("#total").html(total.bold());
+//                 } else{
+//                     $("#tradeResponse").html(yara);
+//                     $("#stock").html(stock.bold());
+//                     $("#price").html(price.bold());
+//                     $("#amount").html(amount.bold());
+//                     $("#shares").html(shares.bold());
+//                     $("#cash").html(cash.bold());
+//                     $("#total").html(total.bold());
+//                     $("#purchase").html(price.bold());
+//                     $("#dollarchange").html(dollarchange.bold());
+//                     $("#percentchange").html(percentchange.bold());
+//                 }
+//                 console.log(portfolio);
+//                 if (text != "") {
+//                     // $('.trade-modal-opener').trigger("click");
+//                     // modalbutton.modal({
+//                     //     content: text,
+//                     //     cache: false,
+//                     //     confirm: {
+//                     //         text: 'Ok',
+//                     //         link: ''
+//                     //     }
+//                     // });
+//                     // modalbutton.openModal();
+//                 }
+//             }
+//         });
+//     });
+// });
 
 
 
@@ -248,27 +248,27 @@ $(document).ready(function() {
     });
 
 
-$(document).ready(function() {
-    $("#managementInputMic").click(function(event){
-        event.preventDefault();
-        $("#managementText").val("Speak into the microphone!");
-        $(".managementResponse").html("Give me a second after your speak. Running analysis.");
-        $.ajax({
-            type: 'POST',
-            url: '/management',
-            data: {
-                management: $("#managementText").val()
-            },
-            success: function(result) {
-                console.log();
-                //text = result.resultpopup;
-                yara = result.yararesponse;
-                //portfolio = result.portfoliotable;
-                $(".managementResponse").html(yara);
-                }
-            });
-        });
-    });
+// $(document).ready(function() {
+//     $("#managementInputMic").click(function(event){
+//         event.preventDefault();
+//         $("#managementText").val("Speak into the microphone!");
+//         $(".managementResponse").html("Give me a second after your speak. Running analysis.");
+//         $.ajax({
+//             type: 'POST',
+//             url: '/management',
+//             data: {
+//                 management: $("#managementText").val()
+//             },
+//             success: function(result) {
+//                 console.log();
+//                 //text = result.resultpopup;
+//                 yara = result.yararesponse;
+//                 //portfolio = result.portfoliotable;
+//                 $(".managementResponse").html(yara);
+//                 }
+//             });
+//         });
+//     });
 
     // The modal pop up window
 

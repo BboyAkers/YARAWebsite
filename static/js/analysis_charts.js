@@ -60,54 +60,54 @@ $(document).ready(function() {
     });
 
 
-$(document).ready(function() {
-    $("#analysisInputMic").click(function(event){
-        event.preventDefault();
-        $("#analysisText").val("Speak into the microphone!");
-        $(".analysisResponse").html("Give me a second after your speak. Running analysis.");
-        $.ajax({
-            type: 'POST',
-            url: '/analysis',
-            data: {
-                analysis: $("#analysisText").val()
-            },
-            success: function(result) {
-                //text = result.resultpopup;
-                yara = result.yararesponse;
-                array = result.array;
-                number = result.number;
-                buy = result.Buy;
-                hold = result.Hold;
-                sell = result.Sell;
-                q1 = result.q1;
-                q2 = result.q2;
-                q3 = result.q3;
-                q4 = result.q4;
-                date = result.date;
-                stock = result.stock;
-                sharperatio_user = result.sharpeuser;
-                sharperatio_new = result.sharpewhatif;
-                totalreturn_new = result.total_return_new;
-                totalreturn_user = result.total_return_usr;
-                stdport_new = result.STD_Port_new;
-                stdport_user = result.STD_usr_Port;
-                //portfolio = result.portfoliotable;
-                console.log(yara);
-                $("#analysisResponse").html(yara);
-                if (number == 0) {
-                    drawAxisTickColors(buy, hold, sell, stock)
-                } else if (number == 1) {
-                    drawMultSeries(q1,q2,q3,q4,stock);
-                } else if (number == 2) {
-                    drawBasic(array);
-                } else if (number == 7) {
-                    drawSeriesChart(sharperatio_user,sharperatio_new,totalreturn_new,totalreturn_user,stdport_new,stdport_user)
-                }
-                //drawBasic(array);
-                }
-            });
-        });
-    });
+// $(document).ready(function() {
+//     $("#analysisInputMic").click(function(event){
+//         event.preventDefault();
+//         $("#analysisText").val("Speak into the microphone!");
+//         $(".analysisResponse").html("Give me a second after your speak. Running analysis.");
+//         $.ajax({
+//             type: 'POST',
+//             url: '/analysis',
+//             data: {
+//                 analysis: $("#analysisText").val()
+//             },
+//             success: function(result) {
+//                 //text = result.resultpopup;
+//                 yara = result.yararesponse;
+//                 array = result.array;
+//                 number = result.number;
+//                 buy = result.Buy;
+//                 hold = result.Hold;
+//                 sell = result.Sell;
+//                 q1 = result.q1;
+//                 q2 = result.q2;
+//                 q3 = result.q3;
+//                 q4 = result.q4;
+//                 date = result.date;
+//                 stock = result.stock;
+//                 sharperatio_user = result.sharpeuser;
+//                 sharperatio_new = result.sharpewhatif;
+//                 totalreturn_new = result.total_return_new;
+//                 totalreturn_user = result.total_return_usr;
+//                 stdport_new = result.STD_Port_new;
+//                 stdport_user = result.STD_usr_Port;
+//                 //portfolio = result.portfoliotable;
+//                 console.log(yara);
+//                 $("#analysisResponse").html(yara);
+//                 if (number == 0) {
+//                     drawAxisTickColors(buy, hold, sell, stock)
+//                 } else if (number == 1) {
+//                     drawMultSeries(q1,q2,q3,q4,stock);
+//                 } else if (number == 2) {
+//                     drawBasic(array);
+//                 } else if (number == 7) {
+//                     drawSeriesChart(sharperatio_user,sharperatio_new,totalreturn_new,totalreturn_user,stdport_new,stdport_user)
+//                 }
+//                 //drawBasic(array);
+//                 }
+//             });
+//         });
+//     });
 
 
 

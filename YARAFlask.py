@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
-from gtts import gTTS
-import speech_recognition as sr
+# from gtts import gTTS
+# import speech_recognition as sr
 import os
 import re
 import pandas as pd
@@ -21,24 +21,24 @@ app = Flask(__name__)
 
 quandl.ApiConfig.api_key = "xnMXp_xPythdSbphupf1"
 
-r = sr.Recognizer()
+# r = sr.Recognizer()
 
 username = getpass.getuser()
 
 # nyse = pd.DataFrame.from_csv('/Users/' + username + '/Desktop/Defensive_Portfolio/NYSE_Returns_3.csv', )
 
-GOOGLE_CLOUD_SPEECH_CREDENTIALS = r"""{
-  "type": "service_account",
-  "project_id": "blissful-link-150904",
-  "private_key_id": "efa1a743bce7321dad07cb8c5ef88c07384f8dea",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCmMsXmEkDNlGnL\nN8eXm9RaepsTkSyCA/mnku9HokUwke1UJyi4hh2y2oL3w1sFI0L3SZKxKkYuMjdS\n/v/uXwTA/iY9R0tc8h2VRP+DQmFFQ8zdKfZIdC5PVFER3zyFFhKaQ/pYBp/dnVCI\nYhFN+q3gS3AlPcqhLLwd0s4RLQha+wQ55WV+MwdchhiMyEkKY4zm+giOUGfZKrbe\nRC9iDJEiS174KEythn8Dgog1Y7mKS4iwjnMqO+Hn6sX8hu8M+/BsnrW4AKmjMizn\nCI4gJo2E2aBJQKaF1qbZMJ22wcRWAqb50dM3Tla61s+zj5UXafTkKqM6dR+f5iJo\nYFmlDOQnAgMBAAECggEAJ6iM9aocYZINLqt4SrKqGQ8RqzkkpD+7lqOmynKrzPu9\nZKvVeTazpoai4ulwckjoRWb+hJ0gUwyzi/ACdUiiM0VSLaQyFRNHQOPOju1LlcIo\nhAvr0305wb9OexPIdr9+H+ahudiW1ESiP3EbTP7I9/E4aQKWNCCfIQS5HHsg98h0\n1RrCftGvSdBI2uX+kssXMtEvoDV36r+zDuzhDPn+irsDe88LM87Dmx7jOU9Vclux\nnhR62My/J+gc8P0xTMit8L3GQ8uH5QZlOEolcweYPTTP5kV+X5pEKu2ZnmLS7iz+\nVzf0UxQOn4YzW5LjxzK7iw6DzGJn+O8G8Xt32PWjnQKBgQDRgyP/TCdiduCeyDb+\nfr73L/yn08uZZbGcSPexP2RQ0lsvaECDbifPKcyb2rUwQxEoNHVSWe5QM93qeMp+\nkATQKdd1GgT9vYdF9vM5qX+GmIvkdnBoITb0KsKXfkjl/tPEktny/OMpCfbSCwKT\ntXMoqdOCndlitlhaOD0zIU9MjQKBgQDLE0jZlddjyTX0CAOJcSMuZeEGtEvzrkWM\n1aZUtKSTbTC0PiM1YYz5Xo1YTVCaD/gi/KYn2zhc2+HCFRT0ZZbqrOilldN44StY\nG5i6E5TT2jS4BCEf86UcqjGcTs9L0nlVj4k/aQJb5tU4rwExYK3IxOTTxfakYGQM\njnyGQ1mYgwKBgGu2/qTc5ErNT4KS8SM6yrePZlhqnXyKOhxdr2rjapHa9KKU+MYZ\ntkHd/aILeagMcx+2iLMEJW/6mpdX7tPO+4qCWJGOBQ7niErCQh5dNIFgoFufQP9o\nRDaYXV9Bv/zvXLTtwzwYJDoPM2Sd4H9MhJ5dYa7/tKn5kccgruZAs+JpAoGBAJE0\nh9m1T971B9QnSsgjEsHhbSbLEqf6S5bpSda1mBwmbjXjXG+WAiRpHG4wUlrm4km6\nF+DV2pZjTyjkxCgA4AmLe4qy+BQuBT0p9mnPCJL3Ks0NftYG9F/rvi+DFqyjocix\nKrUhk+M8yeePEy5Ib9roFqrqmXJtzfxAgf/K9qybAoGBAJdEzJTFXmBs7CAvoNFw\nri5Dmp0m/8erjIDyNgwC12K2croNcWxwlJBs9z73vAxroRyuJf3YVkaNokjb8ioG\nlxFpQWFJT20hcz7tnXsxYMMrKBJ1jvYOe4uCh9VFHYaVsGEUXDoPOW5AJCSgL0N5\nb6+TEMToTmFtoa004M/zmx94\n-----END PRIVATE KEY-----\n",
-  "client_email": "speech-recognition@blissful-link-150904.iam.gserviceaccount.com",
-  "client_id": "114672531641437482323",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://accounts.google.com/o/oauth2/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-recognition%40blissful-link-150904.iam.gserviceaccount.com"
-}"""
+# GOOGLE_CLOUD_SPEECH_CREDENTIALS = r"""{
+#   "type": "service_account",
+#   "project_id": "blissful-link-150904",
+#   "private_key_id": "efa1a743bce7321dad07cb8c5ef88c07384f8dea",
+#   "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCmMsXmEkDNlGnL\nN8eXm9RaepsTkSyCA/mnku9HokUwke1UJyi4hh2y2oL3w1sFI0L3SZKxKkYuMjdS\n/v/uXwTA/iY9R0tc8h2VRP+DQmFFQ8zdKfZIdC5PVFER3zyFFhKaQ/pYBp/dnVCI\nYhFN+q3gS3AlPcqhLLwd0s4RLQha+wQ55WV+MwdchhiMyEkKY4zm+giOUGfZKrbe\nRC9iDJEiS174KEythn8Dgog1Y7mKS4iwjnMqO+Hn6sX8hu8M+/BsnrW4AKmjMizn\nCI4gJo2E2aBJQKaF1qbZMJ22wcRWAqb50dM3Tla61s+zj5UXafTkKqM6dR+f5iJo\nYFmlDOQnAgMBAAECggEAJ6iM9aocYZINLqt4SrKqGQ8RqzkkpD+7lqOmynKrzPu9\nZKvVeTazpoai4ulwckjoRWb+hJ0gUwyzi/ACdUiiM0VSLaQyFRNHQOPOju1LlcIo\nhAvr0305wb9OexPIdr9+H+ahudiW1ESiP3EbTP7I9/E4aQKWNCCfIQS5HHsg98h0\n1RrCftGvSdBI2uX+kssXMtEvoDV36r+zDuzhDPn+irsDe88LM87Dmx7jOU9Vclux\nnhR62My/J+gc8P0xTMit8L3GQ8uH5QZlOEolcweYPTTP5kV+X5pEKu2ZnmLS7iz+\nVzf0UxQOn4YzW5LjxzK7iw6DzGJn+O8G8Xt32PWjnQKBgQDRgyP/TCdiduCeyDb+\nfr73L/yn08uZZbGcSPexP2RQ0lsvaECDbifPKcyb2rUwQxEoNHVSWe5QM93qeMp+\nkATQKdd1GgT9vYdF9vM5qX+GmIvkdnBoITb0KsKXfkjl/tPEktny/OMpCfbSCwKT\ntXMoqdOCndlitlhaOD0zIU9MjQKBgQDLE0jZlddjyTX0CAOJcSMuZeEGtEvzrkWM\n1aZUtKSTbTC0PiM1YYz5Xo1YTVCaD/gi/KYn2zhc2+HCFRT0ZZbqrOilldN44StY\nG5i6E5TT2jS4BCEf86UcqjGcTs9L0nlVj4k/aQJb5tU4rwExYK3IxOTTxfakYGQM\njnyGQ1mYgwKBgGu2/qTc5ErNT4KS8SM6yrePZlhqnXyKOhxdr2rjapHa9KKU+MYZ\ntkHd/aILeagMcx+2iLMEJW/6mpdX7tPO+4qCWJGOBQ7niErCQh5dNIFgoFufQP9o\nRDaYXV9Bv/zvXLTtwzwYJDoPM2Sd4H9MhJ5dYa7/tKn5kccgruZAs+JpAoGBAJE0\nh9m1T971B9QnSsgjEsHhbSbLEqf6S5bpSda1mBwmbjXjXG+WAiRpHG4wUlrm4km6\nF+DV2pZjTyjkxCgA4AmLe4qy+BQuBT0p9mnPCJL3Ks0NftYG9F/rvi+DFqyjocix\nKrUhk+M8yeePEy5Ib9roFqrqmXJtzfxAgf/K9qybAoGBAJdEzJTFXmBs7CAvoNFw\nri5Dmp0m/8erjIDyNgwC12K2croNcWxwlJBs9z73vAxroRyuJf3YVkaNokjb8ioG\nlxFpQWFJT20hcz7tnXsxYMMrKBJ1jvYOe4uCh9VFHYaVsGEUXDoPOW5AJCSgL0N5\nb6+TEMToTmFtoa004M/zmx94\n-----END PRIVATE KEY-----\n",
+#   "client_email": "speech-recognition@blissful-link-150904.iam.gserviceaccount.com",
+#   "client_id": "114672531641437482323",
+#   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+#   "token_uri": "https://accounts.google.com/o/oauth2/token",
+#   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+#   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-recognition%40blissful-link-150904.iam.gserviceaccount.com"
+# }"""
 
 
 @app.route('/')
@@ -58,15 +58,17 @@ def trade_text():
 
     print(cash_html)
     print(total_html)
-    if text == "Speak into the microphone!":
-        with sr.Microphone() as source:
-            tts = gTTS("Tell me your trade order")
-            tts.save("good.mp3")
-            os.system("mpg321 good.mp3")
-            audio = r.listen(source)
-            phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
-    else:
-        phrase1 = text
+    # if text == "Speak into the microphone!":
+    #     with sr.Microphone() as source:
+    #         tts = gTTS("Tell me your trade order")
+    #         tts.save("good.mp3")
+    #         os.system("mpg321 good.mp3")
+    #         audio = r.listen(source)
+    #         phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
+    # else:
+    #     phrase1 = text
+
+    phrase1 = text
 
     cash_html = list(re.search(r'([£$€$ ])(\d+(?:\,\d{3})?)', cash_html).groups())
     cash_html = float(cash_html[1].replace(',', ''))
@@ -716,20 +718,22 @@ def management():
 
     text = request.form['management']
 
-    if text == "Speak into the microphone!":
-        with sr.Microphone() as source:
-            tts = gTTS("How would you like me to manage your portfolio")
-            tts.save("good.mp3")
-            os.system("mpg321 good.mp3")
-            audio = r.listen(source)
-            phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
-    else:
-        phrase1 = text
+    # if text == "Speak into the microphone!":
+    #     with sr.Microphone() as source:
+    #         tts = gTTS("How would you like me to manage your portfolio")
+    #         tts.save("good.mp3")
+    #         os.system("mpg321 good.mp3")
+    #         audio = r.listen(source)
+    #         phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
+    # else:
+    #     phrase1 = text
+
+    phrase1 = text
 
     print(phrase1)
     diversify = ['Trailer Supply','first of all','Forza 5','diversificaton','Diversificaton','divrsification','Divrsification','dvirsify','dvirsify','diversificaiton','Diversificaiton','diversification','Diversification','diversigy','Diversigy','diversirty','Diversirty','diversiy','Diversiy','diversity','Diversity','Diversify','diversify','Diversification','diversification','Diversfiyy','diversify','iversify','dversify','Dversify',]
 
-    rebalance = ['Ramones','balance','Henry Bounce','carry balance','cherry-bounce','rabalnce','Rabalnce','rebaalnce','Rebaalnce','reabalcne','reabalcne','reblance','Reblance','rbalance','Rbalance','rebaalnce','Rebaalnce','reabalance','Reabalance','realance','Realance','rebalance','Rebalance']
+    rebalance = ['revalance','Ramones','balance','Henry Bounce','carry balance','cherry-bounce','rabalnce','Rabalnce','rebaalnce','Rebaalnce','reabalcne','reabalcne','reblance','Reblance','rbalance','Rbalance','rebaalnce','Rebaalnce','reabalance','Reabalance','realance','Realance','rebalance','Rebalance']
 
     optimize = ["tomorrow's",'customize','each','much','better','make','beter','optmize','optiimize','Optiimize','optimize', 'Optimize','optimzie','Optimzie','optimze','Optimze','optimzie','Optimzie']
 
@@ -1011,19 +1015,21 @@ def analysis():
 
     text = request.form['analysis']
 
-    if text == "Speak into the microphone!":
-        with sr.Microphone() as source:
-            tts = gTTS("What type of analysis do you want")
-            tts.save("good.mp3")
-            os.system("mpg321 good.mp3")
-            audio = r.listen(source)
-            phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
-    else:
-        phrase1 = text
+    # if text == "Speak into the microphone!":
+    #     with sr.Microphone() as source:
+    #         tts = gTTS("What type of analysis do you want")
+    #         tts.save("good.mp3")
+    #         os.system("mpg321 good.mp3")
+    #         audio = r.listen(source)
+    #         phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
+    # else:
+    #     phrase1 = text
+
+    phrase1 = text
 
     print(phrase1)
 
-    backtest = ['what test','blood test','BAC test','back to','backpacks','backpack','back packs','back pack','against','would','perform','bath test','black test','Black Test','Black test','black Test','back test','Back test','Back Test','back Test','backest','Backest','baktest','Baktest','backest','Backest','bcacktest','Bcacktest','backtes','Backtes','bcktest','Bcktest','bakctes','Bakctes','bakctest','Bakctest','bactest','Bactest','backtet','Backtet','backtestnig','Backtestnig','backtset','Backtset','backtest','Backtest','backtesting','Backtesting','bakctest','Bakctest']
+    backtest = ['nacktest','what test','blood test','BAC test','back to','backpacks','backpack','back packs','back pack','against','would','perform','bath test','black test','Black Test','Black test','black Test','back test','Back test','Back Test','back Test','backest','Backest','baktest','Baktest','backest','Backest','bcacktest','Bcacktest','backtes','Backtes','bcktest','Bcktest','bakctes','Bakctes','bakctest','Bakctest','bactest','Bactest','backtet','Backtet','backtestnig','Backtestnig','backtset','Backtset','backtest','Backtest','backtesting','Backtesting','bakctest','Bakctest']
 
     ratings = ['exper t','rarings','Rarings','ratins','Ratins','ecpert','Ecpert','expret','Expret','expert','Expert','opinon','Opinon','opionons','Opionons','opinioins','Opinioins','opinona','Opinona','opinons','Opinons','opinoins','Opinoins','Optinions','optinions','Opinions','opinions','expertes','Expertes','exeprts','Exeprts','Experts','experts','Ratigs', 'ratigs', 'rartings', 'Rartings', 'ratings', 'Ratings', 'rating', 'Rating', 'rarting',
                'Rarting', 'raring', 'Raring', 'ratign', 'Ratign', 'ratigns', 'Ratign']
