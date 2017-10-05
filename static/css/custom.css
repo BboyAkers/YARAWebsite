@@ -12,7 +12,7 @@
 .table
 {
     top: 370px;
-    position: absolute;
+    /*position: absolute;*/
     /*margin-top:300px;*/
 
 }
@@ -21,7 +21,7 @@
 {
     top: 330px;
     /*margin-top: 345px;*/
-    position: absolute;
+    /*position: absolute;*/
     margin-left: 32%;
     /*text-align: center;*/
 }

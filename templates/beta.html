@@ -108,12 +108,39 @@
         </div>
     </div>
 </header>
-<div class="jumbotron">
-    <a name="home"></a>
-    <div class="slides">
-        <div class="parallax-mainpage">
-            <h1 style="position: absolute; width: 100%; text-align: center; top:55%; color:white;"
-                class="text-center display-1">Yara Awaits. Well..Not Full Yara. <br><br>Try the Live Demo Below.</h1>
+
+<div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div style="background-image: url(' static/img/neuron_lower_brightness.jpg'); background-position: center; background-size:cover; width: 100vw; height: 100vh; display: flex; justify-content: center; flex-flow: column">
+                        <div style="padding-left: 10%">
+                            <h1 class="tp-caption custom-secondary-font font-weight-bold text-color-light"
+                                style="margin: 0">Your Personal
+                                A.I.</h1>
+                            <div class="tp-caption custom-secondary-font font-weight-bold text-color-light"
+                                 style="font-size: 42px; visibility: inherit; transition: none; text-align: inherit;
+                             line-height: 1.1em; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px;
+                             min-height: 0px; min-width: 0px; max-height: none; max-width: none;
+                              opacity: 1;">
+                                Wealth Management Platform
+                            </div>
+                            <div>
+                                <h1 class="tp-caption custom-secondary-font font-weight-bold text-color-light" style="font-size: 32px; visibility: inherit;
+                            transition: none; text-align: inherit; line-height: 1.1em; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: -1px;
+                            min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1;">First 100
+                                    people to sign up for beta will receive Yara free for 6 months at full release!</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{#<div class="jumbotron">#}
+{#    <a name="home"></a>#}
+{#    <div class="slides">#}
+{#        <div class="parallax-mainpage">#}
+{#            <h1 style="position: absolute; width: 100%; text-align: center; top:55%; color:white;"#}
+{#                class="text-center display-1">Yara Awaits. Well..Not Full Yara. <br><br>Try the Live Demo Below.</h1>#}
             {#            <div class="row">#}
             {#                style="position: absolute; top: 50%; left: 50%; transform:translate(-50%, -50%);"#}
             {#                <div class="text-center">#}
@@ -130,14 +157,14 @@
             {#                    </div>#}
             {#                </div>#}
             {#            </div>#}
-        </div>
-    </div>
-</div>
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
 <div class="container-fluid">
     <section class="about-us custom-section-padding" id="trade">
         <div class="container">
             <h2 class="font-weight-bold text-color-dark">- Trade</h2>
-            <div class="row">
+            <div class="row" style="overflow: scroll;">
                 <div class="col-sm-4 col-md-4">
                     <h4 class=" text-color-dark">Through web or mobile, speak or type to YARA to trade stocks, ETFs, and
                         Funds</h4>
@@ -151,85 +178,85 @@
                     </div>
                 </div>
                 <div class="col-sm-7 col-md-7 col-md-offset-1">
-                    <div>
+                    <div >
                         <h3 class="text-center-portfolio">Mock Portfolio</h3>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Stock</th>
-                                <th>Last Price</th>
-                                <th>Change $</th>
-                                <th>Change %</th>
-                                <th>Shares</th>
-                                <th>Purchase Price</th>
-                                <th>Investment Amount</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td id="AAPLstock">AAPL</td>
-                                <td id="AAPLprice">$153.35</td>
-                                <td id="AAPLdollarchange">$622.40</td>
-                                <td id="AAPLpercentchange">25.46%</td>
-                                <td id="AAPLshares">20</td>
-                                <td id="AAPLpurchase">$122.23</td>
-                                <td id="AAPLamount">$2,444.60</td>
-                            </tr>
-                            <tr>
-                                <td id="NKEstock">NKE</td>
-                                <td id="NKEprice">$104.43</td>
-                                <td id="NKEdollarchange">$2,783.10</td>
-                                <td id="NKEpercentchange">12.57%</td>
-                                <td id="NKEshares">35</td>
-                                <td id="NKEpurchase">$92.77</td>
-                                <td id="NKEamount">$3,246.95</td>
-                            </tr>
-                            <tr>
-                                <td id="MSFTstock">MSFT</td>
-                                <td id="MSFTprice">$73.98</td>
-                                <td id="MSFTdollarchange">$1,219.80</td>
-                                <td id="MSFTpercentchange">21.30%</td>
-                                <td id="MSFTshares">20</td>
-                                <td id="MSFTpurchase">$60.99</td>
-                                <td id="MSFTamount">$1,219.80</td>
-                            </tr>
-                            <tr>
-                                <td id="WMTstock">WMT</td>
-                                <td id="WMTprice">$78.88</td>
-                                <td id="WMTdollarchange">$1,718.28</td>
-                                <td id="WMTpercentchange">23.95%</td>
-                                <td id="WMTshares">27</td>
-                                <td id="WMTpurchase">$63.64</td>
-                                <td id="WMTamount">$1,718.28</td>
-                            </tr>
-                            <tr>
-                                <td id="stock"></td>
-                                <td id="price"></td>
-                                <td id="dollarchange"></td>
-                                <td id="percentchange"></td>
-                                <td id="shares"></td>
-                                <td id="purchase"></td>
-                                <td id="amount"></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>TOTALS</td>
-                                <td>$6,343.58</td>
-                                <td>20.13%</td>
-                                <td></td>
-                                <td></td>
-                                <td id="total">$6,911.35</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>CASH</td>
-                                <td id="cash">$5,000.00</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            </tbody>
-                        </table>
+{#                        <table class="table">#}
+{#                            <thead>#}
+{#                            <tr>#}
+{#                                <th>Stock</th>#}
+{#                                <th>Last Price</th>#}
+{#                                <th>Change $</th>#}
+{#                                <th>Change %</th>#}
+{#                                <th>Shares</th>#}
+{#                                <th>Purchase Price</th>#}
+{#                                <th>Investment Amount</th>#}
+{#                            </tr>#}
+{#                            </thead>#}
+{#                            <tbody>#}
+{#                            <tr>#}
+{#                                <td id="AAPLstock">AAPL</td>#}
+{#                                <td id="AAPLprice">$153.35</td>#}
+{#                                <td id="AAPLdollarchange">$622.40</td>#}
+{#                                <td id="AAPLpercentchange">25.46%</td>#}
+{#                                <td id="AAPLshares">20</td>#}
+{#                                <td id="AAPLpurchase">$122.23</td>#}
+{#                                <td id="AAPLamount">$2,444.60</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <td id="NKEstock">NKE</td>#}
+{#                                <td id="NKEprice">$104.43</td>#}
+{#                                <td id="NKEdollarchange">$2,783.10</td>#}
+{#                                <td id="NKEpercentchange">12.57%</td>#}
+{#                                <td id="NKEshares">35</td>#}
+{#                                <td id="NKEpurchase">$92.77</td>#}
+{#                                <td id="NKEamount">$3,246.95</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <td id="MSFTstock">MSFT</td>#}
+{#                                <td id="MSFTprice">$73.98</td>#}
+{#                                <td id="MSFTdollarchange">$1,219.80</td>#}
+{#                                <td id="MSFTpercentchange">21.30%</td>#}
+{#                                <td id="MSFTshares">20</td>#}
+{#                                <td id="MSFTpurchase">$60.99</td>#}
+{#                                <td id="MSFTamount">$1,219.80</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <td id="WMTstock">WMT</td>#}
+{#                                <td id="WMTprice">$78.88</td>#}
+{#                                <td id="WMTdollarchange">$1,718.28</td>#}
+{#                                <td id="WMTpercentchange">23.95%</td>#}
+{#                                <td id="WMTshares">27</td>#}
+{#                                <td id="WMTpurchase">$63.64</td>#}
+{#                                <td id="WMTamount">$1,718.28</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <td id="stock"></td>#}
+{#                                <td id="price"></td>#}
+{#                                <td id="dollarchange"></td>#}
+{#                                <td id="percentchange"></td>#}
+{#                                <td id="shares"></td>#}
+{#                                <td id="purchase"></td>#}
+{#                                <td id="amount"></td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <td></td>#}
+{#                                <td>TOTALS</td>#}
+{#                                <td>$6,343.58</td>#}
+{#                                <td>20.13%</td>#}
+{#                                <td></td>#}
+{#                                <td></td>#}
+{#                                <td id="total">$6,911.35</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <td></td>#}
+{#                                <td>CASH</td>#}
+{#                                <td id="cash">$5,000.00</td>#}
+{#                                <td></td>#}
+{#                                <td></td>#}
+{#                                <td></td>#}
+{#                            </tr>#}
+{#                            </tbody>#}
+{#                        </table>#}
                     </div>
                 </div>
             </div>
@@ -335,7 +362,7 @@
                                 <hr>
                                 <!--Text-->
                                 <p id="demo"></p>
-                                <div id="chart_div" style="margin: 0 auto; height: 325px;"></div>
+{#                                <div id="chart_div" style="margin: 0 auto; height: 325px;"></div>#}
                             </div>
 
                             <!--======graph=====-->
@@ -490,7 +517,7 @@
                                     <div class="response" id="mce-success-response" style="display:none"></div>
                                 </div>
                                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                <div style="left: -5000px;" aria-hidden="true"><input type="text"
                                                                                                           name="b_2f9305ce02ef6f04fc8ce2545_ab2f8b85e2"
                                                                                                           tabindex="-1"
                                                                                                           value="">

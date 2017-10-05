@@ -76,6 +76,4 @@ Theme Version:	5.7.1
 	}
 		
 	// Slider Init
-	$('#revolutionSlider').revolution(sliderOptions);
-
 }).apply( this, [ jQuery ]);
