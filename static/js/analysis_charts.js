@@ -35,6 +35,7 @@ $(document).ready(function() {
                 q4 = result.q4;
                 date = result.date;
                 stock = result.stock;
+                console.log(stock);
                 sharperatio_user = result.sharpeuser;
                 sharperatio_new = result.sharpewhatif;
                 totalreturn_new = result.total_return_new;

@@ -1296,7 +1296,7 @@ def analysis():
         q2 = 0
         q3 = 0
         q4 = 0
-        tickers = tickers[0].upper()
+        tickers = [tickers[0].upper()]
         date = 0
         sharperatiouser = 0
         sharperatiowhatif = 0
@@ -1304,6 +1304,9 @@ def analysis():
         total_return_usr = 0
         STD_Port_new = 0
         STD_usr_Port = 0
+
+        # print(tickers)
+        # print(tickers[0])
 
     elif any(word in phrase1.upper() for word in Dow_Jones) and any(word in phrase1 for word in earnings):
         Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
@@ -1343,7 +1346,7 @@ def analysis():
                      ' aon', ' apa', ' aiv', ' aapl', ' amat', ' adm', ' arnc', ' ajg', ' aiz', ' adsk', ' adp', ' an',
                      ' azo', ' avb', ' avy', ' bhi', ' bll', ' bac', ' bcr', ' bax', ' bbt', ' bdx', ' bbby', ' brk.b',
                      ' bby', ' biib', ' blk', ' hrb', ' ba', ' bwa', ' bxp', ' bsx', ' bmy', ' avgo', ' bf.b', ' chrw',
-                     ' ca', ' cog', ' cpb', ' cof', ' cah', ' kmx', ' ccl', ' cat', ' cboe', ' cbg', ' cbs', ' celg',
+                     ' cog', ' cpb', ' cof', ' cah', ' kmx', ' ccl', ' cat', ' cboe', ' cbg', ' cbs', ' celg',
                      ' cnc', ' cnp', ' ctl', ' cern', ' cf', ' schw', ' chtr', ' chk', ' cvx', ' cmg', ' cb', ' chd',
                      ' ci', ' xec', ' cinf', ' ctas', ' csco', ' cfg', ' ctxs', ' cme', ' cms', ' coh', ' ko', ' ctsh',
                      ' cl', ' cmcsa', ' cma', ' cag', ' cxo', ' cop', ' ed', ' stz', ' glw', ' cost', ' coty', ' cci',
@@ -1423,7 +1426,7 @@ def analysis():
                          'awk', 'amp', 'abc', 'ame', 'amgn', 'aph', 'apc', 'adi', 'antm', 'aon', 'apa', 'aiv', 'aapl',
                          'amat', 'adm', 'arnc', 'ajg', 'aiz', 'adsk', 'adp', 'an', 'azo', 'avb', 'avy', 'bhi', 'bll',
                          'bac', 'bcr', 'bax', 'bbt', 'bdx', 'bbby', 'brk.b', 'bby', 'biib', 'blk', 'hrb', 'ba', 'bwa',
-                         'bxp', 'bsx', 'bmy', 'avgo', 'bf.b', 'chrw', 'ca', 'cog', 'cpb', 'cof', 'cah', 'kmx', 'ccl',
+                         'bxp', 'bsx', 'bmy', 'avgo', 'bf.b', 'chrw', 'cog', 'cpb', 'cof', 'cah', 'kmx', 'ccl',
                          'cat', 'cboe', 'cbg', 'cbs', 'celg', 'cnc', 'cnp', 'ctl', 'cern', 'cf', 'schw', 'chtr', 'chk',
                          'cvx', 'cmg', 'cb', 'chd', 'ci', 'xec', 'cinf', 'ctas', 'csco', 'cfg', 'ctxs', 'cme', 'cms',
                          'coh', 'ko', 'ctsh', 'cl', 'cmcsa', 'cma', 'cag', 'cxo', 'cop', 'ed', 'stz', 'glw', 'cost',
@@ -2044,7 +2047,8 @@ def analysis():
         STD_Port_new = 0
         STD_usr_Port = 0
 
-    print(tickers)
+    # print(tickers)
+
     return jsonify({
         # 'resultpopup': result,
         'yararesponse': yara_text,
