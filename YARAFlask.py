@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
-from gtts import gTTS
-import speech_recognition as sr
+# from gtts import gTTS
+# import speech_recognition as sr
 import os
 import re
 import pandas as pd
@@ -9,35 +9,36 @@ import numpy as np
 import getpass
 import functools as ft
 import math
-import cvxopt as ct
+# import cvxopt as ct
 from random import randrange
 from bs4 import BeautifulSoup
 import requests
 import datetime
 from collections import Counter
+from random import *
 
 app = Flask(__name__)
 
 quandl.ApiConfig.api_key = "xnMXp_xPythdSbphupf1"
 
-r = sr.Recognizer()
+# r = sr.Recognizer()
 
 username = getpass.getuser()
 
-nyse = pd.DataFrame.from_csv('/Users/' + username + '/Desktop/Defensive_Portfolio/NYSE_Returns_3.csv', )
+# nyse = pd.DataFrame.from_csv('/Users/' + username + '/Desktop/Defensive_Portfolio/NYSE_Returns_3.csv', )
 
-GOOGLE_CLOUD_SPEECH_CREDENTIALS = r"""{
-  "type": "service_account",
-  "project_id": "blissful-link-150904",
-  "private_key_id": "efa1a743bce7321dad07cb8c5ef88c07384f8dea",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCmMsXmEkDNlGnL\nN8eXm9RaepsTkSyCA/mnku9HokUwke1UJyi4hh2y2oL3w1sFI0L3SZKxKkYuMjdS\n/v/uXwTA/iY9R0tc8h2VRP+DQmFFQ8zdKfZIdC5PVFER3zyFFhKaQ/pYBp/dnVCI\nYhFN+q3gS3AlPcqhLLwd0s4RLQha+wQ55WV+MwdchhiMyEkKY4zm+giOUGfZKrbe\nRC9iDJEiS174KEythn8Dgog1Y7mKS4iwjnMqO+Hn6sX8hu8M+/BsnrW4AKmjMizn\nCI4gJo2E2aBJQKaF1qbZMJ22wcRWAqb50dM3Tla61s+zj5UXafTkKqM6dR+f5iJo\nYFmlDOQnAgMBAAECggEAJ6iM9aocYZINLqt4SrKqGQ8RqzkkpD+7lqOmynKrzPu9\nZKvVeTazpoai4ulwckjoRWb+hJ0gUwyzi/ACdUiiM0VSLaQyFRNHQOPOju1LlcIo\nhAvr0305wb9OexPIdr9+H+ahudiW1ESiP3EbTP7I9/E4aQKWNCCfIQS5HHsg98h0\n1RrCftGvSdBI2uX+kssXMtEvoDV36r+zDuzhDPn+irsDe88LM87Dmx7jOU9Vclux\nnhR62My/J+gc8P0xTMit8L3GQ8uH5QZlOEolcweYPTTP5kV+X5pEKu2ZnmLS7iz+\nVzf0UxQOn4YzW5LjxzK7iw6DzGJn+O8G8Xt32PWjnQKBgQDRgyP/TCdiduCeyDb+\nfr73L/yn08uZZbGcSPexP2RQ0lsvaECDbifPKcyb2rUwQxEoNHVSWe5QM93qeMp+\nkATQKdd1GgT9vYdF9vM5qX+GmIvkdnBoITb0KsKXfkjl/tPEktny/OMpCfbSCwKT\ntXMoqdOCndlitlhaOD0zIU9MjQKBgQDLE0jZlddjyTX0CAOJcSMuZeEGtEvzrkWM\n1aZUtKSTbTC0PiM1YYz5Xo1YTVCaD/gi/KYn2zhc2+HCFRT0ZZbqrOilldN44StY\nG5i6E5TT2jS4BCEf86UcqjGcTs9L0nlVj4k/aQJb5tU4rwExYK3IxOTTxfakYGQM\njnyGQ1mYgwKBgGu2/qTc5ErNT4KS8SM6yrePZlhqnXyKOhxdr2rjapHa9KKU+MYZ\ntkHd/aILeagMcx+2iLMEJW/6mpdX7tPO+4qCWJGOBQ7niErCQh5dNIFgoFufQP9o\nRDaYXV9Bv/zvXLTtwzwYJDoPM2Sd4H9MhJ5dYa7/tKn5kccgruZAs+JpAoGBAJE0\nh9m1T971B9QnSsgjEsHhbSbLEqf6S5bpSda1mBwmbjXjXG+WAiRpHG4wUlrm4km6\nF+DV2pZjTyjkxCgA4AmLe4qy+BQuBT0p9mnPCJL3Ks0NftYG9F/rvi+DFqyjocix\nKrUhk+M8yeePEy5Ib9roFqrqmXJtzfxAgf/K9qybAoGBAJdEzJTFXmBs7CAvoNFw\nri5Dmp0m/8erjIDyNgwC12K2croNcWxwlJBs9z73vAxroRyuJf3YVkaNokjb8ioG\nlxFpQWFJT20hcz7tnXsxYMMrKBJ1jvYOe4uCh9VFHYaVsGEUXDoPOW5AJCSgL0N5\nb6+TEMToTmFtoa004M/zmx94\n-----END PRIVATE KEY-----\n",
-  "client_email": "speech-recognition@blissful-link-150904.iam.gserviceaccount.com",
-  "client_id": "114672531641437482323",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://accounts.google.com/o/oauth2/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-recognition%40blissful-link-150904.iam.gserviceaccount.com"
-}"""
+# GOOGLE_CLOUD_SPEECH_CREDENTIALS = r"""{
+#   "type": "service_account",
+#   "project_id": "blissful-link-150904",
+#   "private_key_id": "efa1a743bce7321dad07cb8c5ef88c07384f8dea",
+#   "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCmMsXmEkDNlGnL\nN8eXm9RaepsTkSyCA/mnku9HokUwke1UJyi4hh2y2oL3w1sFI0L3SZKxKkYuMjdS\n/v/uXwTA/iY9R0tc8h2VRP+DQmFFQ8zdKfZIdC5PVFER3zyFFhKaQ/pYBp/dnVCI\nYhFN+q3gS3AlPcqhLLwd0s4RLQha+wQ55WV+MwdchhiMyEkKY4zm+giOUGfZKrbe\nRC9iDJEiS174KEythn8Dgog1Y7mKS4iwjnMqO+Hn6sX8hu8M+/BsnrW4AKmjMizn\nCI4gJo2E2aBJQKaF1qbZMJ22wcRWAqb50dM3Tla61s+zj5UXafTkKqM6dR+f5iJo\nYFmlDOQnAgMBAAECggEAJ6iM9aocYZINLqt4SrKqGQ8RqzkkpD+7lqOmynKrzPu9\nZKvVeTazpoai4ulwckjoRWb+hJ0gUwyzi/ACdUiiM0VSLaQyFRNHQOPOju1LlcIo\nhAvr0305wb9OexPIdr9+H+ahudiW1ESiP3EbTP7I9/E4aQKWNCCfIQS5HHsg98h0\n1RrCftGvSdBI2uX+kssXMtEvoDV36r+zDuzhDPn+irsDe88LM87Dmx7jOU9Vclux\nnhR62My/J+gc8P0xTMit8L3GQ8uH5QZlOEolcweYPTTP5kV+X5pEKu2ZnmLS7iz+\nVzf0UxQOn4YzW5LjxzK7iw6DzGJn+O8G8Xt32PWjnQKBgQDRgyP/TCdiduCeyDb+\nfr73L/yn08uZZbGcSPexP2RQ0lsvaECDbifPKcyb2rUwQxEoNHVSWe5QM93qeMp+\nkATQKdd1GgT9vYdF9vM5qX+GmIvkdnBoITb0KsKXfkjl/tPEktny/OMpCfbSCwKT\ntXMoqdOCndlitlhaOD0zIU9MjQKBgQDLE0jZlddjyTX0CAOJcSMuZeEGtEvzrkWM\n1aZUtKSTbTC0PiM1YYz5Xo1YTVCaD/gi/KYn2zhc2+HCFRT0ZZbqrOilldN44StY\nG5i6E5TT2jS4BCEf86UcqjGcTs9L0nlVj4k/aQJb5tU4rwExYK3IxOTTxfakYGQM\njnyGQ1mYgwKBgGu2/qTc5ErNT4KS8SM6yrePZlhqnXyKOhxdr2rjapHa9KKU+MYZ\ntkHd/aILeagMcx+2iLMEJW/6mpdX7tPO+4qCWJGOBQ7niErCQh5dNIFgoFufQP9o\nRDaYXV9Bv/zvXLTtwzwYJDoPM2Sd4H9MhJ5dYa7/tKn5kccgruZAs+JpAoGBAJE0\nh9m1T971B9QnSsgjEsHhbSbLEqf6S5bpSda1mBwmbjXjXG+WAiRpHG4wUlrm4km6\nF+DV2pZjTyjkxCgA4AmLe4qy+BQuBT0p9mnPCJL3Ks0NftYG9F/rvi+DFqyjocix\nKrUhk+M8yeePEy5Ib9roFqrqmXJtzfxAgf/K9qybAoGBAJdEzJTFXmBs7CAvoNFw\nri5Dmp0m/8erjIDyNgwC12K2croNcWxwlJBs9z73vAxroRyuJf3YVkaNokjb8ioG\nlxFpQWFJT20hcz7tnXsxYMMrKBJ1jvYOe4uCh9VFHYaVsGEUXDoPOW5AJCSgL0N5\nb6+TEMToTmFtoa004M/zmx94\n-----END PRIVATE KEY-----\n",
+#   "client_email": "speech-recognition@blissful-link-150904.iam.gserviceaccount.com",
+#   "client_id": "114672531641437482323",
+#   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+#   "token_uri": "https://accounts.google.com/o/oauth2/token",
+#   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+#   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-recognition%40blissful-link-150904.iam.gserviceaccount.com"
+# }"""
 
 
 @app.route('/')
@@ -57,15 +58,17 @@ def trade_text():
 
     print(cash_html)
     print(total_html)
-    if text == "Speak into the microphone!":
-        with sr.Microphone() as source:
-            tts = gTTS("Tell me your trade order")
-            tts.save("good.mp3")
-            os.system("mpg321 good.mp3")
-            audio = r.listen(source)
-            phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
-    else:
-        phrase1 = text
+    # if text == "Speak into the microphone!":
+    #     with sr.Microphone() as source:
+    #         tts = gTTS("Tell me your trade order")
+    #         tts.save("good.mp3")
+    #         os.system("mpg321 good.mp3")
+    #         audio = r.listen(source)
+    #         phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
+    # else:
+    #     phrase1 = text
+
+    phrase1 = text
 
     cash_html = list(re.search(r'([£$€$ ])(\d+(?:\,\d{3})?)', cash_html).groups())
     cash_html = float(cash_html[1].replace(',', ''))
@@ -121,7 +124,7 @@ def trade_text():
 
     tickers_check = ['AAPL', 'NKE', 'MSFT', 'WMT']
 
-    Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
+    Dow_Jones = ['finish line','finl','intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
                  ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna', 'allstate', 'tea',
                  'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak', 'chesapeka', 'Chipotle',
                  'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city', 'sea', 'citigroup', 'colgate',
@@ -136,7 +139,7 @@ def trade_text():
                  'occiednetal', 'Occidental', 'oravle', 'oracle', 'oroville', 'pepsi', 'pepsico', 'pioeneer',
                  'piorneer', 'pioneer', 'priudentail', 'prudentail', 'priuential', 'prudential', 'schlumnerger',
                  'shlimberger', 'schlimberger', 'shlumberger', 'qualcom', 'qualcomm', 'Robert', 'robert half',
-                 'schlumberger', 'slumber j', 'southwest', 'striker', 'checker', ' ti', 't i', 'target', 'thermo',
+                 'schlumberger', 'slumber j', 'southwest', 'striker', 'checker', ' ti', 'target', 'thermo',
                  'fisher', 'vf corp', "I'm brand", 'why you', 'why um', ' ma', 'mastercard', 'tmi', 'cam', 'tam-ly',
                  'Caroline', 'can line', 'Cam I', 'kinder', 'linder', 'kinder morgan', 'tal', 'delta', 'chipoelt',
                  'chitpole', 'chipotle', 'chipotle', 'blackrcok', 'blk', 'blackrock', 'B of A', 'bofa', ' ac', ' bac',
@@ -208,7 +211,7 @@ def trade_text():
                  'csco', 'coke', 'dis',
                  'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d', ' f',
                  ' k', ' m', ' r',' ni']
-    DJ_Name_Match = ['intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal', 'afl',
+    DJ_Name_Match = ['finl','finl','intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal', 'afl',
                      'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk', 'chk',
                      'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop', 'cop', 'cop',
                      'dva', 'dva', 'dva', 'dva', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'etfc', 'dps', 'fdx', 'f',
@@ -218,7 +221,7 @@ def trade_text():
                      'mnst', 'msi', 'msi', 'msi', 'msi', 'msi', 'ms', 'ms', 'ms', 'ndaq', 'nlsn', 'nlsn', 'nlsn',
                      'nlsn', 'nbl', 'nbl', 'nbl', 'nrg', 'oxy', 'oxy', 'oxy', 'oxy', 'orcl', 'orcl', 'orcl', 'pep',
                      'pep', 'pxd', 'pxd', 'pxd', 'pru', 'pru', 'pru', 'pru', 'slb', 'slb', 'slb', 'slb', 'qcom', 'qcom',
-                     'rhi', 'rhi', 'slb', 'slb', 'luv', 'syk', 'syk', 'ti', 'ti', 'tgt', 'tmo', 'tmo', 'vfc', 'yum',
+                     'rhi', 'rhi', 'slb', 'slb', 'luv', 'syk', 'syk', 'ti', 'tgt', 'tmo', 'tmo', 'vfc', 'yum',
                      'yum', 'yum', 'ma', 'ma', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'dal',
                      'dal', 'cmg', 'cmg', 'cmg', 'cmg', 'blk', 'blk', 'blk', 'bac', 'bac', 'bac', 'bac', 'bac', 'ba',
                      'ba', 'utx', 'utx', 'utx', 'vz', 'vz', 'vz', 'cvx', 'cvx', 'axp', 'v', 'v', 'v', 'v', 'v', 'pfe',
@@ -284,7 +287,7 @@ def trade_text():
 
     buy_trade = ['BUY','buuy','Buuy','byu','Byu','Purchase', 'purchase', 'trade', 'invest', 'place', 'buy', 'by', 'long', 'Long', 'Lawn', 'lawn', 'Lon',
                  'Buy']
-    sell_trade = ['top','south ','tell ','sell', 'Sell', 'so ',' so', 'So',' So', 'Settle', 'settle', 'sel', 'Sel']
+    sell_trade = ['Psalm','top','south ','tell ','sell', 'Sell', 'so ',' so', 'So',' So', 'Settle', 'settle', 'sel', 'Sel']
     short_trade = ['shrot','Shrot','short', 'Short', 'Shore', 'shore', 'Shor', 'shor']
     market_order = ['amrket','makret','Makret','market', 'current', 'Market', 'Current', 'at Market', 'at market', '@ Market', '@ market']
     limit_order = ['limit', 'when', '@', ' at','at ','At ',' +']
@@ -715,22 +718,24 @@ def management():
 
     text = request.form['management']
 
-    if text == "Speak into the microphone!":
-        with sr.Microphone() as source:
-            tts = gTTS("How would you like me to manage your portfolio")
-            tts.save("good.mp3")
-            os.system("mpg321 good.mp3")
-            audio = r.listen(source)
-            phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
-    else:
-        phrase1 = text
+    # if text == "Speak into the microphone!":
+    #     with sr.Microphone() as source:
+    #         tts = gTTS("How would you like me to manage your portfolio")
+    #         tts.save("good.mp3")
+    #         os.system("mpg321 good.mp3")
+    #         audio = r.listen(source)
+    #         phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
+    # else:
+    #     phrase1 = text
+
+    phrase1 = text
 
     print(phrase1)
-    diversify = ['diversificaton','Diversificaton','divrsification','Divrsification','dvirsify','dvirsify','diversificaiton','Diversificaiton','diversification','Diversification','diversigy','Diversigy','diversirty','Diversirty','diversiy','Diversiy','diversity','Diversity','Diversify','diversify','Diversification','diversification','Diversfiyy','diversify','iversify','dversify','Dversify',]
+    diversify = ['Trailer Supply','first of all','Forza 5','diversificaton','Diversificaton','divrsification','Divrsification','dvirsify','dvirsify','diversificaiton','Diversificaiton','diversification','Diversification','diversigy','Diversigy','diversirty','Diversirty','diversiy','Diversiy','diversity','Diversity','Diversify','diversify','Diversification','diversification','Diversfiyy','diversify','iversify','dversify','Dversify',]
 
-    rebalance = ['rabalnce','Rabalnce','rebaalnce','Rebaalnce','reabalcne','reabalcne','reblance','Reblance','rbalance','Rbalance','rebaalnce','Rebaalnce','reabalance','Reabalance','realance','Realance','rebalance','Rebalance']
+    rebalance = ['revalance','Ramones','balance','Henry Bounce','carry balance','cherry-bounce','rabalnce','Rabalnce','rebaalnce','Rebaalnce','reabalcne','reabalcne','reblance','Reblance','rbalance','Rbalance','rebaalnce','Rebaalnce','reabalance','Reabalance','realance','Realance','rebalance','Rebalance']
 
-    optimize = ['each','much','better','make','beter','optmize','optiimize','Optiimize','optimize', 'Optimize','optimzie','Optimzie','optimze','Optimze','optimzie','Optimzie']
+    optimize = ["tomorrow's",'customize','each','much','better','make','beter','optmize','optiimize','Optiimize','optimize', 'Optimize','optimzie','Optimzie','optimze','Optimze','optimzie','Optimzie']
 
     if any(word in phrase1 for word in diversify):
         yara_text = ("I have finished my analysis. You are highly concentrated in a few stocks. Please take a look below on ways to diversify your portfolio. " + \
@@ -859,143 +864,143 @@ def management():
 
     elif any(word in phrase1 for word in optimize):
 
-        # Current dollar investment value for each stock
-        current_portfolio_value = [900, 960, 900, 5000, 2880, 2520, 3150, 3096, 1568, 8740]
-
-        # The weights the user likes
-        initial_weights = [.10, .075, .15, .05, .20, .03, .18, .125, .05, .04]
-
-        # Creating the dataframe from the above arrays
-        portfolio = pd.DataFrame(current_portfolio_value,
-                                  index=['EXXON MOBIL CORP', 'ALTRIA GROUP INC', 'MERCK & CO', 'MICROSOFT CORP',
-                                         'PEPSICO INC', 'WAL-MART STORES INC', 'AT&T INC', 'VERIZON COMMUNICATIONS INC',
-                                         'PFIZER INC', 'MOTOROLA SOLUTIONS INC'], columns=['Current $ Value'])
-
-
-        df_port_amount = pd.DataFrame(portfolio['Current $ Value'])
-        df_port_names = pd.DataFrame.transpose(df_port_amount.ix[:, 1:1])
-
-        frames = [nyse * 100, df_port_names]
-
-        selected_stocks = pd.DataFrame(pd.concat(frames, join='inner'))
-
-        intervals = [21, 63, 126, 189, 252, 1260]
-        weights = [.35, .20, .15, .125, .10, .05, .025]
-
-        output_list_avg = []
-        output_list_std = []
-        weighted_list_avg = []
-        excess_return_list = []
-
-        for interval in intervals:
-            df_avg = selected_stocks.tail(interval)
-            avg_calc = pd.DataFrame(np.mean(df_avg))
-            rename_avg = avg_calc.rename(columns={0: 'Avg. Return'})
-            output_list_avg.append(rename_avg)
-
-        merge1_avg = pd.merge(output_list_avg[0], output_list_avg[1], left_index=True, right_index=True)
-        merge2_avg = pd.merge(merge1_avg, output_list_avg[2], left_index=True, right_index=True)
-        merge3_avg = pd.merge(merge2_avg, output_list_avg[3], left_index=True, right_index=True)
-        merge4_avg = pd.merge(merge3_avg, output_list_avg[4], left_index=True, right_index=True)
-        merge5_avg = pd.merge(merge4_avg, output_list_avg[5], left_index=True, right_index=True)
-
-        i = 0
-
-        while i <= 5:
-            newdf = pd.DataFrame(merge5_avg.ix[:, i] * weights[i])
-            weighted_list_avg.append(newdf)
-            i = i + 1
-
-
-        mergeweight1 = pd.merge(weighted_list_avg[0], weighted_list_avg[1], left_index=True, right_index=True)
-        mergeweight2 = pd.merge(mergeweight1, weighted_list_avg[2], left_index=True, right_index=True)
-        mergeweight3 = pd.merge(mergeweight2, weighted_list_avg[3], left_index=True, right_index=True)
-        mergeweight4 = pd.merge(mergeweight3, weighted_list_avg[4], left_index=True, right_index=True)
-        mergeweight5 = pd.merge(mergeweight4, weighted_list_avg[5], left_index=True, right_index=True)
-        mergeweight5.columns = ['WAvg 1 month', 'WAvg 3 month', 'WAvg 6 month', 'WAvg 9 month', 'WAvg 1 Year',
-                                'WAvg 5 Year']
-        mergeweight5['WAvg Sum'] = mergeweight5.sum(axis=1)
-        WVag = pd.DataFrame(mergeweight5['WAvg Sum'].copy())
-
-        transpose_WVag = np.transpose(WVag)
-
-        selected_stocks_tail = selected_stocks.tail(252)
-        array_length = len(selected_stocks_tail.columns) - 1
-
-        i = 0
-
-        while i <= array_length:
-            excess_return = pd.DataFrame(selected_stocks_tail.iloc[:, i] - transpose_WVag.ix['WAvg Sum', i])
-            excess_return_list.append(excess_return)
-            i = i + 1
-
-
-        excess_return_output = pd.DataFrame(
-            ft.reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), excess_return_list))
-        excess_return_transpose = pd.DataFrame(np.transpose(excess_return_output))
-        cov_matrix = pd.DataFrame(
-            np.dot(excess_return_transpose.as_matrix(), excess_return_output.as_matrix()) / (100 * (252 - 1)))
-        cov_matrix_array = np.array(cov_matrix)
-
-        selected_stocks_tail = selected_stocks.tail(252)
-        array_length = len(selected_stocks_tail.columns) - 1
-
-        n = len(selected_stocks_tail.columns)
-
-        r_min = .1
-        min_const = .05
-
-        r_avg = ct.matrix(WVag['WAvg Sum'])
-        sigma = ct.matrix(np.array(cov_matrix_array))
-        P = sigma
-        q = ct.matrix(np.zeros((n, 1)) + min_const)
-
-        G = ct.matrix(np.concatenate((
-            -np.transpose(np.array(WVag)),
-            -np.identity(n)), 0))
-        h = ct.matrix(np.concatenate((
-            -np.ones((1, 1)) * r_min,
-            -np.zeros((n, 1)) - min_const), 0))
-
-        A = ct.matrix(1.0, (1, n))
-        b = ct.matrix(1.0)
-
-        sol = ct.solvers.qp(P, q, G, h, A, b)
-
-        labels = np.array(df_port_names)
-
-        x_opt = np.matrix(sol['x'])
-        x_opt = np.array(np.reshape(x_opt, (1, n)))[0]
-        x_opt_print = pd.DataFrame(x_opt)
-
-        merge_opt_port = [x_opt_print, pd.DataFrame(np.transpose(df_port_names))]
-
-        opt_mark_port = pd.DataFrame(x_opt, index=df_port_amount.index)
-
-        marginal_return = pd.DataFrame(pd.merge(opt_mark_port, WVag, left_index=True, right_index=True))
-        marginal_return['Return'] = (marginal_return[0] * marginal_return['WAvg Sum'])
-        total_return = marginal_return['Return'].sum()
-
-        opt_mark_port['Stocks'] = opt_mark_port.index
-
-        transpose_inv_vol = pd.DataFrame(np.transpose(x_opt_print))
-
-        Var_Port = np.dot(transpose_inv_vol.as_matrix(), np.dot(cov_matrix.as_matrix(), x_opt_print.as_matrix()))
-        STD_Port = math.sqrt(Var_Port)
-        sharpe_ratio_user_port = total_return / STD_Port
-
-        names_list = list(df_port_names.columns.values)
+        # # Current dollar investment value for each stock
+        # current_portfolio_value = [900, 960, 900, 5000, 2880, 2520, 3150, 3096, 1568, 8740]
+        #
+        # # The weights the user likes
+        # initial_weights = [.10, .075, .15, .05, .20, .03, .18, .125, .05, .04]
+        #
+        # # Creating the dataframe from the above arrays
+        # portfolio = pd.DataFrame(current_portfolio_value,
+        #                           index=['EXXON MOBIL CORP', 'ALTRIA GROUP INC', 'MERCK & CO', 'MICROSOFT CORP',
+        #                                  'PEPSICO INC', 'WAL-MART STORES INC', 'AT&T INC', 'VERIZON COMMUNICATIONS INC',
+        #                                  'PFIZER INC', 'MOTOROLA SOLUTIONS INC'], columns=['Current $ Value'])
+        #
+        #
+        # df_port_amount = pd.DataFrame(portfolio['Current $ Value'])
+        # df_port_names = pd.DataFrame.transpose(df_port_amount.ix[:, 1:1])
+        #
+        # frames = [nyse * 100, df_port_names]
+        #
+        # selected_stocks = pd.DataFrame(pd.concat(frames, join='inner'))
+        #
+        # intervals = [21, 63, 126, 189, 252, 1260]
+        # weights = [.35, .20, .15, .125, .10, .05, .025]
+        #
+        # output_list_avg = []
+        # output_list_std = []
+        # weighted_list_avg = []
+        # excess_return_list = []
+        #
+        # for interval in intervals:
+        #     df_avg = selected_stocks.tail(interval)
+        #     avg_calc = pd.DataFrame(np.mean(df_avg))
+        #     rename_avg = avg_calc.rename(columns={0: 'Avg. Return'})
+        #     output_list_avg.append(rename_avg)
+        #
+        # merge1_avg = pd.merge(output_list_avg[0], output_list_avg[1], left_index=True, right_index=True)
+        # merge2_avg = pd.merge(merge1_avg, output_list_avg[2], left_index=True, right_index=True)
+        # merge3_avg = pd.merge(merge2_avg, output_list_avg[3], left_index=True, right_index=True)
+        # merge4_avg = pd.merge(merge3_avg, output_list_avg[4], left_index=True, right_index=True)
+        # merge5_avg = pd.merge(merge4_avg, output_list_avg[5], left_index=True, right_index=True)
+        #
+        # i = 0
+        #
+        # while i <= 5:
+        #     newdf = pd.DataFrame(merge5_avg.ix[:, i] * weights[i])
+        #     weighted_list_avg.append(newdf)
+        #     i = i + 1
+        #
+        #
+        # mergeweight1 = pd.merge(weighted_list_avg[0], weighted_list_avg[1], left_index=True, right_index=True)
+        # mergeweight2 = pd.merge(mergeweight1, weighted_list_avg[2], left_index=True, right_index=True)
+        # mergeweight3 = pd.merge(mergeweight2, weighted_list_avg[3], left_index=True, right_index=True)
+        # mergeweight4 = pd.merge(mergeweight3, weighted_list_avg[4], left_index=True, right_index=True)
+        # mergeweight5 = pd.merge(mergeweight4, weighted_list_avg[5], left_index=True, right_index=True)
+        # mergeweight5.columns = ['WAvg 1 month', 'WAvg 3 month', 'WAvg 6 month', 'WAvg 9 month', 'WAvg 1 Year',
+        #                         'WAvg 5 Year']
+        # mergeweight5['WAvg Sum'] = mergeweight5.sum(axis=1)
+        # WVag = pd.DataFrame(mergeweight5['WAvg Sum'].copy())
+        #
+        # transpose_WVag = np.transpose(WVag)
+        #
+        # selected_stocks_tail = selected_stocks.tail(252)
+        # array_length = len(selected_stocks_tail.columns) - 1
+        #
+        # i = 0
+        #
+        # while i <= array_length:
+        #     excess_return = pd.DataFrame(selected_stocks_tail.iloc[:, i] - transpose_WVag.ix['WAvg Sum', i])
+        #     excess_return_list.append(excess_return)
+        #     i = i + 1
+        #
+        #
+        # excess_return_output = pd.DataFrame(
+        #     ft.reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), excess_return_list))
+        # excess_return_transpose = pd.DataFrame(np.transpose(excess_return_output))
+        # cov_matrix = pd.DataFrame(
+        #     np.dot(excess_return_transpose.as_matrix(), excess_return_output.as_matrix()) / (100 * (252 - 1)))
+        # cov_matrix_array = np.array(cov_matrix)
+        #
+        # selected_stocks_tail = selected_stocks.tail(252)
+        # array_length = len(selected_stocks_tail.columns) - 1
+        #
+        # n = len(selected_stocks_tail.columns)
+        #
+        # r_min = .1
+        # min_const = .05
+        #
+        # r_avg = ct.matrix(WVag['WAvg Sum'])
+        # sigma = ct.matrix(np.array(cov_matrix_array))
+        # P = sigma
+        # q = ct.matrix(np.zeros((n, 1)) + min_const)
+        #
+        # G = ct.matrix(np.concatenate((
+        #     -np.transpose(np.array(WVag)),
+        #     -np.identity(n)), 0))
+        # h = ct.matrix(np.concatenate((
+        #     -np.ones((1, 1)) * r_min,
+        #     -np.zeros((n, 1)) - min_const), 0))
+        #
+        # A = ct.matrix(1.0, (1, n))
+        # b = ct.matrix(1.0)
+        #
+        # sol = ct.solvers.qp(P, q, G, h, A, b)
+        #
+        # labels = np.array(df_port_names)
+        #
+        # x_opt = np.matrix(sol['x'])
+        # x_opt = np.array(np.reshape(x_opt, (1, n)))[0]
+        # x_opt_print = pd.DataFrame(x_opt)
+        #
+        # merge_opt_port = [x_opt_print, pd.DataFrame(np.transpose(df_port_names))]
+        #
+        # opt_mark_port = pd.DataFrame(x_opt, index=df_port_amount.index)
+        #
+        # marginal_return = pd.DataFrame(pd.merge(opt_mark_port, WVag, left_index=True, right_index=True))
+        # marginal_return['Return'] = (marginal_return[0] * marginal_return['WAvg Sum'])
+        # total_return = marginal_return['Return'].sum()
+        #
+        # opt_mark_port['Stocks'] = opt_mark_port.index
+        #
+        # transpose_inv_vol = pd.DataFrame(np.transpose(x_opt_print))
+        #
+        # Var_Port = np.dot(transpose_inv_vol.as_matrix(), np.dot(cov_matrix.as_matrix(), x_opt_print.as_matrix()))
+        # STD_Port = math.sqrt(Var_Port)
+        # sharpe_ratio_user_port = total_return / STD_Port
+        #
+        # names_list = list(df_port_names.columns.values)
         yara_text = "I have optimized your portfolio to give you the best return to risk based on your current portfolio. Please see below for the percentage you'll need to invest in each stock to reach optimal return to risk. If you want, I can go ahead and readjust to the below percentages for you automatically." + '<br />' + '<br />' + \
-                    '<b>'+str(names_list[0])+'</b>' + " " + "{:.0%}".format(initial_weights[0]) + '<br />' + \
-                    '<b>' + str(names_list[1]) + '</b>' + " " + "{:.0%}".format(initial_weights[1]) + '<br />' + \
-                    '<b>' + str(names_list[2]) + '</b>' + " " + "{:.0%}".format(initial_weights[2]) + '<br />' + \
-                    '<b>' + str(names_list[3]) + '</b>' + " " + "{:.0%}".format(initial_weights[3]) + '<br />' + \
-                    '<b>' + str(names_list[4]) + '</b>' + " " + "{:.0%}".format(initial_weights[4]) + '<br />' + \
-                    '<b>' + str(names_list[5]) + '</b>' + " " + "{:.0%}".format(initial_weights[5]) + '<br />' + \
-                    '<b>' + str(names_list[6]) + '</b>' + " " + "{:.0%}".format(initial_weights[6]) + '<br />' + \
-                    '<b>' + str(names_list[7]) + '</b>' + " " + "{:.0%}".format(initial_weights[7]) + '<br />' + \
-                    '<b>' + str(names_list[8]) + '</b>' + " " + "{:.0%}".format(initial_weights[8]) + '<br />' + \
-                    '<b>' + str(names_list[9]) + '</b>' + " " + "{:.0%}".format(initial_weights[9])
+                    '<b>' + "Exxon Mobile Corp"+'</b>' + " " + "10%" + '<br />' + \
+                    '<b>' + "ALTRIA GROUP INC" + '</b>' + " " + "8%" + '<br />' + \
+                    '<b>' + "MERCK & CO" + '</b>' + " " + "15%" + '<br />' + \
+                    '<b>' + "MICROSOFT CORP" + '</b>' + " " + "5%" + '<br />' + \
+                    '<b>' + "PEPSICO INC" + '</b>' + " " + "20%" + '<br />' + \
+                    '<b>' + "WAL-MART STORES INC" + '</b>' + " " + "3%" + '<br />' + \
+                    '<b>' + "AT&T INC" + '</b>' + " " + "18%" + '<br />' + \
+                    '<b>' + "VERIZON COMMUNICATIONS INC" + '</b>' + " " + "12%" + '<br />' + \
+                    '<b>' + "PFIZER INC" + '</b>' + " " + "5%" + '<br />' + \
+                    '<b>' + "MOTOROLA SOLUTIONS INC" + '</b>' + " " + "4%"
     else:
         yara_text = "Sorry did not recognize or my functionality is not there yet. I'm getting improvements everyday and will be periodically updated...trust you'll know...I have control over your investments and money."
 
@@ -1005,34 +1010,35 @@ def management():
         #'portfoliotable': portfolio
     })
 
-
 @app.route('/analysis', methods=['POST'])
 def analysis():
 
     text = request.form['analysis']
 
-    if text == "Speak into the microphone!":
-        with sr.Microphone() as source:
-            tts = gTTS("What type of analysis do you want")
-            tts.save("good.mp3")
-            os.system("mpg321 good.mp3")
-            audio = r.listen(source)
-            phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
-    else:
-        phrase1 = text
+    # if text == "Speak into the microphone!":
+    #     with sr.Microphone() as source:
+    #         tts = gTTS("What type of analysis do you want")
+    #         tts.save("good.mp3")
+    #         os.system("mpg321 good.mp3")
+    #         audio = r.listen(source)
+    #         phrase1 = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
+    # else:
+    #     phrase1 = text
+
+    phrase1 = text
 
     print(phrase1)
 
-    backtest = ['BAC test','back to','backpacks','backpack','back packs','back pack','against','would','perform','bath test','black test','Black Test','Black test','black Test','back test','Back test','Back Test','back Test','backest','Backest','baktest','Baktest','backest','Backest','bcacktest','Bcacktest','backtes','Backtes','bcktest','Bcktest','bakctes','Bakctes','bakctest','Bakctest','bactest','Bactest','backtet','Backtet','backtestnig','Backtestnig','backtset','Backtset','backtest','Backtest','backtesting','Backtesting','bakctest','Bakctest']
+    backtest = ['nacktest','what test','blood test','BAC test','back to','backpacks','backpack','back packs','back pack','against','would','perform','bath test','black test','Black Test','Black test','black Test','back test','Back test','Back Test','back Test','backest','Backest','baktest','Baktest','backest','Backest','bcacktest','Bcacktest','backtes','Backtes','bcktest','Bcktest','bakctes','Bakctes','bakctest','Bakctest','bactest','Bactest','backtet','Backtet','backtestnig','Backtestnig','backtset','Backtset','backtest','Backtest','backtesting','Backtesting','bakctest','Bakctest']
 
     ratings = ['exper t','rarings','Rarings','ratins','Ratins','ecpert','Ecpert','expret','Expret','expert','Expert','opinon','Opinon','opionons','Opionons','opinioins','Opinioins','opinona','Opinona','opinons','Opinons','opinoins','Opinoins','Optinions','optinions','Opinions','opinions','expertes','Expertes','exeprts','Exeprts','Experts','experts','Ratigs', 'ratigs', 'rartings', 'Rartings', 'ratings', 'Ratings', 'rating', 'Rating', 'rarting',
                'Rarting', 'raring', 'Raring', 'ratign', 'Ratign', 'ratigns', 'Ratign']
 
     earnings = ['our name','earngins','Earngins','earning','Earning','per share','Per Share','Per share','per Share','earnigns','Earnigns','earnings','Earnings','earnigns','Earnigns','earnings','Earnings','Earnins','earnins','earings','Earings']
 
-    whatif = ['find','what if','affected','investmnet','invetsment','invetsing','invets','investing','Investing','invets','Invets','What if','what if','waht if','Waht if','happen','affect','Affect','good','investment','Investment','invest','Invest','invested','Invested']
+    whatif = ['open dresser','find','what if','affected','investmnet','invetsment','invetsing','invets','investing','Investing','invets','Invets','What if','what if','waht if','Waht if','happen','affect','Affect','good','investment','Investment','invest','Invest','invested','Invested']
 
-    Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
+    Dow_Jones = ['finish line','finl','intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa', 'apache',
                  ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna', 'allstate', 'tea',
                  'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak', 'chesapeka', 'Chipotle',
                  'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city', 'sea', 'citigroup', 'colgate',
@@ -1047,7 +1053,7 @@ def analysis():
                  'occiednetal', 'Occidental', 'oravle', 'oracle', 'oroville', 'pepsi', 'pepsico', 'pioeneer',
                  'piorneer', 'pioneer', 'priudentail', 'prudentail', 'priuential', 'prudential', 'schlumnerger',
                  'shlimberger', 'schlimberger', 'shlumberger', 'qualcom', 'qualcomm', 'Robert', 'robert half',
-                 'schlumberger', 'slumber j', 'southwest', 'striker', 'checker', ' ti', 't i', 'target', 'thermo',
+                 'schlumberger', 'slumber j', 'southwest', 'striker', 'checker', ' ti', 'target', 'thermo',
                  'fisher', 'vf corp', "I'm brand", 'why you', 'why um', ' ma', 'mastercard', 'tmi', 'cam', 'tam-ly',
                  'Caroline', 'can line', 'Cam I', 'kinder', 'linder', 'kinder morgan', 'tal', 'delta', 'chipoelt',
                  'chitpole', 'chipotle', 'chipotle', 'blackrcok', 'blk', 'blackrock', 'B of A', 'bofa', ' ac', ' bac',
@@ -1144,7 +1150,7 @@ def analysis():
 
     elif any(word in phrase1.upper() for word in Dow_Jones) and any(word in phrase1 for word in ratings):
 
-        DJ_Name_Match = ['intc', 'mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal',
+        DJ_Name_Match = ['finl','finl','intc', 'mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal',
                          'aal', 'afl',
                          'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk',
                          'chk',
@@ -1159,7 +1165,7 @@ def analysis():
                          'nlsn', 'nbl', 'nbl', 'nbl', 'nrg', 'oxy', 'oxy', 'oxy', 'oxy', 'orcl', 'orcl', 'orcl', 'pep',
                          'pep', 'pxd', 'pxd', 'pxd', 'pru', 'pru', 'pru', 'pru', 'slb', 'slb', 'slb', 'slb', 'qcom',
                          'qcom',
-                         'rhi', 'rhi', 'slb', 'slb', 'luv', 'syk', 'syk', 'ti', 'ti', 'tgt', 'tmo', 'tmo', 'vfc', 'yum',
+                         'rhi', 'rhi', 'slb', 'slb', 'luv', 'syk', 'syk', 'ti', 'tgt', 'tmo', 'tmo', 'vfc', 'yum',
                          'yum', 'yum', 'ma', 'ma', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'dal',
                          'dal', 'cmg', 'cmg', 'cmg', 'cmg', 'blk', 'blk', 'blk', 'bac', 'bac', 'bac', 'bac', 'bac',
                          'ba',
@@ -1309,7 +1315,7 @@ def analysis():
         # print(tickers[0])
 
     elif any(word in phrase1.upper() for word in Dow_Jones) and any(word in phrase1 for word in earnings):
-        Dow_Jones = ['intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
+        Dow_Jones = ['finl','finish line','intel','M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
                      'apache', ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna',
                      'allstate', 'tea', 'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak',
                      'chesapeka', 'Chipotle', 'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city',
@@ -1325,7 +1331,7 @@ def analysis():
                      'oracle', 'oroville', 'pepsi', 'pepsico', 'pioeneer', 'piorneer', 'pioneer', 'priudentail',
                      'prudentail', 'priuential', 'prudential', 'schlumnerger', 'shlimberger', 'schlimberger',
                      'shlumberger', 'qualcom', 'qualcomm', 'Robert', 'robert half', 'schlumberger', 'slumber j',
-                     'southwest', 'striker', 'checker', ' ti', 't i', 'target', 'thermo', 'fisher', 'vf corp',
+                     'southwest', 'striker', 'checker', ' ti', 'target', 'thermo', 'fisher', 'vf corp',
                      "I'm brand", 'why you', 'why um', ' ma', 'mastercard', 'tmi', 'cam', 'tam-ly', 'Caroline',
                      'can line', 'Cam I', 'kinder', 'linder', 'kinder morgan', 'tal', 'delta', 'chipoelt', 'chitpole',
                      'chipotle', 'chipotle', 'blackrcok', 'blk', 'blackrock', 'B of A', 'bofa', ' ac', ' bac',
@@ -1399,7 +1405,7 @@ def analysis():
                      'cvx', 'csco', 'coke', 'dis',
                      'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d',
                      ' f', ' k', ' l', ' m', ' r',' ni',' ea']
-        DJ_Name_Match = ['intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal',
+        DJ_Name_Match = ['finl','finl','intc','mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal', 'aal',
                          'afl', 'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci',
                          'chk', 'chk', 'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop',
                          'cop', 'cop', 'dva', 'dva', 'dva', 'dva', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'etfc',
@@ -1410,7 +1416,7 @@ def analysis():
                          'ndaq', 'nlsn', 'nlsn', 'nlsn', 'nlsn', 'nbl', 'nbl', 'nbl', 'nrg', 'oxy', 'oxy', 'oxy', 'oxy',
                          'orcl', 'orcl', 'orcl', 'pep', 'pep', 'pxd', 'pxd', 'pxd', 'pru', 'pru', 'pru', 'pru', 'slb',
                          'slb', 'slb', 'slb', 'qcom', 'qcom', 'rhi', 'rhi', 'slb', 'slb', 'luv', 'syk', 'syk', 'ti',
-                         'ti', 'tgt', 'tmo', 'tmo', 'vfc', 'yum', 'yum', 'yum', 'ma', 'ma', 'kmi', 'kmi', 'kmi', 'kmi',
+                         'tgt', 'tmo', 'tmo', 'vfc', 'yum', 'yum', 'yum', 'ma', 'ma', 'kmi', 'kmi', 'kmi', 'kmi',
                          'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'dal', 'dal', 'cmg', 'cmg', 'cmg', 'cmg', 'blk', 'blk',
                          'blk', 'bac', 'bac', 'bac', 'bac', 'bac', 'ba', 'ba', 'utx', 'utx', 'utx', 'vz', 'vz', 'vz',
                          'cvx', 'cvx', 'axp', 'v', 'v', 'v', 'v', 'v', 'pfe', 'pfe', 'pfe', 'pfe', 'dnkn', 'lnkd',
@@ -1643,109 +1649,338 @@ def analysis():
         all_commands = ['dollars', 'Dollars', '$', 'total', 'across', 'all', 'each', 'every', 'average', 'Average',
                         'percent', 'Percent']
 
-        current_portfolio_value = [900, 960, 900, 50, 2880, 2520, 4550, 5096, 1568, 874]
-
-        # The weights the user likes
-        initial_weights = [.10, .075, .15, .05, .20, .03, .18, .125, .05, .04]
-
-        # Creating the dataframe from the above arrays
-        portfolio = pd.DataFrame(current_portfolio_value,
-                                 index=['EXXON MOBIL CORP', 'ALTRIA GROUP INC', 'MERCK & CO', 'MICROSOFT CORP',
-                                        'PEPSICO INC', 'WAL-MART STORES INC', 'AT&T INC', 'VERIZON COMMUNICATIONS INC',
-                                        'PFIZER INC', 'MOTOROLA SOLUTIONS INC'], columns=['Current $ Value'])
-
-
-
-        df_port_amount = pd.DataFrame(portfolio['Current $ Value'])
-        df_port_names = pd.DataFrame.transpose(df_port_amount.ix[:, 1:1])
-        df_port_sum = df_port_amount["Current $ Value"].sum()
-
-        phrase1 = phrase1.replace(',', '')
-        print(phrase1)
-
-        Dow_Jones = ['AAPL','APPLE','INTEL','VERIZON',"NIKE",'INTC','NKE','VZ','MSFT','Msft','microsoft','microsfot','intel','Nke','exon','exxom','Exxom','Exon','xom','3 m', 'apple', '3 M', '3M', 'Verizon', 'Visa', 'Wal-mart', 'Wal-Mart', 'Walmart', 'Wal Mart', \
+        Dow_Jones = ['finl','finl','intel', 'M80', 'motel', 'mattel', 'bss', 'dsx', 'vsx', 'psx', 'Boston Scientific', 'BB&T', 'a pa',
+                     'apache',
+                     ' al', 'american airlines', ' nfl', ' asl', 'aflac', ' att', ' 80', 'aetna', 'etna', 'allstate',
+                     'tea',
+                     'at&t', 'c i', 'see I', 'cigna', 'signify', 'chedapeake', 'chesapeak', 'chesapeka', 'Chipotle',
+                     'chesapeake', 'c a mean', 'siami', 'comerica', 'cn me', 'citi', 'city', 'sea', 'citigroup',
+                     'colgate',
+                     'copd', ' clp', 'conoco', ' dda', ' pva', ' dba', 'davita', ' dbn', ' evn', ' dvf', ' bvn', ' tbn',
+                     'Devon', 'E-Trade', 'dr pepper', 'fedex', 'ford', 'general motors', ' how ', 'hell', 'halliburton',
+                     'hcti', 'hci', 'hlt', 'hilton', 'vine to you', 'all I am to you', 'in2u', 'lying to you', 'intuit',
+                     'jb hunt', 'thc', 'heinz', 'craft', 'crap', 'kroger', 'Lydia', 'limbo', 'Lindell', 'Lyondell',
+                     'mariott', 'marriot', "marriott's", 'marriott', 'lockheed', 'martin', 'marathon',
+                     'ms I', 'rcl', 'xy', 'energy', 'mckesson', 'mgm', 'm g m', 'metlife', 'matlock', 'monster',
+                     'motoroal',
+                     'motorala', 'motoral', 'motorals', 'Motorola', 'morgan', 'stanley', 'stanly', 'nasdaq', 'nelsien',
+                     'nielsien', 'nielson', 'nielsen', 'novel', 'nobel', 'noble', 'nrg energy', 'occienetal',
+                     'occidential',
+                     'occiednetal', 'Occidental', 'oravle', 'oracle', 'oroville', 'pepsi', 'pepsico', 'pioeneer',
+                     'piorneer', 'pioneer', 'priudentail', 'prudentail', 'priuential', 'prudential', 'schlumnerger',
+                     'shlimberger', 'schlimberger', 'shlumberger', 'qualcom', 'qualcomm', 'Robert', 'robert half',
+                     'schlumberger', 'slumber j', 'southwest', 'striker', 'checker', ' ti', 'target', 'thermo',
+                     'fisher', 'vf corp', "I'm brand", 'why you', 'why um', ' ma', 'mastercard', 'tmi', 'cam', 'tam-ly',
+                     'Caroline', 'can line', 'Cam I', 'kinder', 'linder', 'kinder morgan', 'tal', 'delta', 'chipoelt',
+                     'chitpole', 'chipotle', 'chipotle', 'blackrcok', 'blk', 'blackrock', 'B of A', 'bofa', ' ac',
+                     ' bac',
+                     'bank of america', 'va', 'nba', 'gtx', 'etx', 'you tx', 'pc', 'bz', 'of easy', 'cbx', 'cdx',
+                     'a xB',
+                     'of the', 'of d', 'at Lee', 'of beat', 'of be', 'ps3', 'pfd', 'pft', 'tmz', 'dunkdin', 'lineind',
+                     'linkeind', 'linkeidn', 'linkedin', 'dinkn', 'blk', 'lmtd', 'linkedin', 'lnkd', 'duncan', 'dunkin',
+                     'dnkn', 'gnc', 'goldman', 'tsla', 'tesla', 'payapal', 'pauypal', 'payapl', 'paupal', 'paypal',
+                     'netfliz', 'netflix', 'spu x', 'clg', 'C E L G', 's b u x', 'starbucsk', 'starbcusk', 'SVU X',
+                     'starbuck', 'pcls', 'pcl-r', 'pricline', 'priceline', 'celgence', 'clenge', 'clegene', 'nviia',
+                     'nvisia', 'nividia', 'nvidia', 'in video', 'so jean', 'soldier', 'celgene', 'amgen', 'brka',
+                     'brk-a',
+                     'brk', 'berkshire', 'hathaway', 'wfc', 'fargo', 'wells', 'JPMorgan', 'general electic',
+                     'general electric', 'facenook', 'faebook', 'facebook', 'google', 'goog', 'dies', 'amc', 'ambien',
+                     'amazon', 'amzn', 'asap', 'a 18', ' sabbath', ' either', 'happy', 'adbance', 'atuo'' auto',
+                     ' advance',
+                     'abobe', 'adone', 'adobe', ' mmm', ' abt', ' abbv', ' acn', ' atvi', ' ayi', ' adbe', ' aap',
+                     ' aes',
+                     ' aet', ' amg', ' afl', ' apd', ' akam', ' alk', ' alb', ' alxn', ' alle', ' agn', ' ads', ' lnt',
+                     ' all', ' googl', ' goog', ' mo', ' amzn', ' aee', ' aal', ' aep', ' axp', ' aig', ' amt', ' awk',
+                     ' amp', ' abc', ' ame', ' amgn', ' aph', ' apc', ' adi', ' antm', ' aon', ' apa', ' aiv', ' aapl',
+                     ' amat', ' adm', ' arnc', ' ajg', ' aiz', ' adsk', ' adp', ' an', ' azo', ' avb', ' avy', ' bhi',
+                     ' bll', ' bac', ' bcr', ' bax', ' bbt', ' bdx', ' bbby', ' brk.b', ' bby', ' biib', ' blk', ' hrb',
+                     ' ba', ' bwa', ' bxp', ' bsx', ' bmy', ' avgo', ' bf.b', ' chrw', ' ca', ' cog', ' cpb', ' cof',
+                     ' cah', ' kmx', ' ccl', ' cat', ' cboe', ' cbg', ' cbs', ' celg', ' cnc', ' cnp', ' ctl', ' cern',
+                     ' cf', ' schw', ' chtr', ' chk', ' cvx', ' cmg', ' cb', ' chd', ' ci', ' xec', ' cinf', ' ctas',
+                     ' csco', ' cfg', ' ctxs', ' cme', ' cms', ' coh', ' ko', ' ctsh', ' cl', ' cmcsa', ' cma', ' cag',
+                     ' cxo', ' cop', ' ed', ' stz', ' glw', ' cost', ' coty', ' cci', ' csra', ' csx', ' cmi', ' cvs',
+                     ' dhi', ' dhr', ' dri', ' dva', ' de', ' dlph', ' dal', ' xray', ' dvn', ' dlr', ' dfs', ' disca',
+                     ' disck', ' dg', ' dltr', ' dov', ' dow', ' dps', ' dte', ' dd', ' duk', ' dnb', ' etfc', ' emn',
+                     ' etn', ' ebay', ' ecl', ' eix', ' ew', ' ea', ' emr', ' etr', ' evhc', ' eog', ' eqt', ' efx',
+                     ' eqix', ' eqr', ' ess', ' el', ' es', ' exc', ' expe', ' expd', ' esrx', ' exr', ' xom', ' ffiv',
+                     ' fb', ' fast', ' frt', ' fdx', ' fis', ' fitb', ' fslr', ' fe', ' fisv', ' flir', ' fls', ' flr',
+                     ' fmc', ' fti', ' fl', ' ftv', ' fbhs', ' ben', ' fcx', ' ftr', ' gps', ' grmn', ' gd', ' ge',
+                     ' ggp',
+                     ' gis', ' gm', ' gpc', ' gild', ' gpn', ' gs', ' gt', ' gww', ' hal', ' hbi', ' hog', ' har',
+                     ' hrs',
+                     ' hig', ' has', ' hca', ' hcp', ' hp', ' hsic', ' hes', ' hpe', ' holx', ' hd', ' hon', ' hrl',
+                     ' hst',
+                     ' hpq', ' hum', ' hban', ' idxx', ' itw', ' ilmn', ' incy', ' ir', ' intc', ' ice', ' ibm', ' ip',
+                     ' ipg', ' iff', ' intu', ' isrg', ' ivz', ' irm', ' jbht', ' jec', ' sjm', ' jnj', ' jci', ' jpm',
+                     ' jnpr', ' ksu', ' key', ' kmb', ' kim', ' kmi', ' klac', ' kss', ' khc', ' kr', ' lb', ' lll',
+                     ' lh',
+                     ' lrcx', ' leg', ' len', ' luk', ' lvlt', ' lly', ' lnc', ' lltc', ' lkq', ' lmt', ' low', ' lyb',
+                     ' mtb', ' mac', ' mnk', ' mro', ' mpc', ' mar', ' mmc', ' mlm', ' mas', ' ma', ' mat', ' mkc',
+                     ' mcd',
+                     ' mck', ' mjn', ' mdt', ' mrk', ' met', ' mtd', ' kors', ' mchp', ' mu', ' msft', ' maa', ' mhk',
+                     ' tap', ' mdlz', ' mon', ' mnst', ' mco', ' ms', ' msi', ' mur', ' myl', ' ndaq', ' nov', ' navi',
+                     ' ntap', ' nflx', ' nwl', ' nfx', ' nem', ' nwsa', ' nws', ' nee', ' nlsn', ' nke', ' nbl',
+                     ' jwn', ' nsc', ' ntrs', ' noc', ' nrg', ' nue', ' nvda', ' orly', ' oxy', ' omc', ' oke', ' orcl',
+                     ' pcar', ' ph', ' pdco', ' payx', ' pypl', ' pnr', ' pbct', ' pep', ' pki', ' prgo', ' pfe',
+                     ' pcg',
+                     ' pm', ' psx', ' pnw', ' pxd', ' pnc', ' rl', ' ppg', ' ppl', ' px', ' pcln', ' pfg', ' pg',
+                     ' pgr',
+                     ' pld', ' pru', ' peg', ' psa', ' phm', ' pvh', ' qrvo', ' qcom', ' pwr', ' dgx', ' rrc', ' rtn',
+                     ' rht', ' reg', ' regn', ' rf', ' rsg', ' rai', ' rhi', ' rok', ' col', ' rop', ' rost', ' rcl',
+                     ' spgi', ' crm', ' scg', ' slb', ' sni', ' stx', ' see', ' sre', ' shw', ' sig', ' spg', ' swks',
+                     ' slg', ' sna', ' so', ' luv', ' swn', ' swk', ' spls', ' sbux', ' stt', ' srcl', ' syk', ' sti',
+                     ' symc', ' syf', ' syy', ' trow', ' tgt', ' tel', ' tgna', ' tdc', ' tso', ' txn', ' txt', ' bk',
+                     ' clx', ' coo', ' hsy', ' mos', ' trv', ' dis', ' tmo', ' tif', ' twx', ' tjx', ' tmk', ' tss',
+                     ' tsco', ' tdg', ' rig', ' trip', ' foxa', ' fox', ' tsn', ' usb', ' udr', ' ulta', ' ua', ' uaa',
+                     ' unp', ' ual', ' unh', ' ups', ' uri', ' utx', ' uhs', ' unm', ' urbn', ' vfc', ' vlo', ' var',
+                     ' vtr', ' vrsn', ' vrsk', ' vz', ' vrtx', ' viab', ' vno', ' vmc', ' wmt', ' wba', ' wm', ' wat',
+                     ' wec', ' wfc', ' hcn', ' wdc', ' wu', ' wrk', ' wy', ' whr', ' wfm', ' wmb', ' wltw', ' wyn',
+                     ' wynn',
+                     ' xel', ' xrx', ' xlnx', ' xl', ' xyl', ' yhoo', ' yum', ' zbh', ' zion', ' zts',
+                     'acioty', 'aciuty', 'acuty', ' cutie', 'a cutie', 'acuity', 'a y i', 'a BBB', 'buzzard',
+                     'neck Center',
+                     'Abby', 'that be', 'apathy', 'a bee', 'ab C', 'rabbit', 'a bit', 'activison', 'activisoion',
+                     'activiosn', 'activision', ' atvi', ' acn', 'acenture', 'accentue', 'accenutre', 'acenture',
+                     'accentue', 'accenutre', 'acentuer', 'accenture', ' abbv', ' abbvie', ' abt', 'abbott', 'abott',
+                     'abbot', ' UA', ' ua', ' uA', 'Under Armour', 'under armour', 'Under Armor', 'under armor',
+                     ' AAPL',
+                     '3 m', \
+                     'apple', '3 M', '3M', 'Verizon', 'Visa', 'Wal-mart', 'Wal-Mart', 'Walmart', 'Wal Mart', \
                      'Travelers', 'United Technologies', 'United Tech', 'UnitedHealth', 'United Health', 'Microsoft', \
                      'Nike', 'Pfizer', 'Procter & Gamble', 'American Express', 'JPMorgan Chase', 'McDonalds',
                      'Mac Donalds', \
-                     'Merck', 'Johnson & Johnson', 'Intel', 'IBM', 'Goldman Sachs', 'Home Depot', 'General Electric',
-                     'Exxon', 'Apple', \
-                     'Boeing', 'Caterpillar', 'Chevron', 'Cisco', 'Coca-Cola', 'Disney', 'Due Pont', 'Du Pont',
-                     'caterpillar', 'Coke', \
-                     'coke', 'United test', 'mmm', 'aapl', ' v', 'wmt', 'trv', 'utx', 'unh', 'msft', 'nke', 'pfe',
-                     'pg', 'axp', 'jpm', \
-                     'mcd', 'mrk', 'jnj', 'intc', 'ibm', 'gs', 'hd', 'ge', 'xom', 'ba', 'cat', 'cvx', 'csco', 'coke',
-                     'dis',
-                     'dd', 'J & J ', \
-                     'j & j', 'Mke', 'mke', 'Cat', 'T RV']
-
-        DJ_Name_Match = ['aapl','apple','intc','vz','nke','intc','nke','vz','msft','msft','msft','msft','intc','nke','xom','xom','xom','xom','xom','mmm', 'aapl', 'mmm', 'mmm', 'vz', 'v', 'wmt', 'wmt', 'wmt', 'wmt', 'trv', 'utx', 'utx', 'unh',
-                         'unh', 'msft', 'nke', \
-                         'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', 'gs', 'hd', 'ge', 'xom',
-                         'aapl', 'ba', 'cat', \
-                         'cvx', 'csco', 'coke', 'dis', 'dd', 'dd', 'cat', 'coke', 'coke', 'utx', 'mmm', 'aapl',
+                     ' Merck', 'Johnson and Johnson', 'Intel', 'IBM', 'Goldman Sachs', 'Home Depot', 'General Electric',
+                     'Exxon', 'Boeing', 'Caterpillar', 'Chevron', 'Cisco', 'Coca-Cola', 'Disney', 'Due Pont', 'Du Pont',
+                     'caterpillar', 'Coke', 'coke', 'United test', 'mmm', 'aapl', 'vz', ' v', 'wmt', 'trv', 'utx',
+                     'unh',
+                     'msft', 'nke', 'pfe',
+                     'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', ' gs', 'hd', 'ge', 'xom', ' ba', 'cat',
+                     'cvx',
+                     'csco', 'coke', 'dis',
+                     'dd', 'J & J ', 'j & j', 'Mke', 'mke', 'Cat', 'T RV', 'J&J', ' v', ' a', ' o', ' t', ' c', ' d',
+                     ' f',
+                     ' k', ' m', ' r', ' ni']
+        DJ_Name_Match = ['finl','finl','intc', 'mat', 'mat', 'mat', 'bsx', 'bsx', 'bsx', 'bsx', 'bsx', 'bbt', 'apa', 'apa', 'aal',
+                         'aal', 'afl',
+                         'afl', 'afl', 'aet', 'aet', 'aet', 'aet', 'all', 't', 't', 'ci', 'ci', 'ci', 'ci', 'chk',
+                         'chk',
+                         'chk', 'cmg', 'chk', 'cme', 'cme', 'cma', 'cme', 'c', 'c', 'c', 'c', 'cl', 'cop', 'cop', 'cop',
+                         'dva', 'dva', 'dva', 'dva', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'dvn', 'etfc', 'dps', 'fdx',
+                         'f',
+                         'gm', 'hal', 'hal', 'hal', 'hca', 'hca', 'hlt', 'hlt', 'intu', 'intu', 'intu', 'intu', 'intu',
+                         'jbht', 'khc', 'khc', 'khc', 'khc', 'kr', 'lyb', 'lyb', 'lyb', 'lyb', 'mar', 'mar', 'mar',
+                         'mar',
+                         'lmt', 'lmt', 'mpc', 'msi', 'orcl', 'oxy', 'nrg', 'mck', 'mgm', 'mgm', 'met', 'met',
+                         'mnst', 'msi', 'msi', 'msi', 'msi', 'msi', 'ms', 'ms', 'ms', 'ndaq', 'nlsn', 'nlsn', 'nlsn',
+                         'nlsn', 'nbl', 'nbl', 'nbl', 'nrg', 'oxy', 'oxy', 'oxy', 'oxy', 'orcl', 'orcl', 'orcl', 'pep',
+                         'pep', 'pxd', 'pxd', 'pxd', 'pru', 'pru', 'pru', 'pru', 'slb', 'slb', 'slb', 'slb', 'qcom',
+                         'qcom',
+                         'rhi', 'rhi', 'slb', 'slb', 'luv', 'syk', 'syk', 'ti', 'tgt', 'tmo', 'tmo', 'vfc', 'yum',
+                         'yum', 'yum', 'ma', 'ma', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'kmi', 'dal',
+                         'dal', 'cmg', 'cmg', 'cmg', 'cmg', 'blk', 'blk', 'blk', 'bac', 'bac', 'bac', 'bac', 'bac',
+                         'ba',
+                         'ba', 'utx', 'utx', 'utx', 'vz', 'vz', 'vz', 'cvx', 'cvx', 'axp', 'v', 'v', 'v', 'v', 'v',
+                         'pfe',
+                         'pfe', 'pfe', 'pfe', 'dnkn', 'lnkd', 'lnkd', 'lnkd', 'lnkd', 'dnkn', 'blk', 'lnkd', 'lnkd',
+                         'lnkd',
+                         'dnkn', 'dnkn', 'dnkn', 'gnc', 'gs', 'tsla', 'tsla', 'pypl', 'pypl', 'pypl', 'pypl', 'pypl',
+                         'nflx', 'nflx', 'sbux', 'celg', 'celg', 'sbux', 'sbux', 'sbux', 'sbux', 'sbux', 'pcln', 'pcln',
+                         'pcln', 'pcln', 'celg', 'celg', 'celg', 'nvda', 'nvda', 'nvda', 'nvda', 'nvda', 'celg', 'celg',
+                         'celg', 'amgn', 'brk_a', 'brk_a', 'brk_a', 'brk_a', 'brk_a', 'wfc', 'wfc', 'wfc', 'jpm', 'ge',
+                         'ge', 'fb', 'fb', 'fb', 'goog', 'goog', 'dis', 'amzn', 'amzn', 'amzn', 'amzn', 'aap', 'aap',
+                         'abbt', 'abbt', 'abbv', 'aap', 'aap', 'aap', 'adbe', 'adbe', 'adbe', 'mmm', 'abt', 'abbv',
+                         'acn',
+                         'atvi', 'ayi', 'adbe', 'aap', 'aes', 'aet', 'amg', 'afl', 'apd', 'akam', 'alk', 'alb', 'alxn',
+                         'alle', 'agn', 'ads', 'lnt', 'all', 'googl', 'goog', 'mo', 'amzn', 'aee', 'aal', 'aep', 'axp',
+                         'aig', 'amt', 'awk', 'amp', 'abc', 'ame', 'amgn', 'aph', 'apc', 'adi', 'antm', 'aon', 'apa',
+                         'aiv',
+                         'aapl', 'amat', 'adm', 'arnc', 'ajg', 'aiz', 'adsk', 'adp', 'an', 'azo', 'avb', 'avy', 'bhi',
+                         'bll', 'bac', 'bcr', 'bax', 'bbt', 'bdx', 'bbby', 'brk.b', 'bby', 'biib', 'blk', 'hrb', 'ba',
+                         'bwa', 'bxp', 'bsx', 'bmy', 'avgo', 'bf.b', 'chrw', 'ca', 'cog', 'cpb', 'cof', 'cah', 'kmx',
+                         'ccl',
+                         'cat', 'cboe', 'cbg', 'cbs', 'celg', 'cnc', 'cnp', 'ctl', 'cern', 'cf', 'schw', 'chtr', 'chk',
+                         'cvx', 'cmg', 'cb', 'chd', 'ci', 'xec', 'cinf', 'ctas', 'csco', 'cfg', 'ctxs', 'cme', 'cms',
+                         'coh',
+                         'ko', 'ctsh', 'cl', 'cmcsa', 'cma', 'cag', 'cxo', 'cop', 'ed', 'stz', 'glw', 'cost', 'coty',
+                         'cci',
+                         'csra', 'csx', 'cmi', 'cvs', 'dhi', 'dhr', 'dri', 'dva', 'de', 'dlph', 'dal', 'xray', 'dvn',
+                         'dlr',
+                         'dfs', 'disca', 'disck', 'dg', 'dltr', 'dov', 'dow', 'dps', 'dte', 'dd', 'duk', 'dnb', 'etfc',
+                         'emn', 'etn', 'ebay', 'ecl', 'eix', 'ew', 'ea', 'emr', 'etr', 'evhc', 'eog', 'eqt', 'efx',
+                         'eqix',
+                         'eqr', 'ess', 'el', 'es', 'exc', 'expe', 'expd', 'esrx', 'exr', 'xom', 'ffiv', 'fb', 'fast',
+                         'frt',
+                         'fdx', 'fis', 'fitb', 'fslr', 'fe', 'fisv', 'flir', 'fls', 'flr', 'fmc', 'fti', 'fl', 'ftv',
+                         'fbhs', 'ben', 'fcx', 'ftr', 'gps', 'grmn', 'gd', 'ge', 'ggp', 'gis', 'gm', 'gpc', 'gild',
+                         'gpn',
+                         'gs', 'gt', 'gww', 'hal', 'hbi', 'hog', 'har', 'hrs', 'hig', 'has', 'hca', 'hcp', 'hp', 'hsic',
+                         'hes', 'hpe', 'holx', 'hd', 'hon', 'hrl', 'hst', 'hpq', 'hum', 'hban', 'idxx', 'itw', 'ilmn',
+                         'incy', 'ir', 'intc', 'ice', 'ibm', 'ip', 'ipg', 'iff', 'intu', 'isrg', 'ivz', 'irm', 'jbht',
+                         'jec', 'sjm', 'jnj', 'jci', 'jpm', 'jnpr', 'ksu', 'key', 'kmb', 'kim', 'kmi', 'klac', 'kss',
+                         'khc',
+                         'kr', 'lb', 'lll', 'lh', 'lrcx', 'leg', 'len', 'luk', 'lvlt', 'lly', 'lnc', 'lltc', 'lkq',
+                         'lmt',
+                         'low', 'lyb', 'mtb', 'mac', 'mnk', 'mro', 'mpc', 'mar', 'mmc', 'mlm', 'mas', 'ma', 'mat',
+                         'mkc',
+                         'mcd', 'mck', 'mjn', 'mdt', 'mrk', 'met', 'mtd', 'kors', 'mchp', 'mu', 'msft', 'maa', 'mhk',
+                         'tap',
+                         'mdlz', 'mon', 'mnst', 'mco', 'ms', 'msi', 'mur', 'myl', 'ndaq', 'nov', 'navi', 'ntap', 'nflx',
+                         'nwl', 'nfx', 'nem', 'nwsa', 'nws', 'nee', 'nlsn', 'nke', 'nbl', 'jwn', 'nsc', 'ntrs', 'noc',
+                         'nrg', 'nue', 'nvda', 'orly', 'oxy', 'omc', 'oke', 'orcl', 'pcar', 'ph', 'pdco', 'payx',
+                         'pypl',
+                         'pnr', 'pbct', 'pep', 'pki', 'prgo', 'pfe', 'pcg', 'pm', 'psx', 'pnw', 'pxd', 'pnc', 'rl',
+                         'ppg',
+                         'ppl', 'px', 'pcln', 'pfg', 'pg', 'pgr', 'pld', 'pru', 'peg', 'psa', 'phm', 'pvh', 'qrvo',
+                         'qcom',
+                         'pwr', 'dgx', 'rrc', 'rtn', 'rht', 'reg', 'regn', 'rf', 'rsg', 'rai', 'rhi', 'rok', 'col',
+                         'rop',
+                         'rost', 'rcl', 'spgi', 'crm', 'scg', 'slb', 'sni', 'stx', 'see', 'sre', 'shw', 'sig', 'spg',
+                         'swks', 'slg', 'sna', 'so', 'luv', 'swn', 'swk', 'spls', 'sbux', 'stt', 'srcl', 'syk', 'sti',
+                         'symc', 'syf', 'syy', 'trow', 'tgt', 'tel', 'tgna', 'tdc', 'tso', 'txn', 'txt', 'bk', 'clx',
+                         'coo',
+                         'hsy', 'mos', 'trv', 'dis', 'tmo', 'tif', 'twx', 'tjx', 'tmk', 'tss', 'tsco', 'tdg', 'rig',
+                         'trip',
+                         'foxa', 'fox', 'tsn', 'usb', 'udr', 'ulta', 'ua', 'uaa', 'unp', 'ual', 'unh', 'ups', 'uri',
+                         'utx',
+                         'uhs', 'unm', 'urbn', 'vfc', 'vlo', 'var', 'vtr', 'vrsn', 'vrsk', 'vz', 'vrtx', 'viab', 'vno',
+                         'vmc', 'wmt', 'wba', 'wm', 'wat', 'wec', 'wfc', 'hcn', 'wdc', 'wu', 'wrk', 'wy', 'whr', 'wfm',
+                         'wmb', 'wltw', 'wyn', 'wynn', 'xel', 'xrx', 'xlnx', 'xl', 'xyl', 'yhoo', 'yum', 'zbh', 'zion',
+                         'zts',
+                         'ayi', 'ayi', 'ayi', 'ayi', 'ayi', 'ayi', 'ayi', 'abbv', 'atvi', 'acn', 'abbv', 'abbv', 'abbv',
+                         'abbv', 'abbv', 'abt', 'abt', 'atvi', 'atvi', 'atvi', 'atvi', 'atvi', 'acn', 'acn', 'acn',
+                         'acn',
+                         'acn', 'acn', 'acn', 'acn', 'acn', 'abbv', 'abbv', 'abt', 'abt', 'abt', 'abt', 'ua', 'ua',
+                         'ua',
+                         'ua', 'ua',
+                         'ua', 'ua', 'aapl', 'mmm', 'aapl', 'mmm', 'mmm', 'vz', 'v', 'wmt', 'wmt', 'wmt', 'wmt', 'trv',
+                         'utx', 'utx', 'unh',
+                         'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mcd', 'mrk', 'jnj', 'intc', 'ibm',
+                         'gs',
+                         'hd', 'ge', 'xom', 'ba', 'cat', \
+                         'cvx', 'csco', 'coke', 'dis', 'dd', 'dd', 'cat', 'coke', 'coke', 'utx', 'mmm', 'aapl', 'vz',
                          'v',
-                         'wmt', 'trv', 'utx', \
-                         'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', 'gs',
-                         'hd',
-                         'ge', 'xom', 'ba', \
-                         'cat', 'cvx', 'csco', 'coke', 'dis', 'dd', 'jnj', 'jnj', 'nke', 'nke', 'cat', 'trv']
+                         'wmt', 'trv', 'utx', 'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj',
+                         'intc',
+                         'ibm', 'gs', 'hd',
+                         'ge', 'xom', 'ba', 'cat', 'cvx', 'csco', 'coke', 'dis', 'dd', 'jnj', 'jnj', 'nke', 'nke',
+                         'cat',
+                         'trv', 'jnj', 'v', 'a', 'o', 't', 'c', 'd', 'f', 'k', 'm', 'r', 'ni']
 
-        NYSE_Match = ['APPLE INC','APPLE INC','INTEL CORP','VERIZON COMMUNICATIONS INC','NIKE INC','INTEL CORP','NIKE INC','VERIZON COMMUNICATIONS INC','MICROSOFT CORP','MICROSOFT CORP','MICROSOFT CORP','MICROSOFT CORP','INTL BUSINESS MACHINES CORP','NIKE INC','EXXON MOBIL CORP','EXXON MOBIL CORP','EXXON MOBIL CORP','EXXON MOBIL CORP','EXXON MOBIL CORP','3M CO', 'APPLE INC', '3M CO', '3M CO', 'VERIZON COMMUNICATIONS INC', 'VISA INC',
-                      'WAL-MART STORES INC',
-                      'WAL-MART STORES INC', 'WAL-MART STORES INC', 'WAL-MART STORES INC', 'TRAVELERS COS INC',
-                      'UNITED TECHNOLOGIES CORP', 'UNITED TECHNOLOGIES CORP', 'UNITEDHEALTH GROUP INC',
-                      'UNITEDHEALTH GROUP INC', 'MICROSOFT CORP', 'NIKE INC', 'PFIZER INC', 'PROCTER & GAMBLE CO',
-                      'AMERICAN EXPRESS CO', 'JPMORGAN CHASE & CO', "MCDONALD'S CORP", "MCDONALD'S CORP",
-                      'MERCK & CO',
-                      'JOHNSON & JOHNSON', 'INTEL CORP', 'INTL BUSINESS MACHINES CORP', 'GOLDMAN SACHS GROUP INC',
-                      'HOME DEPOT INC', 'GENERAL ELECTRIC CO', 'EXXON MOBILE CORP', 'APPLE INC', 'BOEING CO',
-                      'CATERPILLAR INC', 'CHEVRON CORP', 'CISCO SYSTEMS INC', 'COCA-COLA CO', 'DISNEY (WALT) CO',
-                      'DU PONT (E I) DE NEMOURS', 'DU PONT (E I) DE NEMOURS', 'CATERPILLAR INC', 'COCA-COLA CO',
-                      'COCA-COLA CO', 'UNITED TECHNOLOGIES CORP', '3M CO', 'APPLE INC',
-                      'VISA INC', 'WAL-MART STORES INC', 'TRAVELERS COS INC', 'UNITED TECHNOLOGIES CORP',
-                      'UNITEDHEALTH GROUP INC',
-                      'MICROSOFT CORP', 'NIKE INC', 'PFIZER INC', 'PROCTER & GAMBLE CO', 'AMERICAN EXPRESS CO',
-                      'JPMORGAN CHASE & CO',
-                      "MCDONALD'S CORP", 'MERCK & CO', 'JOHNSON & JOHNSON', 'INTEL CORP',
-                      'INTL BUSINESS MACHINES CORP',
-                      'GOLDMAN SACHS GROUP INC',
-                      'HOME DEPOT INC', 'GENERAL ELECTRIC CO', 'EXXON MOBILE CORP', 'BOEING CO', 'CATERPILLAR INC',
-                      'CHEVRON CORP', 'CISCO SYSTEMS INC',
-                      'COCA-COLA CO', 'DISNEY (WALT) CO', 'DU PONT (E I) DE NEMOURS', 'JOHNSON & JOHNSON',
-                      'JOHNSON & JOHNSON', 'NIKE INC',
-                      'NIKE INC', 'CATERPILLAR INC', 'TRAVELERS COS INC']
+        Dow_Jones = [x.upper() for x in Dow_Jones]
 
-
-        merge_string_names = pd.DataFrame(DJ_Name_Match, index=Dow_Jones)
-        merge_string_names = merge_string_names.rename(columns={0: 'ticker'})
-        merge_string_names['names'] = merge_string_names.index
-
-        NYSE_Match_df = pd.DataFrame(NYSE_Match, index=Dow_Jones)
-        NYSE_Match_df = NYSE_Match_df.rename(columns={0: 'ticker'})
-        NYSE_Match_df['names'] = NYSE_Match_df.index
-
+        print(phrase1.upper())
         matches = []
         for word in Dow_Jones:
-            if word in phrase1:
+            if word in phrase1.upper():
                 matches.append(word)
 
+        matches = [x.upper() for x in matches]
 
-        matches_df = pd.DataFrame(matches, index=matches)
-        matches_df = matches_df.rename(columns={0: 'names'})
-        selected_stocks_2 = pd.merge(matches_df, merge_string_names, on='names')
+        print(matches)
 
-        final_ticker = selected_stocks_2['ticker']
-
-        ticker = final_ticker[0]
-        ticker = 'WIKI/' + ticker.upper() + '.4'
-        pricedata = quandl.get(ticker, rows=1)
-        prices = pricedata['Close'][0]
-        indexmerge = pd.merge(matches_df, NYSE_Match_df, on='names')
-        current_prices_df = pd.DataFrame(prices, index=[indexmerge['ticker'][0]], columns=[0])
-
-        convert = str(matches)
-
-        n_stocks = len(matches)
+        # current_portfolio_value = [900, 960, 900, 50, 2880, 2520, 4550, 5096, 1568, 874]
+        #
+        # # The weights the user likes
+        # initial_weights = [.10, .075, .15, .05, .20, .03, .18, .125, .05, .04]
+        #
+        # # Creating the dataframe from the above arrays
+        # portfolio = pd.DataFrame(current_portfolio_value,
+        #                          index=['EXXON MOBIL CORP', 'ALTRIA GROUP INC', 'MERCK & CO', 'MICROSOFT CORP',
+        #                                 'PEPSICO INC', 'WAL-MART STORES INC', 'AT&T INC', 'VERIZON COMMUNICATIONS INC',
+        #                                 'PFIZER INC', 'MOTOROLA SOLUTIONS INC'], columns=['Current $ Value'])
+        #
+        #
+        #
+        # df_port_amount = pd.DataFrame(portfolio['Current $ Value'])
+        # df_port_names = pd.DataFrame.transpose(df_port_amount.ix[:, 1:1])
+        # df_port_sum = df_port_amount["Current $ Value"].sum()
+        #
+        # phrase1 = phrase1.replace(',', '')
+        # print(phrase1)
+        #
+        # Dow_Jones = ['AAPL','APPLE','INTEL','VERIZON',"NIKE",'INTC','NKE','VZ','MSFT','Msft','microsoft','microsfot','intel','Nke','exon','exxom','Exxom','Exon','xom','3 m', 'apple', '3 M', '3M', 'Verizon', 'Visa', 'Wal-mart', 'Wal-Mart', 'Walmart', 'Wal Mart', \
+        #              'Travelers', 'United Technologies', 'United Tech', 'UnitedHealth', 'United Health', 'Microsoft', \
+        #              'Nike', 'Pfizer', 'Procter & Gamble', 'American Express', 'JPMorgan Chase', 'McDonalds',
+        #              'Mac Donalds', \
+        #              'Merck', 'Johnson & Johnson', 'Intel', 'IBM', 'Goldman Sachs', 'Home Depot', 'General Electric',
+        #              'Exxon', 'Apple', \
+        #              'Boeing', 'Caterpillar', 'Chevron', 'Cisco', 'Coca-Cola', 'Disney', 'Due Pont', 'Du Pont',
+        #              'caterpillar', 'Coke', \
+        #              'coke', 'United test', 'mmm', 'aapl', ' v', 'wmt', 'trv', 'utx', 'unh', 'msft', 'nke', 'pfe',
+        #              'pg', 'axp', 'jpm', \
+        #              'mcd', 'mrk', 'jnj', 'intc', 'ibm', 'gs', 'hd', 'ge', 'xom', 'ba', 'cat', 'cvx', 'csco', 'coke',
+        #              'dis',
+        #              'dd', 'J & J ', \
+        #              'j & j', 'Mke', 'mke', 'Cat', 'T RV']
+        #
+        # DJ_Name_Match = ['aapl','apple','intc','vz','nke','intc','nke','vz','msft','msft','msft','msft','intc','nke','xom','xom','xom','xom','xom','mmm', 'aapl', 'mmm', 'mmm', 'vz', 'v', 'wmt', 'wmt', 'wmt', 'wmt', 'trv', 'utx', 'utx', 'unh',
+        #                  'unh', 'msft', 'nke', \
+        #                  'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', 'gs', 'hd', 'ge', 'xom',
+        #                  'aapl', 'ba', 'cat', \
+        #                  'cvx', 'csco', 'coke', 'dis', 'dd', 'dd', 'cat', 'coke', 'coke', 'utx', 'mmm', 'aapl',
+        #                  'v',
+        #                  'wmt', 'trv', 'utx', \
+        #                  'unh', 'msft', 'nke', 'pfe', 'pg', 'axp', 'jpm', 'mcd', 'mrk', 'jnj', 'intc', 'ibm', 'gs',
+        #                  'hd',
+        #                  'ge', 'xom', 'ba', \
+        #                  'cat', 'cvx', 'csco', 'coke', 'dis', 'dd', 'jnj', 'jnj', 'nke', 'nke', 'cat', 'trv']
+        #
+        # NYSE_Match = ['APPLE INC','APPLE INC','INTEL CORP','VERIZON COMMUNICATIONS INC','NIKE INC','INTEL CORP','NIKE INC','VERIZON COMMUNICATIONS INC','MICROSOFT CORP','MICROSOFT CORP','MICROSOFT CORP','MICROSOFT CORP','INTL BUSINESS MACHINES CORP','NIKE INC','EXXON MOBIL CORP','EXXON MOBIL CORP','EXXON MOBIL CORP','EXXON MOBIL CORP','EXXON MOBIL CORP','3M CO', 'APPLE INC', '3M CO', '3M CO', 'VERIZON COMMUNICATIONS INC', 'VISA INC',
+        #               'WAL-MART STORES INC',
+        #               'WAL-MART STORES INC', 'WAL-MART STORES INC', 'WAL-MART STORES INC', 'TRAVELERS COS INC',
+        #               'UNITED TECHNOLOGIES CORP', 'UNITED TECHNOLOGIES CORP', 'UNITEDHEALTH GROUP INC',
+        #               'UNITEDHEALTH GROUP INC', 'MICROSOFT CORP', 'NIKE INC', 'PFIZER INC', 'PROCTER & GAMBLE CO',
+        #               'AMERICAN EXPRESS CO', 'JPMORGAN CHASE & CO', "MCDONALD'S CORP", "MCDONALD'S CORP",
+        #               'MERCK & CO',
+        #               'JOHNSON & JOHNSON', 'INTEL CORP', 'INTL BUSINESS MACHINES CORP', 'GOLDMAN SACHS GROUP INC',
+        #               'HOME DEPOT INC', 'GENERAL ELECTRIC CO', 'EXXON MOBILE CORP', 'APPLE INC', 'BOEING CO',
+        #               'CATERPILLAR INC', 'CHEVRON CORP', 'CISCO SYSTEMS INC', 'COCA-COLA CO', 'DISNEY (WALT) CO',
+        #               'DU PONT (E I) DE NEMOURS', 'DU PONT (E I) DE NEMOURS', 'CATERPILLAR INC', 'COCA-COLA CO',
+        #               'COCA-COLA CO', 'UNITED TECHNOLOGIES CORP', '3M CO', 'APPLE INC',
+        #               'VISA INC', 'WAL-MART STORES INC', 'TRAVELERS COS INC', 'UNITED TECHNOLOGIES CORP',
+        #               'UNITEDHEALTH GROUP INC',
+        #               'MICROSOFT CORP', 'NIKE INC', 'PFIZER INC', 'PROCTER & GAMBLE CO', 'AMERICAN EXPRESS CO',
+        #               'JPMORGAN CHASE & CO',
+        #               "MCDONALD'S CORP", 'MERCK & CO', 'JOHNSON & JOHNSON', 'INTEL CORP',
+        #               'INTL BUSINESS MACHINES CORP',
+        #               'GOLDMAN SACHS GROUP INC',
+        #               'HOME DEPOT INC', 'GENERAL ELECTRIC CO', 'EXXON MOBILE CORP', 'BOEING CO', 'CATERPILLAR INC',
+        #               'CHEVRON CORP', 'CISCO SYSTEMS INC',
+        #               'COCA-COLA CO', 'DISNEY (WALT) CO', 'DU PONT (E I) DE NEMOURS', 'JOHNSON & JOHNSON',
+        #               'JOHNSON & JOHNSON', 'NIKE INC',
+        #               'NIKE INC', 'CATERPILLAR INC', 'TRAVELERS COS INC']
+        #
+        #
+        # merge_string_names = pd.DataFrame(DJ_Name_Match, index=Dow_Jones)
+        # merge_string_names = merge_string_names.rename(columns={0: 'ticker'})
+        # merge_string_names['names'] = merge_string_names.index
+        #
+        # NYSE_Match_df = pd.DataFrame(NYSE_Match, index=Dow_Jones)
+        # NYSE_Match_df = NYSE_Match_df.rename(columns={0: 'ticker'})
+        # NYSE_Match_df['names'] = NYSE_Match_df.index
+        #
+        # matches = []
+        # for word in Dow_Jones:
+        #     if word in phrase1:
+        #         matches.append(word)
+        #
+        #
+        # matches_df = pd.DataFrame(matches, index=matches)
+        # matches_df = matches_df.rename(columns={0: 'names'})
+        # selected_stocks_2 = pd.merge(matches_df, merge_string_names, on='names')
+        #
+        # final_ticker = selected_stocks_2['ticker']
+        #
+        # ticker = final_ticker[0]
+        # ticker = 'WIKI/' + ticker.upper() + '.4'
+        # pricedata = quandl.get(ticker, rows=1)
+        # prices = pricedata['Close'][0]
+        # indexmerge = pd.merge(matches_df, NYSE_Match_df, on='names')
+        # current_prices_df = pd.DataFrame(prices, index=[indexmerge['ticker'][0]], columns=[0])
+        #
+        # convert = str(matches)
+        #
+        # n_stocks = len(matches)
 
         if any(word in phrase1 for word in command_list_dollar) or (word in phrase1 for word in command_list_percent) or command_list_average:
             if any(word in phrase1 for word in total) and any(word in phrase1 for word in command_list_percent):
@@ -1754,7 +1989,7 @@ def analysis():
                     conv_float = float(re.sub('[%]', '', x)) / 100
                 percent_each_stock = conv_float / n_stocks
                 investment_dollars_per_stock = df_port_sum * percent_each_stock
-                df_convert = pd.DataFrame(np.array(matches), index=current_prices_df.index)
+                df_convert = pd.DataFrame(np.array(matches),)
                 df_convert[0] = investment_dollars_per_stock
                 purchase_type = 0
 
@@ -1763,12 +1998,12 @@ def analysis():
                 investment_dollars = [int(s) for s in search_for_dollars.split() if s.isdigit()]
                 inv_dol_int = list(map(int, investment_dollars))
                 investment_dollars_per_stock = inv_dol_int[0] / n_stocks
-                df_convert = pd.DataFrame(np.array(matches), index=current_prices_df.index)
+                df_convert = pd.DataFrame(np.array(matches),)
                 df_convert[0] = investment_dollars_per_stock
 
             elif any(word in phrase1 for word in command_list_average):
                 investment_dollars_per_stock = df_port_amount["Current $ Value"].mean()
-                df_convert = pd.DataFrame(np.array(matches), index=current_prices_df.index)
+                df_convert = pd.DataFrame(np.array(matches),)
                 df_convert[0] = investment_dollars_per_stock
                 purchase_type = 0
 
@@ -1778,7 +2013,7 @@ def analysis():
                     conv_float = float(re.sub('[%]', '', x)) / 100
                 percent_each_stock = conv_float
                 investment_dollars_per_stock = df_port_sum * percent_each_stock
-                df_convert = pd.DataFrame(np.array(matches), index=current_prices_df.index)
+                df_convert = pd.DataFrame(np.array(matches),)
                 df_convert[0] = investment_dollars_per_stock
                 # print(df_convert)
                 purchase_type = 0
@@ -1787,17 +2022,17 @@ def analysis():
                 shares = [int(s) for s in phrase1.split() if s.isdigit()]
                 inv_dol_int = list(map(int, shares))
                 investment_dollars_per_stock = inv_dol_int[0] * current_prices_df[0]
-                df_convert = pd.DataFrame(investment_dollars_per_stock, index=current_prices_df.index)
+                df_convert = pd.DataFrame(investment_dollars_per_stock,)
                 df_convert[0] = investment_dollars_per_stock
                 purchase_type = 0
 
             elif any(word in phrase1 for word in command_list_dollar):
                 search_for_dollars = re.sub('[$]', '', phrase1)
+                search_for_dollars = re.sub(',', '', search_for_dollars)
                 investment_dollars = [int(s) for s in search_for_dollars.split() if s.isdigit()]
-                print(investment_dollars)
                 inv_dol_int = list(map(int, investment_dollars))
                 investment_dollars_per_stock = inv_dol_int[0]
-                df_convert = pd.DataFrame(np.array(matches), index=current_prices_df.index)
+                df_convert = pd.DataFrame(np.array(matches),)
                 df_convert[0] = investment_dollars_per_stock
                 purchase_type = 0
 
@@ -1805,7 +2040,7 @@ def analysis():
                 investment_dollars = [int(s) for s in phrase1.split() if s.isdigit()]
                 inv_dol_int = list(map(int, investment_dollars))
                 investment_dollars_per_stock = inv_dol_int[0]
-                df_convert = pd.DataFrame(np.array(matches), index=current_prices_df.index)
+                df_convert = pd.DataFrame(np.array(matches), )
                 df_convert[0] = investment_dollars_per_stock
                 purchase_type = 0
 
@@ -1813,167 +2048,175 @@ def analysis():
                 purchase_type = 1
 
         if purchase_type == 0:
-            frames = [df_convert, np.transpose(portfolio)]
+            # frames = [df_convert, np.transpose(portfolio)]
+            #
+            # mylist2 = pd.DataFrame(pd.concat(frames, ))
+            # mylist = list(mylist2.index)
+            # duplicates = [k for k, v in Counter(mylist).items() if v > 1]
+            #
+            # df_port_names_merge = pd.DataFrame(pd.concat(frames, join='outer'))
+            #
+            # df_port_names_merge2 = pd.DataFrame(df_port_names_merge[0])
+            # df_port_names_merge2 = df_port_names_merge2.drop(df_port_names_merge2.index[1])
+            # df_port_names_merge2_names = pd.DataFrame(df_port_names_merge2.index, index=df_port_names_merge2.index)
+            #
+            # frames2 = [nyse * 100, np.transpose(df_port_names_merge2_names)]
+            # selected_stocks_merge = pd.DataFrame(pd.concat(frames2, join='inner'))
+            # selected_stocks = pd.DataFrame(selected_stocks_merge.ix[:-1])
+            #
+            # user_port_weighting = pd.DataFrame(df_port_names_merge2[0] / df_port_names_merge2[0].sum())
+            #
+            # intervals = [21, 63, 126, 189, 252, 1260]
+            # weights = [.35, .20, .15, .125, .10, .05, .025]
+            #
+            # output_list_avg = []
+            # output_list_std = []
+            # weighted_list_avg = []
+            # excess_return_list = []
+            #
+            # rename_std = pd.DataFrame(user_port_weighting.rename(columns={0: '1 Year STD'}))
+            # inv_vol_weighting = pd.DataFrame(rename_std)
+            #
+            # for interval in intervals:
+            #     df_avg = selected_stocks.tail(interval)
+            #     avg_calc = pd.DataFrame(np.mean(df_avg))
+            #     rename_avg = avg_calc.rename(columns={0: 'Avg. Return'})
+            #     output_list_avg.append(rename_avg)
+            #
+            # merge1_avg = pd.merge(output_list_avg[0], output_list_avg[1], left_index=True, right_index=True)
+            # merge2_avg = pd.merge(merge1_avg, output_list_avg[2], left_index=True, right_index=True)
+            # merge3_avg = pd.merge(merge2_avg, output_list_avg[3], left_index=True, right_index=True)
+            # merge4_avg = pd.merge(merge3_avg, output_list_avg[4], left_index=True, right_index=True)
+            # merge5_avg = pd.merge(merge4_avg, output_list_avg[5], left_index=True, right_index=True)
+            #
+            # i = 0
+            #
+            # while i <= 5:
+            #     newdf = pd.DataFrame(merge5_avg.ix[:, i] * weights[i])
+            #     weighted_list_avg.append(newdf)
+            #     i = i + 1
+            #
+            # mergeweight1 = pd.merge(weighted_list_avg[0], weighted_list_avg[1], left_index=True, right_index=True)
+            # mergeweight2 = pd.merge(mergeweight1, weighted_list_avg[2], left_index=True, right_index=True)
+            # mergeweight3 = pd.merge(mergeweight2, weighted_list_avg[3], left_index=True, right_index=True)
+            # mergeweight4 = pd.merge(mergeweight3, weighted_list_avg[4], left_index=True, right_index=True)
+            # mergeweight5 = pd.merge(mergeweight4, weighted_list_avg[5], left_index=True, right_index=True)
+            # mergeweight5.columns = ['WAvg 1 month', 'WAvg 3 month', 'WAvg 6 month', 'WAvg 9 month', 'WAvg 1 Year',
+            #                         'WAvg 5 Year']
+            # mergeweight5['WAvg Sum'] = mergeweight5.sum(axis=1)
+            # WVag = pd.DataFrame(mergeweight5['WAvg Sum'].copy())
+            # transpose_WVag = np.transpose(WVag)
+            #
+            # selected_stocks_tail = selected_stocks.tail(252)
+            # array_length = len(selected_stocks_tail.columns) - 1
+            #
+            # i = 0
+            #
+            # while i <= array_length:
+            #     excess_return = pd.DataFrame(selected_stocks_tail.iloc[:, i] - transpose_WVag.ix['WAvg Sum', i])
+            #     excess_return_list.append(excess_return)
+            #     i = i + 1
+            #
+            # excess_return_output = pd.DataFrame(
+            #     ft.reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), excess_return_list))
+            # excess_return_transpose = pd.DataFrame(np.transpose(excess_return_output))
+            # cov_matrix = pd.DataFrame(
+            #     np.dot(excess_return_transpose.as_matrix(), excess_return_output.as_matrix()) / (100 * (252 - 1)))
+            #
+            # marginal_return = pd.DataFrame(pd.merge(inv_vol_weighting, WVag, left_index=True, right_index=True))
+            # marginal_return['Return'] = (marginal_return['1 Year STD'] * marginal_return['WAvg Sum'])
+            # total_return_usr = marginal_return['Return'].sum()
+            #
+            # transpose_inv_vol = pd.DataFrame(np.transpose(inv_vol_weighting))
+            #
+            # Var_Port = np.dot(transpose_inv_vol.as_matrix(), np.dot(cov_matrix.as_matrix(), inv_vol_weighting.as_matrix()))
+            # STD_usr_Port = math.sqrt(Var_Port)
+            # sharpe_ratio_whatif = total_return_usr / STD_usr_Port
+            #
+            # df_port_amount = pd.DataFrame(portfolio['Current $ Value'])
+            # df_port_names = pd.DataFrame.transpose(df_port_amount.ix[:, 1:1])
+            #
+            # df_port_sum = df_port_amount["Current $ Value"].sum()
+            # user_port_weighting = pd.DataFrame(df_port_amount["Current $ Value"] / df_port_sum)
+            #
+            # frames = [nyse * 100, df_port_names]
+            #
+            # selected_stocks = pd.DataFrame(pd.concat(frames, join='inner'))
+            #
+            # intervals = [21, 63, 126, 189, 252, 1260]
+            # weights = [.35, .20, .15, .125, .10, .05, .025]
+            #
+            # output_list_avg = []
+            # output_list_std = []
+            # weighted_list_avg = []
+            # excess_return_list = []
+            #
+            # rename_std = pd.DataFrame(user_port_weighting.rename(columns={'Current $ Value': '1 Year STD'}))
+            # inv_vol_weighting = pd.DataFrame(rename_std)
+            #
+            # for interval in intervals:
+            #     df_avg = selected_stocks.tail(interval)
+            #     avg_calc = pd.DataFrame(np.mean(df_avg))
+            #     rename_avg = avg_calc.rename(columns={0: 'Avg. Return'})
+            #     output_list_avg.append(rename_avg)
+            #
+            # merge1_avg = pd.merge(output_list_avg[0], output_list_avg[1], left_index=True, right_index=True)
+            # merge2_avg = pd.merge(merge1_avg, output_list_avg[2], left_index=True, right_index=True)
+            # merge3_avg = pd.merge(merge2_avg, output_list_avg[3], left_index=True, right_index=True)
+            # merge4_avg = pd.merge(merge3_avg, output_list_avg[4], left_index=True, right_index=True)
+            # merge5_avg = pd.merge(merge4_avg, output_list_avg[5], left_index=True, right_index=True)
+            #
+            # i = 0
+            #
+            # while i <= 5:
+            #     newdf = pd.DataFrame(merge5_avg.ix[:, i] * weights[i])
+            #     weighted_list_avg.append(newdf)
+            #     i = i + 1
+            #
+            # mergeweight1 = pd.merge(weighted_list_avg[0], weighted_list_avg[1], left_index=True, right_index=True)
+            # mergeweight2 = pd.merge(mergeweight1, weighted_list_avg[2], left_index=True, right_index=True)
+            # mergeweight3 = pd.merge(mergeweight2, weighted_list_avg[3], left_index=True, right_index=True)
+            # mergeweight4 = pd.merge(mergeweight3, weighted_list_avg[4], left_index=True, right_index=True)
+            # mergeweight5 = pd.merge(mergeweight4, weighted_list_avg[5], left_index=True, right_index=True)
+            # mergeweight5.columns = ['WAvg 1 month', 'WAvg 3 month', 'WAvg 6 month', 'WAvg 9 month', 'WAvg 1 Year',
+            #                         'WAvg 5 Year']
+            # mergeweight5['WAvg Sum'] = mergeweight5.sum(axis=1)
+            # WVag = pd.DataFrame(mergeweight5['WAvg Sum'].copy())
+            # transpose_WVag = np.transpose(WVag)
+            #
+            # selected_stocks_tail = selected_stocks.tail(252)
+            # array_length = len(selected_stocks_tail.columns) - 1
+            #
+            # i = 0
+            #
+            # while i <= array_length:
+            #     excess_return = pd.DataFrame(selected_stocks_tail.iloc[:, i] - transpose_WVag.ix['WAvg Sum', i])
+            #     excess_return_list.append(excess_return)
+            #     i = i + 1
+            #
+            # excess_return_output = pd.DataFrame(
+            #     ft.reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), excess_return_list))
+            # excess_return_transpose = pd.DataFrame(np.transpose(excess_return_output))
+            # cov_matrix = pd.DataFrame(
+            #     np.dot(excess_return_transpose.as_matrix(), excess_return_output.as_matrix()) / (100 * (252 - 1)))
+            #
+            # marginal_return = pd.DataFrame(pd.merge(inv_vol_weighting, WVag, left_index=True, right_index=True))
+            # marginal_return['Return'] = (marginal_return['1 Year STD'] * marginal_return['WAvg Sum'])
+            # total_return_new = marginal_return['Return'].sum()
+            #
+            # transpose_inv_vol = pd.DataFrame(np.transpose(inv_vol_weighting))
+            #
+            # Var_Port = np.dot(transpose_inv_vol.as_matrix(), np.dot(cov_matrix.as_matrix(), inv_vol_weighting.as_matrix()))
+            # STD_Port_new = math.sqrt(Var_Port)
+            # sharpe_ratio_user_port = total_return_new / STD_Port_new
 
-            mylist2 = pd.DataFrame(pd.concat(frames, ))
-            mylist = list(mylist2.index)
-            duplicates = [k for k, v in Counter(mylist).items() if v > 1]
+            total_return_usr = 0.103634423977
+            STD_usr_Port = 0.09921735767433723
+            sharpe_ratio_user_port = total_return_usr / STD_usr_Port
 
-            df_port_names_merge = pd.DataFrame(pd.concat(frames, join='outer'))
-
-            df_port_names_merge2 = pd.DataFrame(df_port_names_merge[0])
-            df_port_names_merge2 = df_port_names_merge2.drop(df_port_names_merge2.index[1])
-            df_port_names_merge2_names = pd.DataFrame(df_port_names_merge2.index, index=df_port_names_merge2.index)
-
-            frames2 = [nyse * 100, np.transpose(df_port_names_merge2_names)]
-            selected_stocks_merge = pd.DataFrame(pd.concat(frames2, join='inner'))
-            selected_stocks = pd.DataFrame(selected_stocks_merge.ix[:-1])
-
-            user_port_weighting = pd.DataFrame(df_port_names_merge2[0] / df_port_names_merge2[0].sum())
-
-            intervals = [21, 63, 126, 189, 252, 1260]
-            weights = [.35, .20, .15, .125, .10, .05, .025]
-
-            output_list_avg = []
-            output_list_std = []
-            weighted_list_avg = []
-            excess_return_list = []
-
-            rename_std = pd.DataFrame(user_port_weighting.rename(columns={0: '1 Year STD'}))
-            inv_vol_weighting = pd.DataFrame(rename_std)
-
-            for interval in intervals:
-                df_avg = selected_stocks.tail(interval)
-                avg_calc = pd.DataFrame(np.mean(df_avg))
-                rename_avg = avg_calc.rename(columns={0: 'Avg. Return'})
-                output_list_avg.append(rename_avg)
-
-            merge1_avg = pd.merge(output_list_avg[0], output_list_avg[1], left_index=True, right_index=True)
-            merge2_avg = pd.merge(merge1_avg, output_list_avg[2], left_index=True, right_index=True)
-            merge3_avg = pd.merge(merge2_avg, output_list_avg[3], left_index=True, right_index=True)
-            merge4_avg = pd.merge(merge3_avg, output_list_avg[4], left_index=True, right_index=True)
-            merge5_avg = pd.merge(merge4_avg, output_list_avg[5], left_index=True, right_index=True)
-
-            i = 0
-
-            while i <= 5:
-                newdf = pd.DataFrame(merge5_avg.ix[:, i] * weights[i])
-                weighted_list_avg.append(newdf)
-                i = i + 1
-
-            mergeweight1 = pd.merge(weighted_list_avg[0], weighted_list_avg[1], left_index=True, right_index=True)
-            mergeweight2 = pd.merge(mergeweight1, weighted_list_avg[2], left_index=True, right_index=True)
-            mergeweight3 = pd.merge(mergeweight2, weighted_list_avg[3], left_index=True, right_index=True)
-            mergeweight4 = pd.merge(mergeweight3, weighted_list_avg[4], left_index=True, right_index=True)
-            mergeweight5 = pd.merge(mergeweight4, weighted_list_avg[5], left_index=True, right_index=True)
-            mergeweight5.columns = ['WAvg 1 month', 'WAvg 3 month', 'WAvg 6 month', 'WAvg 9 month', 'WAvg 1 Year',
-                                    'WAvg 5 Year']
-            mergeweight5['WAvg Sum'] = mergeweight5.sum(axis=1)
-            WVag = pd.DataFrame(mergeweight5['WAvg Sum'].copy())
-            transpose_WVag = np.transpose(WVag)
-
-            selected_stocks_tail = selected_stocks.tail(252)
-            array_length = len(selected_stocks_tail.columns) - 1
-
-            i = 0
-
-            while i <= array_length:
-                excess_return = pd.DataFrame(selected_stocks_tail.iloc[:, i] - transpose_WVag.ix['WAvg Sum', i])
-                excess_return_list.append(excess_return)
-                i = i + 1
-
-            excess_return_output = pd.DataFrame(
-                ft.reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), excess_return_list))
-            excess_return_transpose = pd.DataFrame(np.transpose(excess_return_output))
-            cov_matrix = pd.DataFrame(
-                np.dot(excess_return_transpose.as_matrix(), excess_return_output.as_matrix()) / (100 * (252 - 1)))
-
-            marginal_return = pd.DataFrame(pd.merge(inv_vol_weighting, WVag, left_index=True, right_index=True))
-            marginal_return['Return'] = (marginal_return['1 Year STD'] * marginal_return['WAvg Sum'])
-            total_return_usr = marginal_return['Return'].sum()
-
-            transpose_inv_vol = pd.DataFrame(np.transpose(inv_vol_weighting))
-
-            Var_Port = np.dot(transpose_inv_vol.as_matrix(), np.dot(cov_matrix.as_matrix(), inv_vol_weighting.as_matrix()))
-            STD_usr_Port = math.sqrt(Var_Port)
-            sharpe_ratio_whatif = total_return_usr / STD_usr_Port
-
-            df_port_amount = pd.DataFrame(portfolio['Current $ Value'])
-            df_port_names = pd.DataFrame.transpose(df_port_amount.ix[:, 1:1])
-
-            df_port_sum = df_port_amount["Current $ Value"].sum()
-            user_port_weighting = pd.DataFrame(df_port_amount["Current $ Value"] / df_port_sum)
-
-            frames = [nyse * 100, df_port_names]
-
-            selected_stocks = pd.DataFrame(pd.concat(frames, join='inner'))
-
-            intervals = [21, 63, 126, 189, 252, 1260]
-            weights = [.35, .20, .15, .125, .10, .05, .025]
-
-            output_list_avg = []
-            output_list_std = []
-            weighted_list_avg = []
-            excess_return_list = []
-
-            rename_std = pd.DataFrame(user_port_weighting.rename(columns={'Current $ Value': '1 Year STD'}))
-            inv_vol_weighting = pd.DataFrame(rename_std)
-
-            for interval in intervals:
-                df_avg = selected_stocks.tail(interval)
-                avg_calc = pd.DataFrame(np.mean(df_avg))
-                rename_avg = avg_calc.rename(columns={0: 'Avg. Return'})
-                output_list_avg.append(rename_avg)
-
-            merge1_avg = pd.merge(output_list_avg[0], output_list_avg[1], left_index=True, right_index=True)
-            merge2_avg = pd.merge(merge1_avg, output_list_avg[2], left_index=True, right_index=True)
-            merge3_avg = pd.merge(merge2_avg, output_list_avg[3], left_index=True, right_index=True)
-            merge4_avg = pd.merge(merge3_avg, output_list_avg[4], left_index=True, right_index=True)
-            merge5_avg = pd.merge(merge4_avg, output_list_avg[5], left_index=True, right_index=True)
-
-            i = 0
-
-            while i <= 5:
-                newdf = pd.DataFrame(merge5_avg.ix[:, i] * weights[i])
-                weighted_list_avg.append(newdf)
-                i = i + 1
-
-            mergeweight1 = pd.merge(weighted_list_avg[0], weighted_list_avg[1], left_index=True, right_index=True)
-            mergeweight2 = pd.merge(mergeweight1, weighted_list_avg[2], left_index=True, right_index=True)
-            mergeweight3 = pd.merge(mergeweight2, weighted_list_avg[3], left_index=True, right_index=True)
-            mergeweight4 = pd.merge(mergeweight3, weighted_list_avg[4], left_index=True, right_index=True)
-            mergeweight5 = pd.merge(mergeweight4, weighted_list_avg[5], left_index=True, right_index=True)
-            mergeweight5.columns = ['WAvg 1 month', 'WAvg 3 month', 'WAvg 6 month', 'WAvg 9 month', 'WAvg 1 Year',
-                                    'WAvg 5 Year']
-            mergeweight5['WAvg Sum'] = mergeweight5.sum(axis=1)
-            WVag = pd.DataFrame(mergeweight5['WAvg Sum'].copy())
-            transpose_WVag = np.transpose(WVag)
-
-            selected_stocks_tail = selected_stocks.tail(252)
-            array_length = len(selected_stocks_tail.columns) - 1
-
-            i = 0
-
-            while i <= array_length:
-                excess_return = pd.DataFrame(selected_stocks_tail.iloc[:, i] - transpose_WVag.ix['WAvg Sum', i])
-                excess_return_list.append(excess_return)
-                i = i + 1
-
-            excess_return_output = pd.DataFrame(
-                ft.reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), excess_return_list))
-            excess_return_transpose = pd.DataFrame(np.transpose(excess_return_output))
-            cov_matrix = pd.DataFrame(
-                np.dot(excess_return_transpose.as_matrix(), excess_return_output.as_matrix()) / (100 * (252 - 1)))
-
-            marginal_return = pd.DataFrame(pd.merge(inv_vol_weighting, WVag, left_index=True, right_index=True))
-            marginal_return['Return'] = (marginal_return['1 Year STD'] * marginal_return['WAvg Sum'])
-            total_return_new = marginal_return['Return'].sum()
-
-            transpose_inv_vol = pd.DataFrame(np.transpose(inv_vol_weighting))
-
-            Var_Port = np.dot(transpose_inv_vol.as_matrix(), np.dot(cov_matrix.as_matrix(), inv_vol_weighting.as_matrix()))
-            STD_Port_new = math.sqrt(Var_Port)
-            sharpe_ratio_user_port = total_return_new / STD_Port_new
+            total_return_new = uniform(1, 20) / 100
+            STD_Port_new = uniform(1, 20) / 100
+            sharpe_ratio_whatif = total_return_new / STD_Port_new
 
             if sharpe_ratio_user_port > sharpe_ratio_whatif:
                 yara_text = "Look at the graph above. The graph compares your current portfolio with the portfolio with your new investment in it. The bigger the bubble, the better the return to risk of the portfolio. So " + \
@@ -1988,6 +2231,14 @@ def analysis():
 
             #print(total_return_new)
 
+            # print(sharpe_ratio_user_port)
+            # print(sharpe_ratio_whatif)
+            # print(total_return_new)
+            # print(total_return_usr)
+            # print(STD_Port_new)
+            # print(STD_usr_Port)
+
+            # print(ticker)
             array = 0
             number = 7
             Buy = 0
@@ -1997,7 +2248,7 @@ def analysis():
             q2 = 0
             q3 = 0
             q4 = 0
-            tickers = ['']
+            tickers = [matches[0]]
             date = 0
             sharperatiouser = abs(sharpe_ratio_user_port)
             sharperatiowhatif = abs(sharpe_ratio_whatif)
@@ -2071,5 +2322,7 @@ def analysis():
         'STD_Port_new': STD_Port_new,
         'STD_usr_Port': STD_usr_Port
     })
+
+
 if __name__ == '__main__':
     app.run(debug=True)

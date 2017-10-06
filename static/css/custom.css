@@ -9,13 +9,15 @@
     overflow: hidden;
 }
 
-.table
-{
-    top: 370px;
-    /*position: absolute;*/
-    /*margin-top:300px;*/
+/*.table*/
+/*{*/
+    /*top: 500px !important;*/
+    /*!*position: absolute;*!*/
+    /*!*margin-top:300px;*!*/
 
-}
+/*}*/
+.table-responsive {overflow-x: scroll;}
+
 
 .text-center-portfolio
 {
