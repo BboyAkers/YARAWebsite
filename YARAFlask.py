@@ -733,7 +733,7 @@ def management():
     print(phrase1)
     diversify = ['Trailer Supply','first of all','Forza 5','diversificaton','Diversificaton','divrsification','Divrsification','dvirsify','dvirsify','diversificaiton','Diversificaiton','diversification','Diversification','diversigy','Diversigy','diversirty','Diversirty','diversiy','Diversiy','diversity','Diversity','Diversify','diversify','Diversification','diversification','Diversfiyy','diversify','iversify','dversify','Dversify',]
 
-    rebalance = ['revalance','Ramones','balance','Henry Bounce','carry balance','cherry-bounce','rabalnce','Rabalnce','rebaalnce','Rebaalnce','reabalcne','reabalcne','reblance','Reblance','rbalance','Rbalance','rebaalnce','Rebaalnce','reabalance','Reabalance','realance','Realance','rebalance','Rebalance']
+    rebalance = ['reabalnce','revalance','Ramones','balance','Henry Bounce','carry balance','cherry-bounce','rabalnce','Rabalnce','rebaalnce','Rebaalnce','reabalcne','reabalcne','reblance','Reblance','rbalance','Rbalance','rebaalnce','Rebaalnce','reabalance','Reabalance','realance','Realance','rebalance','Rebalance']
 
     optimize = ["tomorrow's",'customize','each','much','better','make','beter','optmize','optiimize','Optiimize','optimize', 'Optimize','optimzie','Optimzie','optimze','Optimze','optimzie','Optimzie']
 
