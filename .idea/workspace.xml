@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4a8e9ba-bebd-4705-a552-932de28fcb36" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/beta.html" afterPath="$PROJECT_DIR$/templates/beta.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +22,8 @@
       <file leaf-file-name="beta.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/beta.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="958">
-              <caret line="110" column="0" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+            <state relative-caret-position="133">
+              <caret line="500" column="92" lean-forward="false" selection-start-line="500" selection-start-column="92" selection-end-line="500" selection-end-column="92" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -31,7 +32,7 @@
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#thead#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
                 <element signature="n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
-                <marker date="1507444757000" expanded="false" signature="30538:30552" ph="..." />
+                <marker date="1507512059000" expanded="false" signature="30542:30556" ph="..." />
               </folding>
             </state>
           </provider>
@@ -40,8 +41,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="100" column="56" lean-forward="false" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
+            <state relative-caret-position="179">
+              <caret line="173" column="72" lean-forward="true" selection-start-line="173" selection-start-column="72" selection-end-line="173" selection-end-column="72" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -97,7 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>head</find>
       <find>- Our Team</find>
       <find>/analy</find>
       <find>table</find>
@@ -127,6 +127,7 @@
       <find>rebala</find>
       <find>Trade</find>
       <find>Sign Up</find>
+      <find>Team</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -420,7 +421,7 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#thead#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
             <element signature="n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
-            <marker date="1507444757000" expanded="false" signature="30538:30552" ph="..." />
+            <marker date="1507512059000" expanded="false" signature="30542:30556" ph="..." />
           </folding>
         </state>
       </provider>
@@ -506,7 +507,7 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#thead#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
             <element signature="n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
-            <marker date="1507444757000" expanded="false" signature="30538:30552" ph="..." />
+            <marker date="1507512059000" expanded="false" signature="30542:30556" ph="..." />
           </folding>
         </state>
       </provider>
@@ -600,7 +601,7 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#thead#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
             <element signature="n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
-            <marker date="1507444757000" expanded="false" signature="30538:30552" ph="..." />
+            <marker date="1507512059000" expanded="false" signature="30542:30556" ph="..." />
           </folding>
         </state>
       </provider>
@@ -736,8 +737,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/beta.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="958">
-          <caret line="110" column="0" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+        <state relative-caret-position="133">
+          <caret line="500" column="92" lean-forward="false" selection-start-line="500" selection-start-column="92" selection-end-line="500" selection-end-column="92" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -746,15 +747,15 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#thead#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
             <element signature="n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#2;n#!!top" expanded="false" />
-            <marker date="1507444757000" expanded="false" signature="30538:30552" ph="..." />
+            <marker date="1507512059000" expanded="false" signature="30542:30556" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="100" column="56" lean-forward="false" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
+        <state relative-caret-position="179">
+          <caret line="173" column="72" lean-forward="true" selection-start-line="173" selection-start-column="72" selection-end-line="173" selection-end-column="72" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
